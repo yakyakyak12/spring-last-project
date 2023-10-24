@@ -5,10 +5,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Lob;
 import javax.persistence.Table;
-
-import com.example.springlastproject.book.Book;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -25,16 +23,13 @@ public class BookData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String bookData; // 내용
-
-    @OneToOne(fetch = FetchType.LAZY)
-    private Book book;
+    @Lob
+    private String data; // 내용
 
     @Builder
-    public BookData(Integer id, String bookData, Book book) {
+    public BookData(Integer id, String data) {
         this.id = id;
-        this.bookData = bookData;
-        this.book = book;
+        this.data = data;
     }
 
 }

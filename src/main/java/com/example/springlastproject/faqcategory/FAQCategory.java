@@ -6,10 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.example.springlastproject.book.Book;
 import com.example.springlastproject.faq.FAQ;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -26,17 +28,17 @@ public class FAQCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String title; // 제목
+    private String subTitle; // 제목
 
     private String content; // 내용
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private FAQ faq;
+    private FAQ faq; // 고객센터 (제목)
 
     @Builder
-    public FAQCategory(Integer id, String title, String content, FAQ faq) {
+    public FAQCategory(Integer id, String subTitle, String content, FAQ faq) {
         this.id = id;
-        this.title = title;
+        this.subTitle = subTitle;
         this.content = content;
         this.faq = faq;
     }

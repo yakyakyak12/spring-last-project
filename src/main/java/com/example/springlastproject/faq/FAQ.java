@@ -25,13 +25,12 @@ public class FAQ {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private FAQCategory faqCategory;
+    private String title;
 
     @Builder
-    public FAQ(Integer id, FAQCategory faqCategory) {
+    public FAQ(Integer id, String title) {
         this.id = id;
-        this.faqCategory = faqCategory;
+        this.title = title;
     }
 
 }

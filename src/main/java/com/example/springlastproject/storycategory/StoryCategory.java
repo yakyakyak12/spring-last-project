@@ -25,22 +25,12 @@ public class StoryCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String romance; // 로맨스/BL
-
-    private String fantasy; // 판타지/무협
-
-    private String general; // 일반소설
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Book book;
+    private String storyCategoryName;
 
     @Builder
-    public StoryCategory(Integer id, String romance, String fantasy, String general, Book book) {
+    public StoryCategory(Integer id, String storyCategoryName) {
         this.id = id;
-        this.romance = romance;
-        this.fantasy = fantasy;
-        this.general = general;
-        this.book = book;
+        this.storyCategoryName = storyCategoryName;
     }
 
 }

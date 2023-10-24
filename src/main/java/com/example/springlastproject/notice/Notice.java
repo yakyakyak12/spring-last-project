@@ -1,5 +1,7 @@
 package com.example.springlastproject.notice;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,11 +31,14 @@ public class Notice {
 
     private String content; // 내용
 
+    private Date registrationDate; // 작성일
+
     @Builder
-    public Notice(Integer id, String title, String content) {
+    public Notice(Integer id, String title, String content, Date registrationDate) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.registrationDate = registrationDate;
     }
 
 }

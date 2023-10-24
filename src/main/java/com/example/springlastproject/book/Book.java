@@ -78,9 +78,8 @@ public class Book {
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
     private List<BookLike> bookLikeList = new ArrayList<>(); // 북 좋아요
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "book", fetch = FetchType.LAZY)
-    private BookData bookDatas; // 북 내용
+    @ManyToOne
+    private BookData bookData; // 북 내용
 
     @JsonIgnore
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
@@ -89,7 +88,7 @@ public class Book {
     public Book(Integer id, String picUrl, String title, String writer, String totalPage, Date publicationDate,
             Timestamp createdAt, String subTitle, String introduction, String sequence, String writerIntroductoin,
             String review, Integer ranking, BookCategory bookCategory, List<BookLike> bookLikeList,
-            BookData bookDatas, List<BookReply> bookReplyList) {
+            BookData bookData, List<BookReply> bookReplyList) {
         this.id = id;
         this.picUrl = picUrl;
         this.title = title;
@@ -105,7 +104,7 @@ public class Book {
         this.ranking = ranking;
         this.bookCategory = bookCategory;
         this.bookLikeList = bookLikeList;
-        this.bookDatas = bookDatas;
+        this.bookData = bookData;
         this.bookReplyList = bookReplyList;
     }
 
