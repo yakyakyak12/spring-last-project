@@ -14,14 +14,14 @@ public class BookResponse {
         private String picUrl;
         private String title;
         private String writer;
-        private String content;
+        // private String content;
 
         public BookDetailDTO(Book book) {
             this.id = book.getId();
             this.picUrl = book.getPicUrl();
             this.title = book.getTitle();
             this.writer = book.getWriter();
-            this.content = book.getContent();
+            // this.content = book.getContent();
         }
     }
 

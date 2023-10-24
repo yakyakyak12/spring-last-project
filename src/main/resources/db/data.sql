@@ -1,25 +1,85 @@
-INSERT INTO user_tb (`id`,`username`,`password`,`email`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com');
+/*
+유저 테이블
+*/
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com', now());
 
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('1', 'book1.png', '트렌드코리아 2024', '김난도','오롯이 인간만의 역량을 최대한 끌어올리는 것. 이를 위해 우리는 무엇을 알아야 하고, 무엇을 준비해야 할까? 2배속 사회에서 균형점을 찾기 위한 여백은 무엇인가? 올해의 〈트렌드 코리아〉는 유독 천천히 읽기를 권한다.');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('2', 'book2.png', '퓨처셀프', '벤저민 하디','‘미래의 나’를 적용하는 과학 분야 세계 최고의 전문가,
-자기계발 분야 파워블로거이자 베스트셀러 작가의 신작
-세계적인 동기부여 전문가, 토니 로빈스 강력 추천!
+/*
+북 테이블
+*/
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`,`total_page`, `publication_date`, `created_at`, `sub_title`, `introduction`, `sequence`,`writer_introductoin`, `review`, `ranking`) 
+VALUES ('1', 'book1.png', '트렌드코리아 2024', '김난도', '410', '2023-10-01', now(), '2024 대한민국 소비트렌드 전망', 'DRAGON EYES
+청룡을 타고 비상하는 2024를 기원하며!
 
-현재와 미래를 더 가치 있게 바꾸고 싶다면,
-‘미래의 나’와 ');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('3', 'book3.png', '시대예보:핵개인의 시대', '송길영','마인드 마이너 송길영이 예보하는 미래 시대,
-앞으로 세상은 어떻게 변화할 것인가?
+모든 일은 서서히 준비되고 있다가 갑작스럽게 나타난다. 챗GPT가 그랬다. 
+인공지능 기술과 이야기가 수도 없이 나왔지만, 챗GPT만큼 우리에게 충격을 주는 것은 없었다. 무엇이 달랐던 것일까? ‘자연어’ 소통이 가능하다는 점일 것이다. 
+“가장 인기 있는 새로운 프로그래밍 언어는 영어”라는 말이 나오는 이유다. 여기서 말하는 ‘영어’는 한국어도 될 수 있고, 일본어도 될 수 있다. 
+그러니까 그냥 평상시의 말과 글로 이루어지는 인공지능 시대에 돌입한 것이다. 모든 학자들이, 모든 책들이 ‘AI’와 ‘인공지능’, ‘챗GPT’를 얘기하는 이 시점에서 
+『트렌드 코리아 2024』는 인간의 역할 혹은 역량에 주목했다. 중요한 점은 이것이다. 즉, AI는 자신이 내놓은 결과물을 평가할 수 없다. 
+그것에 점수를 매기고 그 결과물을 채택할지 말지를 결정하는 것은 궁극적으로 인간의 몫이다. 미드저니가 아무리 환상적인 그림을 그릴지라도, 그 마지막 터치는 인간에게 남겨져 있다. 
+바로 ‘화룡점정’이다. 오롯이 인간만의 역량을 최대한 끌어올리는 것. 이를 위해 우리는 무엇을 알아야 하고, 무엇을 준비해야 할까? 2배속 사회에서 균형점을 찾기 위한 여백은 무엇인가? 
+올해의 〈트렌드 코리아〉는 유독 천천히 읽기를 권한다.',
+'서문 5
+2024년 10대 소비트렌드 키워드 22
 
-한 철의 기상을 알려주는 일기예보가 아닌,
-삶을 대비하기 위한 더 큰 호흡의 ‘시');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('4', 'book4.png', '설자은, 금성으로 돌아오다', '정세랑','정세랑이 선보이는 격 역사 미스터리 모험담!');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('5', 'book5.png', '책으로 가는 문', '미야자키 하야오','이 안에 당신의 첫 책도 있나요?');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('6', 'book6.png', '로마 이야기', '줌파 라히리','이름, 국적, 나이, 성별…… 주어진 정체성에서 벗어날 수 있을까?');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('7', 'book7.png', '문과 남자의 과학 공부', '유시민','과학 공부로 길어 올린 생명과 우주에 관한 진실, 인간과 사회를 이해하는 방법
-”내 삶을 어떤 의미로 채울 것인가?”');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('8', 'book8.png', '아주 희미한 빛으로도', '최은영','더 진실하기를, 더 치열하기를, 더 용기 있기를
-[내게 무해한 사람] 이후 5년, 고요하게 휘몰아치는 최은영의 세계');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('9', 'book9.png', '역행자', '자청','한층 더 강력한 치트기, 독해진 팩트 폭격!
-50주 연속 베스트셀러·40만 독자의 삶을 바꾼 [역행자]가 확장판으로 돌아왔다.');
+1 2023 대한민국
+평균이 사라진 자리 27
+새롭게 떠오르는 소비자들 42
+리오프닝 이후의 공간 전략 58
+관계의 재해석 73
+불황을 극복하는 혁신의 힘 89
 
+〈트렌드 코리아〉 선정 2023년 대한민국 10대 트렌드 상품 104',
+'김난도,전미영,최지혜,이수진,권정윤,한다혜,이준영,이향은,이혜원,추예린,전다현',
+'‘빨리빨리’를 외치던 대한민국이 이제 2배속 사회로 접어들었다.
+유튜브와 OTT 플랫폼, 각종 SNS가 쏟아내는 콘텐츠에 파묻힌 사람들은
+1분 1초도 지루한 걸 못 참으며 ‘기승전-재미’의 도파밍 삶을 추구한다.
+과거 서로를 구분 지었던 선들도 경계가 흐릿해지고 있다.
+가족 내, 안사람과 바깥양반의 구분이 없어지는 것이 대표적이다.
+초격차 사회에서 완벽함을 좇는 사람들은 아예 넘사벽 기준을 세워놓고
+‘육각형인간’ 놀이를 즐긴다. “노력 없이 성공하고 싶다”는 이들의 좌우명 앞에
+고진감래와 자수성가는 설 자리를 잃었다.
+챗GPT의 등장으로 인류에게 일격을 가한 생성형 AI. 세상의 모든 화두를
+블랙홀처럼 빨아들이는 AI가 던진 거대한 질문이 우리 앞에 놓여있다.
+“인간만이 가진 역량은 무엇인가?” 명료한 답변을 이끌어낼 수 있는 질문이 가능한 인간,
+호모 프롬프트에게서 그 해답을 찾아야 할 것이다.',
+1
+);
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('2', 'book2.png', '퓨처셀프', '벤저민 하디');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('3', 'book3.png', '시대예보:핵개인의 시대', '송길영');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('4', 'book4.png', '설자은, 금성으로 돌아오다', '정세랑');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('5', 'book5.png', '책으로 가는 문', '미야자키 하야오');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('6', 'book6.png', '로마 이야기', '줌파 라히리');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('7', 'book7.png', '문과 남자의 과학 공부', '유시민');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('8', 'book8.png', '아주 희미한 빛으로도', '최은영');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('9', 'book9.png', '역행자', '자청');
 
+/*
+책 댓글 테이블
+*/
+/*
+북 테이블
+*/
+
+/*
+북 테이블
+*/
+
+/*
+북 테이블
+*/
+
+/*
+북 테이블
+*/
+
+/*
+북 테이블
+*/
+
+/*
+북 테이블
+*/
+
+/*
+북 테이블
+*/
