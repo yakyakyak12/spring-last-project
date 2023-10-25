@@ -10,10 +10,8 @@ import javax.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
 @Getter
 @Table(name = "bookdata_tb")
 @Entity

@@ -18,10 +18,8 @@ import com.example.springlastproject.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
 @Getter
 @Table(name = "board_tb")
 @Entity
@@ -29,6 +27,8 @@ public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    private String title; // 제목
 
     private String content; // 내용
 
@@ -42,8 +42,9 @@ public class Board {
     private Book book;
 
     @Builder
-    public Board(Integer id, String content, Timestamp createdAt, User user, Book book) {
+    public Board(Integer id, String tilte, String content, Timestamp createdAt, User user, Book book) {
         this.id = id;
+        this.title = tilte;
         this.content = content;
         this.createdAt = createdAt;
         this.user = user;

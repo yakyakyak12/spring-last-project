@@ -13,10 +13,8 @@ import com.example.springlastproject.book.Book;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
 @Getter
 @Table(name = "storycategory_tb")
 @Entity

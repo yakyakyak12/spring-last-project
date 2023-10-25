@@ -13,10 +13,8 @@ import com.example.springlastproject.faqcategory.FAQCategory;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
 @Getter
 @Table(name = "faq_tb")
 @Entity

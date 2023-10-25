@@ -1,6 +1,7 @@
 package com.example.springlastproject.book;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -83,14 +84,14 @@ public class BookResponse {
             private Integer replys;
             private String nickname;
             private String userPicUrl;
-            private Timestamp replyCreatedAt;
+            private String replyCreatedAt;
             private String replyContent;
 
             public BookDatailPage4DTO(BookReply bookReply, Book book) {
                 this.replys = book.getBookReplyList().size();
                 this.nickname = bookReply.getUser().getNickname();
                 this.userPicUrl = bookReply.getUser().getPicUrl();
-                this.replyCreatedAt = bookReply.getCreatedAt();
+                this.replyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());
                 this.replyContent = bookReply.getContent();
             }
 

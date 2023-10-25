@@ -15,10 +15,8 @@ import com.example.springlastproject.faq.FAQ;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
 @Getter
 @Table(name = "notice_tb")
 @Entity

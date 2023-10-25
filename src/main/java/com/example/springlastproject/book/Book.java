@@ -28,11 +28,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
 @Getter
-@Setter
 @Table(name = "book_tb")
 @Entity
 public class Book {
