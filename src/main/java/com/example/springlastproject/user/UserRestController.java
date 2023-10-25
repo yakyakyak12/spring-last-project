@@ -1,16 +1,10 @@
 package com.example.springlastproject.user;
 
 import javax.servlet.http.HttpSession;
-// import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-// import com.example.springlastproject.book.BookService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +12,23 @@ import lombok.RequiredArgsConstructor;
 @RestController
 public class UserRestController {
 
-    // private final BookService userService;
     private final HttpSession session;
 
+    // 회원가입
+    @PostMapping("/join")
+    public String join() {
+        return "회원가입";
+    }
+
+    // 로그인
+    @PostMapping("/login")
+    public ResponseEntity<?> login() {
+        return null;
+    }
+
+    // 로그아웃
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        return null;
+    }
 }

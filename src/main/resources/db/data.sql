@@ -1,8 +1,11 @@
 /*
 유저 테이블
 */
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com', now());
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`) VALUES ('2', 'cos', '1234', 'cos@nate.com', now());
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com', now(), '유재석', 'user1.png');
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`) VALUES ('2', 'ssar1', '1234', 'ssar1@nate.com', now(), '박명수', 'user2.png');
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`) VALUES ('3', 'ssar2', '1234', 'ssar2@nate.com', now(), '하동훈', 'user3.png');
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`) VALUES ('4', 'cos', '1234', 'cos@nate.com', now(), '정준하', 'user4.png');
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`) VALUES ('5', 'cos1', '1234', 'cos1@nate.com', now(), '정형돈', 'user5.png');
 
 /*
 데이터 테이블
@@ -322,7 +325,9 @@ INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`) VALUES ('9', 'book9.png', 
 /*
 책 댓글 테이블
 */
-INSERT INTO bookreply_tb (`id`,`content`,`created_at`, `user_id`, `book_id`) VALUES ('1', '트렌드를 알기 딱 좋은 책이에요!', now(), 1, 1);
+INSERT INTO bookreply_tb (`id`,`content`,`created_at`, `user_id`, `book_id`) VALUES ('1', '정말 도움 많이 되었습니다. 감사합니다.', now(), 1, 1);
+INSERT INTO bookreply_tb (`id`,`content`,`created_at`, `user_id`, `book_id`) VALUES ('2', '잘봤습니다.', now(), 2, 1);
+INSERT INTO bookreply_tb (`id`,`content`,`created_at`, `user_id`, `book_id`) VALUES ('3', '재밌네요', now(), 3, 1);
 
 /*
 게시글 테이블
@@ -338,6 +343,11 @@ INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VAL
 책 좋아요 테이블
 */
 INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('1',now(), 1, 1);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('2',now(), 2, 1);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('3',now(), 3, 1);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('4',now(), 4, 1);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('5',now(), 5, 1);
+
 
 /*
 게시글 좋아요 테이블
