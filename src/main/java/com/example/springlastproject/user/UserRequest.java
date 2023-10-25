@@ -1,6 +1,7 @@
 package com.example.springlastproject.user;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -13,17 +14,22 @@ public class UserRequest {
     @ToString
     public static class JoinDTO {
 
-        @NotEmpty()
+        @NotEmpty(message = "공백을 허용하지 않습니다.")
+        @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "알파벳과 숫자만 허용됩니다.")
+        @Size(min = 3, max = 12, message = "3에서 12자 사이여야 합니다.")
         private String username;
 
-        @NotEmpty()
+        @NotEmpty(message = "공백을 허용하지 않습니다.")
+        @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "올바른 이메일 주소 형식이어야 합니다.")
         private String email;
 
-        @NotEmpty()
-        @Size(min = 8, max = 20, message = "8에서 20자 이내여야 합니다.")
+        @NotEmpty(message = "공백을 허용하지 않습니다.")
+        @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "알파벳과 숫자만 허용됩니다.")
+        @Size(min = 4, max = 12, message = "4에서 12자 사이여야 합니다.")
         private String password;
 
-        @NotEmpty()
+        @NotEmpty(message = "공백을 허용하지 않습니다.")
+        @Size(min = 2, max = 10, message = "2에서 10자 사이여야 합니다.")
         private String nickname;
 
         private String picUrl = "basic.jpg";

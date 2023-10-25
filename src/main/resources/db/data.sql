@@ -353,7 +353,7 @@ INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('5',now(
 /*
 게시글 좋아요 테이블
 */
-INSERT INTO boardlike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('1',now(), 1, 1);
+INSERT INTO boardlike_tb (`id`,`created_at`,`user_id`,`board_id`) VALUES ('1',now(), 1, 1);
 
 /*
 읽고 있는 책 테이블
