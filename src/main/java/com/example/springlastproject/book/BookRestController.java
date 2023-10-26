@@ -27,9 +27,9 @@ public class BookRestController {
         return ResponseEntity.ok(ApiUtils.success(bookDTO));
     }
 
-    @GetMapping("/bookList/{id}")
-    public ResponseEntity<?> bookList(@PathVariable Integer id) {
-
+    @GetMapping("/bookList/")
+    public ResponseEntity<?> bookList() {
+        bookService.한달이내출간된책();
         return null;
     }
 }

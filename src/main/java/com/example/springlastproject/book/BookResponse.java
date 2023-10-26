@@ -31,10 +31,9 @@ public class BookResponse {
         private String totalPage;
         private Date publicationDate;
         private String sequence;
-        private String writerIntroductoin;
+        private String writerIntroduction;
         private String review;
-        private Integer replys;
-        private List<BookDatailReplyDTO> bookDatailReplyDTO;
+        private List<BookDetailReplyDTO> bookDetailReplyDTO;
 
         public BookDetailPageDTO(Book book) {
             this.bookId = book.getId();
@@ -48,23 +47,22 @@ public class BookResponse {
             this.totalPage = book.getTotalPage();
             this.publicationDate = book.getPublicationDate();
             this.sequence = book.getSequence();
-            this.writerIntroductoin = book.getIntroduction();
+            this.writerIntroduction = book.getIntroduction();
             this.review = book.getReview();
-            this.replys = book.getBookReplyList().size();
-            this.bookDatailReplyDTO = book.getBookReplyList().stream()
-                    .map(bookreply -> new BookDatailReplyDTO(bookreply, book)).collect(Collectors.toList());
+            this.bookDetailReplyDTO = book.getBookReplyList().stream()
+                    .map(bookreply -> new BookDetailReplyDTO(bookreply, book)).collect(Collectors.toList());
         }
 
         @Getter
         @Setter
         @ToString
-        public class BookDatailReplyDTO {
+        public class BookDetailReplyDTO {
             private String nickname;
             private String userPicUrl;
             private String replyCreatedAt;
             private String replyContent;
 
-            public BookDatailReplyDTO(BookReply bookReply, Book book) {
+            public BookDetailReplyDTO(BookReply bookReply, Book book) {
                 this.nickname = bookReply.getUser().getNickname();
                 this.userPicUrl = bookReply.getUser().getPicUrl();
                 this.replyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());

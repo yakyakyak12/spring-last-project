@@ -1,5 +1,6 @@
 package com.example.springlastproject.book;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,4 +27,12 @@ public class BookService {
         Book book = bookJPARepository.findById(id).orElseThrow(() -> new Exception404("해당상품을 찾을수 없습니다."));
         return new BookResponse.BookDetailPageDTO(book);
     }
+
+    public void 한달이내출간된책() {
+        LocalDate fromDate = LocalDate.now().minusMonths(1);
+        LocalDate toDate = LocalDate.now();
+        List<Book> books = bookJPARepository.findByPublicationDateBetween(fromDate, toDate);
+        System.out.println("조회는 잘 되는건가? : " + books.size());
+    }
+
 }
