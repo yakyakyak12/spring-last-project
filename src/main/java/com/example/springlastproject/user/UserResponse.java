@@ -39,15 +39,17 @@ public class UserResponse {
         private Integer id;
         private String username;
         private String email;
-        private String nuckname;
+        private String nickname;
         private String picUrl;
+        private String createdAt;
 
         public JoinDTO(User user) {
             this.id = user.getId();
             this.username = user.getUsername();
             this.email = user.getEmail();
-            this.nuckname = user.getNickname();
+            this.nickname = user.getNickname();
             this.picUrl = user.getPicUrl();
+            this.createdAt = new SimpleDateFormat("yyyy-MM-dd").format(user.getCreatedAt());
         }
 
     }

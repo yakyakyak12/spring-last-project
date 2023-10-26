@@ -23,33 +23,33 @@ public class BookResponse {
         private Integer bookId;
         private String bookTitle;
         private String bookWriter;
-        private Integer bookLikes;
-        private Integer bookReplys;
+        private Integer bookLikeCount;
+        private Integer bookReplyCount;
         private String bookSubTitle;
-        private String introduction;
+        private String bookIntroduction;
         private BookCategory bookCategory;
         private String totalPage;
         private Date publicationDate;
         private String sequence;
         private String writerIntroduction;
         private String review;
-        private List<BookDetailReplyDTO> bookDetailReplyDTO;
+        private List<BookDetailReplyDTO> bookDetailReplyList;
 
         public BookDetailPageDTO(Book book) {
             this.bookId = book.getId();
             this.bookTitle = book.getTitle();
             this.bookWriter = book.getWriter();
-            this.bookLikes = book.getBookLikeList().size();
-            this.bookReplys = book.getBookReplyList().size();
+            this.bookLikeCount = book.getBookLikeList().size();
+            this.bookReplyCount = book.getBookReplyList().size();
             this.bookSubTitle = book.getSubTitle();
-            this.introduction = book.getIntroduction();
+            this.bookIntroduction = book.getIntroduction();
             this.bookCategory = book.getBookCategory();
             this.totalPage = book.getTotalPage();
             this.publicationDate = book.getPublicationDate();
             this.sequence = book.getSequence();
             this.writerIntroduction = book.getIntroduction();
             this.review = book.getReview();
-            this.bookDetailReplyDTO = book.getBookReplyList().stream()
+            this.bookDetailReplyList = book.getBookReplyList().stream()
                     .map(bookreply -> new BookDetailReplyDTO(bookreply, book)).collect(Collectors.toList());
         }
 
@@ -71,6 +71,41 @@ public class BookResponse {
 
         }
 
+    }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class BookCategoryListDTO {
+        private List<BookCategory> bookCategories;
+        private List<BookListDTO> bookList;
+        private Integer bookCount;
+
+        public BookCategoryListDTO(List<BookCategory> bookCategories, List<Book> books) {
+            this.bookCategories = bookCategories;
+            // this.bookList = books.stream();
+            this.bookCount = books.size();
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public class BookListDTO {
+            private Integer bookId;
+            private Integer ranking;
+            private String bookPicUrl;
+            private String bookTitle;
+            private String bookWriter;
+
+            public BookListDTO(Book book) {
+                this.bookId = book.getId();
+                this.ranking = book.getRanking();
+                this.bookPicUrl = book.getPicUrl();
+                this.bookTitle = book.getSubTitle();
+                this.bookWriter = book.getWriter();
+            }
+
+        }
     }
 
 }
