@@ -26,4 +26,10 @@ public class BookRestController {
         BookDetailPageDTO bookDTO = bookService.책상세보기(id);
         return ResponseEntity.ok(ApiUtils.success(bookDTO));
     }
+
+    @GetMapping("/bookList/{id}")
+    public ResponseEntity<?> bookList(@PathVariable Integer id) {
+
+        return null;
+    }
 }
