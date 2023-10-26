@@ -26,7 +26,15 @@ public class BookResponse {
         private Integer bookLikes;
         private Integer bookReplys;
         private String bookSubTitle;
-        private BookDatailPage2DTO bookDatailPage2DTO;
+        private String introduction;
+        private BookCategory bookCategory;
+        private String totalPage;
+        private Date publicationDate;
+        private String sequence;
+        private String writerIntroductoin;
+        private String review;
+        private Integer replys;
+        private List<BookDatailReplyDTO> bookDatailReplyDTO;
 
         public BookDetailPageDTO(Book book) {
             this.bookId = book.getId();
@@ -35,60 +43,28 @@ public class BookResponse {
             this.bookLikes = book.getBookLikeList().size();
             this.bookReplys = book.getBookReplyList().size();
             this.bookSubTitle = book.getSubTitle();
-            this.bookDatailPage2DTO = new BookDatailPage2DTO(book);
+            this.introduction = book.getIntroduction();
+            this.bookCategory = book.getBookCategory();
+            this.totalPage = book.getTotalPage();
+            this.publicationDate = book.getPublicationDate();
+            this.sequence = book.getSequence();
+            this.writerIntroductoin = book.getIntroduction();
+            this.review = book.getReview();
+            this.replys = book.getBookReplyList().size();
+            this.bookDatailReplyDTO = book.getBookReplyList().stream()
+                    .map(bookreply -> new BookDatailReplyDTO(bookreply, book)).collect(Collectors.toList());
         }
 
         @Getter
         @Setter
         @ToString
-        public class BookDatailPage2DTO {
-            private String introduction;
-            private BookCategory bookCategory;
-            private String totalPage;
-            private Date publicationDate;
-            private String sequence;
-            private BookDatailPage3DTO bookDatailPage3DTO;
-
-            public BookDatailPage2DTO(Book book) {
-                this.introduction = book.getIntroduction();
-                this.bookCategory = book.getBookCategory();
-                this.totalPage = book.getTotalPage();
-                this.publicationDate = book.getPublicationDate();
-                this.sequence = book.getSequence();
-                this.bookDatailPage3DTO = new BookDatailPage3DTO(book);
-            }
-
-        }
-
-        @Getter
-        @Setter
-        @ToString
-        public class BookDatailPage3DTO {
-            private String writerIntroductoin;
-            private String review;
-            private List<BookDatailPage4DTO> bookDatailPage4DTO;
-
-            public BookDatailPage3DTO(Book book) {
-                this.writerIntroductoin = book.getIntroduction();
-                this.review = book.getReview();
-                this.bookDatailPage4DTO = book.getBookReplyList().stream()
-                        .map(bookReply -> new BookDatailPage4DTO(bookReply, book))
-                        .collect(Collectors.toList());
-            }
-        }
-
-        @Getter
-        @Setter
-        @ToString
-        public class BookDatailPage4DTO {
-            private Integer replys;
+        public class BookDatailReplyDTO {
             private String nickname;
             private String userPicUrl;
             private String replyCreatedAt;
             private String replyContent;
 
-            public BookDatailPage4DTO(BookReply bookReply, Book book) {
-                this.replys = book.getBookReplyList().size();
+            public BookDatailReplyDTO(BookReply bookReply, Book book) {
                 this.nickname = bookReply.getUser().getNickname();
                 this.userPicUrl = bookReply.getUser().getPicUrl();
                 this.replyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());

@@ -50,7 +50,7 @@ public class UserRequest {
     @ToString
     public static class LoginDTO {
         @NotEmpty
-        private String uesrname;
+        private String username;
         @NotEmpty
         private String password;
 

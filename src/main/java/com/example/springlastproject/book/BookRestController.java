@@ -23,7 +23,7 @@ public class BookRestController {
 
     @GetMapping("/book/detail/{id}")
     public ResponseEntity<?> bookDetail(@PathVariable Integer id) {
-        BookDetailPageDTO bookDTO = bookService.책상세보기(1);
+        BookDetailPageDTO bookDTO = bookService.책상세보기(id);
         return ResponseEntity.ok(ApiUtils.success(bookDTO));
     }
 }
