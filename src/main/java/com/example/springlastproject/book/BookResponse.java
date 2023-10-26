@@ -49,7 +49,7 @@ public class BookResponse {
             this.totalPage = book.getTotalPage();
             this.publicationDate = new SimpleDateFormat("yyyy-MM-dd").format(book.getCreatedAt());
             this.sequence = book.getSequence();
-            this.writerIntroduction = book.getIntroduction();
+            this.writerIntroduction = book.getWriterIntroductoin();
             this.review = book.getReview();
             this.bookDetailReplyList = book.getBookReplyList().stream()
                     .map(bookreply -> new BookDetailReplyDTO(bookreply, book)).collect(Collectors.toList());
