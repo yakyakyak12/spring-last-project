@@ -63,11 +63,13 @@ public class BookResponse {
             private String nickname;
             private String userPicUrl;
             private String replyCreatedAt;
+            private String replyContent;
 
             public BookDetailReplyDTO(BookReply bookReply, Book book) {
                 this.nickname = bookReply.getUser().getNickname();
                 this.userPicUrl = bookReply.getUser().getPicUrl();
                 this.replyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());
+                this.replyContent = bookReply.getContent();
             }
 
         }

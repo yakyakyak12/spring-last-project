@@ -83,6 +83,7 @@ public class Book {
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
     private List<BookReply> bookReplyList = new ArrayList<>(); // 북 댓글
 
+    @Builder
     public Book(Integer id, String picUrl, String title, String writer, String totalPage, Date publicationDate,
             Timestamp createdAt, String subTitle, String introduction, String sequence, String writerIntroductoin,
             String review, Integer ranking, BookCategory bookCategory, List<BookLike> bookLikeList,

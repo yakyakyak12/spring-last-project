@@ -29,7 +29,7 @@ public class BookRestController {
         return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
     }
 
-    @GetMapping("/bookList")
+    @GetMapping("book/bookList")
     public ResponseEntity<?> bookList() {
         System.out.println("bookList 호출");
         BookResponse.BookCategoryListDTO bookCategoryListDTO = bookService.한달이내출간된책();
