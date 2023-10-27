@@ -12,9 +12,11 @@ public class FilterConfig {
     public FilterRegistrationBean<JwtAuthorizationFilter> jwtFilter() {
         FilterRegistrationBean<JwtAuthorizationFilter> bean = new FilterRegistrationBean<>(
                 new JwtAuthorizationFilter());
-        bean.addUrlPatterns("/products/*");
-        bean.addUrlPatterns("/carts/*");
-        bean.addUrlPatterns("/orders/*");
+        bean.addUrlPatterns("/board/*");
+        bean.addUrlPatterns("/boardReply/*");
+        bean.addUrlPatterns("/boardLike/*");
+        bean.addUrlPatterns("/bookReply/*");
+        bean.addUrlPatterns("/bookLike/*");
         bean.setOrder(0); // 낮은 번호부터 실행됨
         return bean;
     }
