@@ -17,6 +17,8 @@ import com.example.springlastproject._core.errors.exception.Exception404;
 import com.example.springlastproject._core.utils.DateUtils;
 import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.bookcategory.BookCategoryJPARepository;
+import com.example.springlastproject.booklike.BookLike;
+import com.example.springlastproject.booklike.BookLikeJPARepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,12 +28,20 @@ import lombok.RequiredArgsConstructor;
 public class BookService {
 
     private final BookJPARepository bookJPARepository;
+    private final BookLikeJPARepository bookLikeJPARepository;
     private final BookCategoryJPARepository bookCategoryJPARepository;
 
     // (기능2) 책 상세보기
-    public BookResponse.BookDetailPageDTO 책상세보기(Integer id) {
-        Book book = bookJPARepository.findById(id).orElseThrow(() -> new Exception404("해당상품을 찾을수 없습니다."));
-        return new BookResponse.BookDetailPageDTO(book);
+    public BookResponse.BookDetailPageDTO 책상세보기(Integer bookId, Integer userId) {
+        Book book = bookJPARepository.findById(bookId).orElseThrow(() -> new Exception404("해당상품을 찾을수 없습니다."));
+        BookLike bookLike = bookLikeJPARepository.findFirstByBookIdAndUserId(bookId, userId);
+        if (bookLike == null) {
+            return new BookResponse.BookDetailPageDTO(book, -1);
+        } else {
+            return new BookResponse.BookDetailPageDTO(book, 1);
+
+        }
+
     }
 
     public BookResponse.BookCategoryListDTO 한달이내출간된책() {

@@ -22,6 +22,7 @@ public class BookResponse {
     @ToString
     public static class BookDetailPageDTO {
         private Integer bookId;
+        private Integer bookLike;
         private String bookPicUrl;
         private String bookTitle;
         private String bookWriter;
@@ -37,8 +38,9 @@ public class BookResponse {
         private String review;
         private List<BookDetailReplyDTO> bookDetailReplyList;
 
-        public BookDetailPageDTO(Book book) {
+        public BookDetailPageDTO(Book book, Integer bookLike) {
             this.bookId = book.getId();
+            this.bookLike = bookLike;
             this.bookPicUrl = book.getPicUrl();
             this.bookTitle = book.getTitle();
             this.bookWriter = book.getWriter();

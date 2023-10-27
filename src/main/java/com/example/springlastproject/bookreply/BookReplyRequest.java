@@ -18,14 +18,12 @@ public class BookReplyRequest {
         private Integer userId;
         private Integer bookId;
         private String content;
-        private Timestamp createdAt;
 
         public BookReply toEntity() {
             return BookReply.builder()
                     .user(User.builder().id(userId).build())
                     .book(Book.builder().id(bookId).build())
                     .content(content)
-                    .createdAt(createdAt)
                     .build();
         }
 
