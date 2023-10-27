@@ -34,7 +34,7 @@ public class BookReplyRestController {
 
     // 댓글 삭제
     // @DeleteMapping("/bookReply/{id}/delete")
-    // public @ResponseBody ResponseEntity<?> delete(@PathVariable Integer id){
+    // public @ResponseBody ResponseEntity<?> delete(@PathVariable Integer id) {
 
     // }
 

@@ -14,12 +14,16 @@ public class BookReplyResponse {
     @Setter
     @ToString
     public static class saveDTO {
+        private Integer userId;
+        private Integer bookId;
         private String userPicUrl;
         private String username;
         private String bookReplyContent;
         private String bookReplyCreatedAt;
 
         public saveDTO(BookReply bookReply, User user) {
+            this.userId = bookReply.getUser().getId();
+            this.bookId = bookReply.getBook().getId();
             this.userPicUrl = user.getPicUrl();
             this.username = user.getUsername();
             this.bookReplyContent = bookReply.getContent();
