@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.example.springlastproject.bookcategory.BookCategory;
@@ -21,6 +22,7 @@ public class BookResponse {
     @ToString
     public static class BookDetailPageDTO {
         private Integer bookId;
+        private String bookPicUrl;
         private String bookTitle;
         private String bookWriter;
         private Integer bookLikeCount;
@@ -29,7 +31,7 @@ public class BookResponse {
         private String bookIntroduction;
         private BookCategory bookCategory;
         private String totalPage;
-        private Date publicationDate;
+        private String publicationDate;
         private String sequence;
         private String writerIntroduction;
         private String review;
@@ -37,6 +39,7 @@ public class BookResponse {
 
         public BookDetailPageDTO(Book book) {
             this.bookId = book.getId();
+            this.bookPicUrl = book.getPicUrl();
             this.bookTitle = book.getTitle();
             this.bookWriter = book.getWriter();
             this.bookLikeCount = book.getBookLikeList().size();
@@ -45,7 +48,7 @@ public class BookResponse {
             this.bookIntroduction = book.getIntroduction();
             this.bookCategory = book.getBookCategory();
             this.totalPage = book.getTotalPage();
-            this.publicationDate = book.getPublicationDate();
+            this.publicationDate = new SimpleDateFormat("yyyy-MM-dd").format(book.getPublicationDate());
             this.sequence = book.getSequence();
             this.writerIntroduction = book.getIntroduction();
             this.review = book.getReview();
@@ -60,13 +63,11 @@ public class BookResponse {
             private String nickname;
             private String userPicUrl;
             private String replyCreatedAt;
-            private String replyContent;
 
             public BookDetailReplyDTO(BookReply bookReply, Book book) {
                 this.nickname = bookReply.getUser().getNickname();
                 this.userPicUrl = bookReply.getUser().getPicUrl();
                 this.replyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());
-                this.replyContent = bookReply.getContent();
             }
 
         }
@@ -77,14 +78,15 @@ public class BookResponse {
     @Setter
     @ToString
     public static class BookCategoryListDTO {
-        private List<BookCategory> bookCategories;
-        private List<BookListDTO> bookList;
         private Integer bookCount;
+        private List<String> categoryName;
+        private List<BookListDTO> bookList;
 
-        public BookCategoryListDTO(List<BookCategory> bookCategories, List<Book> books) {
-            this.bookCategories = bookCategories;
-            // this.bookList = books.stream();
+        public BookCategoryListDTO(List<BookCategory> bookCategoryList, List<Book> books) {
             this.bookCount = books.size();
+            this.categoryName = bookCategoryList.stream().map(BookCategory::getCategoryName)
+                    .collect(Collectors.toList());
+            this.bookList = books.stream().map(Book -> new BookListDTO(Book)).collect(Collectors.toList());
         }
 
         @Getter
@@ -92,16 +94,14 @@ public class BookResponse {
         @ToString
         public class BookListDTO {
             private Integer bookId;
-            private Integer ranking;
             private String bookPicUrl;
             private String bookTitle;
             private String bookWriter;
 
             public BookListDTO(Book book) {
                 this.bookId = book.getId();
-                this.ranking = book.getRanking();
                 this.bookPicUrl = book.getPicUrl();
-                this.bookTitle = book.getSubTitle();
+                this.bookTitle = book.getTitle();
                 this.bookWriter = book.getWriter();
             }
 

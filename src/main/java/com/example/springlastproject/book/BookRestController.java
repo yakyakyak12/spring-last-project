@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springlastproject._core.utils.ApiUtils;
 import com.example.springlastproject.book.BookResponse.BookDetailPageDTO;
+import com.example.springlastproject.book.BookResponse.BookCategoryListDTO;
+import com.example.springlastproject.book.BookResponse.BookCategoryListDTO.BookListDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,13 +25,14 @@ public class BookRestController {
 
     @GetMapping("/book/detail/{id}")
     public ResponseEntity<?> bookDetail(@PathVariable Integer id) {
-        BookDetailPageDTO bookDTO = bookService.책상세보기(id);
-        return ResponseEntity.ok(ApiUtils.success(bookDTO));
+        BookDetailPageDTO bookResponseDTO = bookService.책상세보기(id);
+        return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
     }
 
-    @GetMapping("/bookList/")
+    @GetMapping("/bookList")
     public ResponseEntity<?> bookList() {
-        bookService.한달이내출간된책();
-        return null;
+        System.out.println("bookList 호출");
+        BookResponse.BookCategoryListDTO bookCategoryListDTO = bookService.한달이내출간된책();
+        return ResponseEntity.ok(ApiUtils.success(bookCategoryListDTO));
     }
 }

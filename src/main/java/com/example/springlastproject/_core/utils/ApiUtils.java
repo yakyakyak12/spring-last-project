@@ -11,8 +11,8 @@ public class ApiUtils {
         return new ApiResult<>(1, "성공", response);
     }
 
-    public static <T> ApiResult<T> error(String message, HttpStatus status) {
-        return new ApiResult<>(-1, message, null);
+    public static <T> ApiResult<T> error(String message, T response) {
+        return new ApiResult<>(-1, message, response);
     }
 
     @Getter
