@@ -14,6 +14,7 @@ public class BookReplyResponse {
     @Setter
     @ToString
     public static class saveDTO {
+        private Integer bookReplyId;
         private Integer userId;
         private Integer bookId;
         private String userPicUrl;
@@ -22,6 +23,7 @@ public class BookReplyResponse {
         private String bookReplyCreatedAt;
 
         public saveDTO(BookReply bookReply, User user) {
+            this.bookReplyId = bookReply.getId();
             this.userId = bookReply.getUser().getId();
             this.bookId = bookReply.getBook().getId();
             this.userPicUrl = user.getPicUrl();
@@ -31,4 +33,19 @@ public class BookReplyResponse {
         }
 
     }
+
 }
+
+// @Getter
+// @Setter
+// @ToString
+// public static class deleteDTO {
+// private Integer bookReplyId;
+// private String mas;
+
+// public deleteDTO(BookReply bookReply) {
+// this.bookReplyId = bookReply.getId();
+// this.mas = "댓글삭제 완료";
+// }
+
+// }

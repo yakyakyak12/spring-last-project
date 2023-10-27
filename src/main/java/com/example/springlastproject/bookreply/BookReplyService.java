@@ -1,15 +1,16 @@
 package com.example.springlastproject.bookreply;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.springlastproject._core.errors.exception.Exception400;
+import com.example.springlastproject._core.utils.JwtTokenUtils;
 import com.example.springlastproject.bookreply.BookReplyResponse.saveDTO;
 import com.example.springlastproject.user.User;
 import com.example.springlastproject.user.UserJPARepository;
-import com.example.springlastproject.user.UserResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,6 +26,13 @@ public class BookReplyService {
         User user = userJPARepository.findById(saveDTO.getUserId()).orElseThrow(() -> new Exception400("유저정보가 없습니다."));
 
         return new BookReplyResponse.saveDTO(bookReply, user);
+    }
+
+    public void 댓글삭제(Integer id, HttpServletRequest request) {
+        String jwt = request.getHeader("Authorization");
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(jwt);
+        bookReplyJPARepository.findById(id).orElseThrow(() -> new Exception400("댓글 정보가 없습니다."));
+        bookReplyJPARepository.deleteById(id);
     }
 
 }

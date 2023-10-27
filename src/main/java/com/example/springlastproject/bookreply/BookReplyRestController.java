@@ -1,5 +1,6 @@
 package com.example.springlastproject.bookreply;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import com.example.springlastproject.user.User;
 import com.example.springlastproject.user.UserJPARepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.val;
 
 @RequiredArgsConstructor
 @RestController
@@ -23,6 +25,7 @@ public class BookReplyRestController {
 
     private final BookReplyService bookReplyService;
     private final BookReplyJPARepository bookReplyJPARepository;
+    private final HttpSession session;
 
     // 댓글 등록
     @PostMapping("/bookReply/save")
@@ -33,9 +36,13 @@ public class BookReplyRestController {
     }
 
     // 댓글 삭제
-    // @DeleteMapping("/bookReply/{id}/delete")
-    // public @ResponseBody ResponseEntity<?> delete(@PathVariable Integer id) {
+    @DeleteMapping("/bookReply/{id}/delete")
+    public @ResponseBody void delete(@PathVariable Integer id) {
 
-    // }
+        User sessionUser = (User) session.getAttribute("sessionUser");
+
+        bookReplyService.댓글삭제(id);
+
+    }
 
 }

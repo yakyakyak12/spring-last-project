@@ -16,7 +16,7 @@ public class JwtTokenUtils {
                 .withSubject("metacoding-key") // 토큰의 이름 꼭 필요함(중요 x)
                 .withClaim("id", user.getId()) // 프라이머리 키를 넣어준다. (인증에 필요한 것)
                 .withClaim("email", user.getEmail())
-                .withExpiresAt(Instant.now().plusMillis(1000)) // 토큰의 만료시간 (엄청 중요)
+                .withExpiresAt(Instant.now().plusMillis(1000 * 60 * 60 * 24 * 7L)) // 토큰의 만료시간 (엄청 중요)
                 .sign(Algorithm.HMAC512("meta"));
         return "Bearer " + jwt;
     }
