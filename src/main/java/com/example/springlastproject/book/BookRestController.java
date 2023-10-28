@@ -28,25 +28,18 @@ public class BookRestController {
 
     private final BookService bookService;
 
-    // @GetMapping("/book/detail/{id}")
-    // public ResponseEntity<?> bookDetail(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
-    //     System.out.println("북 디테일 접근하나?");
-    //     DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
-    //     Integer userId = decodedJWT.getClaim("id").asInt();
-    //     BookDetailPageDTO bookResponseDTO = bookService.책상세보기(id, userId);
-    //     return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
-    // }
-
+    // 책 상세보기
     @PostMapping("/book/detail")
     public ResponseEntity<?> bookDetail(@RequestBody BookRequest.BookDetailDTO book) {
         BookDetailPageDTO bookResponseDTO = bookService.책상세보기(book);
         return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
     }
 
-    @GetMapping("book/bookList")
-    public ResponseEntity<?> bookList() {
+    // 책 목록보기
+    @PostMapping("/book/bookList")
+    public ResponseEntity<?> bookList(@RequestBody BookRequest.BookListDTO book) {
         System.out.println("bookList 호출");
-        BookResponse.BookCategoryListDTO bookCategoryListDTO = bookService.한달이내출간된책();
+        BookResponse.BookCategoryListDTO bookCategoryListDTO = bookService.한달이내출간된책(book);
         return ResponseEntity.ok(ApiUtils.success(bookCategoryListDTO));
     }
 }
