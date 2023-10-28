@@ -2,11 +2,13 @@ package com.example.springlastproject.book;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import com.example.springlastproject.book.BookResponse.BookDetailPageDTO.BookDetailReplyDTO;
 import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.bookreply.BookReply;
@@ -55,6 +57,7 @@ public class BookResponse {
             this.writerIntroduction = book.getWriterIntroductoin();
             this.review = book.getReview();
             this.bookDetailReplyList = book.getBookReplyList().stream()
+            .sorted(Comparator.comparing(BookReply::getCreatedAt).reversed())
                     .map(bookreply -> new BookDetailReplyDTO(bookreply, book)).collect(Collectors.toList());
         }
 

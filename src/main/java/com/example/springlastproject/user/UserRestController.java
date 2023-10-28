@@ -55,6 +55,6 @@ public class UserRestController {
     public ResponseEntity<?> logout() {
         System.out.println("logout 실행됨");
         session.invalidate();
-        return ResponseEntity.ok().body(ApiUtils.success(null));
+        return ResponseEntity.ok().body(ApiUtils.success("로그아웃 성공"));
     }
 }

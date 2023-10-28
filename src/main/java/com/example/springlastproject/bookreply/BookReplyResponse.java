@@ -36,16 +36,3 @@ public class BookReplyResponse {
 
 }
 
-// @Getter
-// @Setter
-// @ToString
-// public static class deleteDTO {
-// private Integer bookReplyId;
-// private String mas;
-
-// public deleteDTO(BookReply bookReply) {
-// this.bookReplyId = bookReply.getId();
-// this.mas = "댓글삭제 완료";
-// }
-
-// }

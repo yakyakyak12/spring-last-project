@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,12 +28,18 @@ public class BookRestController {
 
     private final BookService bookService;
 
-    @GetMapping("/book/detail/{id}")
-    public ResponseEntity<?> bookDetail(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
-        System.out.println("북 디테일 접근하나?");
-        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
-        Integer userId = decodedJWT.getClaim("id").asInt();
-        BookDetailPageDTO bookResponseDTO = bookService.책상세보기(id, userId);
+    // @GetMapping("/book/detail/{id}")
+    // public ResponseEntity<?> bookDetail(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+    //     System.out.println("북 디테일 접근하나?");
+    //     DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+    //     Integer userId = decodedJWT.getClaim("id").asInt();
+    //     BookDetailPageDTO bookResponseDTO = bookService.책상세보기(id, userId);
+    //     return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
+    // }
+
+    @PostMapping("/book/detail")
+    public ResponseEntity<?> bookDetail(@RequestBody BookRequest.BookDetailDTO book) {
+        BookDetailPageDTO bookResponseDTO = bookService.책상세보기(book);
         return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
     }
 

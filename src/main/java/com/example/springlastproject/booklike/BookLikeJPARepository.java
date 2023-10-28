@@ -2,7 +2,6 @@ package com.example.springlastproject.booklike;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.springlastproject.user.User;
 
 public interface BookLikeJPARepository extends JpaRepository<BookLike, Integer> {
 
