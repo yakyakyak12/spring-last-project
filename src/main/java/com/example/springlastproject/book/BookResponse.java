@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import javax.persistence.criteria.CriteriaBuilder.Coalesce;
+
 import com.example.springlastproject.book.BookResponse.BookDetailPageDTO.BookDetailReplyDTO;
 import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.booklike.BookLike;
@@ -124,5 +126,19 @@ public class BookResponse {
 
         }
     }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class BookSearchPageDTO {
+    List<BookCategory> bookCategories;
+    List<String> titleList;
+
+    public BookSearchPageDTO(List<BookCategory> bookCategories, List<Book> books) {
+        this.bookCategories = bookCategories;
+        this.titleList = books.stream().map(Book::getTitle).collect(Collectors.toList());
+    }
+    
+    } 
 
 }

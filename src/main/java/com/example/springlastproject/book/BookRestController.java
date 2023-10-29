@@ -42,4 +42,13 @@ public class BookRestController {
         BookResponse.BookCategoryListDTO bookCategoryListDTO = bookService.한달이내출간된책(book);
         return ResponseEntity.ok(ApiUtils.success(bookCategoryListDTO));
     }
+
+    // 책 검색기능 
+    @GetMapping("/book/searchPage")
+    public ResponseEntity<?> search(){
+        BookResponse.BookSearchPageDTO response =bookService.검색화면();  
+        return ResponseEntity.ok(ApiUtils.success(response));
+    }
+
+
 }

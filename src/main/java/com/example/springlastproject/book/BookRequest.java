@@ -10,8 +10,8 @@ public class BookRequest {
   @Setter
   @ToString
   public static class BookDetailDTO{
-    Integer bookId;
-    Integer userId;
+    private Integer bookId;
+    private Integer userId;
 
     public BookDetailDTO(Integer bookId, Integer userId) {
       this.bookId = bookId;
@@ -25,14 +25,19 @@ public class BookRequest {
   @Setter
   @ToString
   public static class BookListDTO{
-    Integer bookCategowryId;
-    String alignment;
+    private Integer bookCategowryId;
+    private String alignment;
 
 
     public BookListDTO(Integer bookCategowryId, String alignment) {
       this.bookCategowryId = bookCategowryId;
       this.alignment = alignment;
     }
+    
+  }
+
+  public static class BookSearchDTO{
+    private String keyword;
     
   }
 }

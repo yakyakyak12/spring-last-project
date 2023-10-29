@@ -60,11 +60,24 @@ public class BookService {
             List<Book> books = 
             bookJPARepository.findBooksInLastMonthByBookCategory_IdAndPublicationDateBetween(request.getBookCategowryId(),fromDate, today, sort);
             System.out.println("카테고리 id는 : " +request.getBookCategowryId() );
-            return new BookResponse.BookCategoryListDTO(bookCategories, books , request.bookCategowryId);
+            return new BookResponse.BookCategoryListDTO(bookCategories, books , request.getBookCategowryId());
         }else {
             List<Book> books = bookJPARepository.findByPublicationDateBetween(fromDate, today, sort);            
             System.out.println("테스트 3 : " + books.size());
-            return new BookResponse.BookCategoryListDTO(bookCategories, books , request.bookCategowryId);
+            return new BookResponse.BookCategoryListDTO(bookCategories, books , request.getBookCategowryId());
         }
     }
+
+    // 제목 검색
+    public void 키워드검색(BookRequest.BookSearchDTO book){
+
+    }
+
+    public BookResponse.BookSearchPageDTO 검색화면() {
+       List<BookCategory> bookCategories = bookCategoryJPARepository.findAll();
+       List<Book> bookList =bookJPARepository.findTop5ByRanking();
+       System.out.println("5개 잘 가져오나? : "+bookList.size());
+       return new BookResponse.BookSearchPageDTO(bookCategories, bookList);
+    }
+
 }

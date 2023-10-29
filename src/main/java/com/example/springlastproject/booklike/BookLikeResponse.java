@@ -10,7 +10,7 @@ public class BookLikeResponse {
     @Setter
     @ToString
     public static class checkDTO {
-        Integer bookLike;
+        private Integer bookLike;
 
         public checkDTO(Integer bookLike) {
             this.bookLike = bookLike;
