@@ -14,7 +14,7 @@ public class BookLikeRequest {
     @Getter
     @Setter
     @ToString
-    public static class saveDTO {
+    public static class checkDTO {
         private Integer userId;
         private Integer bookId;
 

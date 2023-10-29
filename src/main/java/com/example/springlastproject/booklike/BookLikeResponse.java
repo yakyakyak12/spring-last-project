@@ -9,13 +9,11 @@ public class BookLikeResponse {
     @Getter
     @Setter
     @ToString
-    public static class saveDTO {
-        Integer userId;
-        Integer bookId;
+    public static class checkDTO {
+        Integer bookLike;
 
-        public saveDTO(BookLike bookLike) {
-            this.userId = bookLike.getUser().getId();
-            this.bookId = bookLike.getBook().getId();
+        public checkDTO(Integer bookLike) {
+            this.bookLike = bookLike;
         }
 
     }
