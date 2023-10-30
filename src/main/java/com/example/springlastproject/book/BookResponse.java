@@ -59,7 +59,7 @@ public class BookResponse {
             this.writerIntroduction = book.getWriterIntroductoin();
             this.review = book.getReview();
             this.bookDetailReplyList = book.getBookReplyList().stream()
-            .sorted(Comparator.comparing(BookReply::getCreatedAt).reversed())
+                    .sorted(Comparator.comparing(BookReply::getCreatedAt).reversed())
                     .map(bookreply -> new BookDetailReplyDTO(bookreply, book)).collect(Collectors.toList());
         }
 
@@ -92,7 +92,6 @@ public class BookResponse {
         private Integer bookCategoryId;
         private List<BookListDTO> bookList;
 
-
         public BookCategoryListDTO(List<BookCategory> bookCategoryList, List<Book> books, Integer bookCategoryId) {
             this.bookCount = books.size();
             this.bookCategory = bookCategoryList;
@@ -111,8 +110,6 @@ public class BookResponse {
             private String bookPicUrl;
             private String bookTitle;
             private String bookWriter;
-            
-            
 
             public BookListDTO(Book book) {
                 this.bookId = book.getId();
@@ -131,14 +128,44 @@ public class BookResponse {
     @Setter
     @ToString
     public static class BookSearchPageDTO {
-    List<BookCategory> bookCategories;
-    List<String> titleList;
+        List<BookCategory> bookCategories;
 
-    public BookSearchPageDTO(List<BookCategory> bookCategories, List<Book> books) {
-        this.bookCategories = bookCategories;
-        this.titleList = books.stream().map(Book::getTitle).collect(Collectors.toList());
+        public BookSearchPageDTO(List<BookCategory> bookCategories) {
+            this.bookCategories = bookCategories;
+        }
     }
-    
-    } 
+
+    @Getter
+    @Setter
+    @ToString
+    public static class BookCategoryDTO {
+        private Integer bookCategoryId;
+        private Integer bookCount;
+        private List<ByCategoryPage> byCategoryPages;
+
+        public BookCategoryDTO(Integer bookCategoryId, List<Book> books) {
+            this.bookCategoryId = bookCategoryId;
+            this.bookCount = books.size();
+            this.byCategoryPages = books.stream().map(book -> new ByCategoryPage(book)).collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public class ByCategoryPage {
+            private Integer bookId;
+            private String bookPicUrl;
+            private String bookTitle;
+            private String bookWriter;
+
+            public ByCategoryPage(Book book) {
+                this.bookId = book.getId();
+                this.bookPicUrl = book.getPicUrl();
+                this.bookTitle = book.getTitle();
+                this.bookWriter = book.getWriter();
+            }
+
+        }
+    }
 
 }

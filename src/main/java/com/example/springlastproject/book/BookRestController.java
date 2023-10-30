@@ -35,7 +35,7 @@ public class BookRestController {
         return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
     }
 
-    // 책 목록보기
+    // 한달이내 출간된 책 목록보기
     @PostMapping("/book/bookList")
     public ResponseEntity<?> bookList(@RequestBody BookRequest.BookListDTO book) {
         System.out.println("bookList 호출");
@@ -43,12 +43,18 @@ public class BookRestController {
         return ResponseEntity.ok(ApiUtils.success(bookCategoryListDTO));
     }
 
-    // 책 검색기능 
+    // 책 검색기능
     @GetMapping("/book/searchPage")
-    public ResponseEntity<?> search(){
-        BookResponse.BookSearchPageDTO response =bookService.검색화면();  
+    public ResponseEntity<?> search() {
+        BookResponse.BookSearchPageDTO response = bookService.검색화면();
         return ResponseEntity.ok(ApiUtils.success(response));
     }
 
+    // 카테고리 별 책목록
+    @PostMapping("/book/bookCategory")
+    public ResponseEntity<?> bookCategory(@RequestBody BookRequest.BookCategoryDTO book) {
+        BookResponse.BookCategoryDTO response = bookService.카테고리별목록보기(book);
+        return ResponseEntity.ok(ApiUtils.success(response));
+    }
 
 }
