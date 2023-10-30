@@ -35,7 +35,7 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String title; // 제목
+    private String boardTitle; // 제목
 
     private String content; // 내용
 
@@ -46,9 +46,6 @@ public class Board {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Book book;
 
     @JsonIgnore
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
@@ -62,12 +59,11 @@ public class Board {
     public Board(Integer id, String title, String content, Timestamp createdAt, String picUrl, User user, Book book,
             List<BoardLike> bookLikeList, List<BoardReply> bookReplyList) {
         this.id = id;
-        this.title = title;
+        this.boardTitle = title;
         this.content = content;
         this.createdAt = createdAt;
         this.picUrl = picUrl;
         this.user = user;
-        this.book = book;
         this.bookLikeList = bookLikeList;
         this.bookReplyList = bookReplyList;
     }

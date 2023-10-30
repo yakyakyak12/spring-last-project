@@ -47,7 +47,7 @@ public class UserRestController {
         System.out.println("login 실행됨");
         LoginResponseDTO response = userService.로그인(requestDTO);
         return ResponseEntity.ok().header("Authorization",
-                response.getJwt()).body(ApiUtils.success(response));
+                response.getJwt()).body(ApiUtils.success(response.getUserDTO()));
     }
 
     // 로그아웃

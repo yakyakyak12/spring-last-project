@@ -1,16 +1,10 @@
 package com.example.springlastproject.user;
 
-import java.util.Optional;
-
 import javax.transaction.Transactional;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.springlastproject._core.errors.exception.Exception400;
-import com.example.springlastproject._core.errors.exception.Exception404;
-import com.example.springlastproject._core.errors.exception.Exception500;
 import com.example.springlastproject._core.utils.JwtTokenUtils;
 
 import lombok.RequiredArgsConstructor;

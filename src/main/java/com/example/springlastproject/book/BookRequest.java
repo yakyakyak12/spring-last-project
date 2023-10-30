@@ -23,19 +23,29 @@ public class BookRequest {
   @Getter
   @Setter
   @ToString
-  public static class BookListDTO {
+  public static class MonthListDTO {
     private Integer bookCategowryId;
     private String alignment;
 
-    public BookListDTO(Integer bookCategowryId, String alignment) {
+    public MonthListDTO(Integer bookCategowryId, String alignment) {
       this.bookCategowryId = bookCategowryId;
       this.alignment = alignment;
     }
 
   }
 
+  @Getter
+  @Setter
+  @ToString
   public static class BookSearchDTO {
     private String keyword;
+
+    public BookSearchDTO() {
+    }
+
+    public BookSearchDTO(String keyword) {
+      this.keyword = keyword;
+    }
 
   }
 
@@ -52,5 +62,19 @@ public class BookRequest {
       this.alignment = alignment;
       this.minusMonths = minusMonths;
     }
+  }
+
+  @Getter
+  @Setter
+  @ToString
+  public static class rankingListDTO {
+    private Integer bookCategowryId;
+    private String alignment;
+
+    public rankingListDTO(Integer bookCategowryId, String alignment) {
+      this.bookCategowryId = bookCategowryId;
+      this.alignment = alignment;
+    }
+
   }
 }

@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.errors.exception.Exception404;
 import com.example.springlastproject._core.utils.DateUtils;
+import com.example.springlastproject.board.Board;
+import com.example.springlastproject.board.BoardJPARepository;
+import com.example.springlastproject.book.BookRequest.rankingListDTO;
 import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.bookcategory.BookCategoryJPARepository;
 import com.example.springlastproject.booklike.BookLike;
@@ -24,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 public class BookService {
 
     private final BookJPARepository bookJPARepository;
+    private final BoardJPARepository boardJPARepository;
     private final BookLikeJPARepository bookLikeJPARepository;
     private final BookCategoryJPARepository bookCategoryJPARepository;
 
@@ -48,7 +52,7 @@ public class BookService {
     }
 
     // 한달이내 출간된 책만 보기
-    public BookResponse.BookCategoryListDTO 한달이내출간된책(BookRequest.BookListDTO bookListDTO) {
+    public BookResponse.BookCategoryListDTO 한달이내출간된책(BookRequest.MonthListDTO bookListDTO) {
 
         List<BookCategory> bookCategories = bookCategoryJPARepository.findAll(); // 카테고리 조회
         LocalDate oneMonthAgo = LocalDate.now().minusMonths(1); // 한달이내 요일을 지정
@@ -64,11 +68,6 @@ public class BookService {
             List<Book> books = bookJPARepository.findByPublicationDateBetween(fromDate, today, sort);
             return new BookResponse.BookCategoryListDTO(bookCategories, books, bookListDTO.getBookCategowryId());
         }
-    }
-
-    // 제목 검색
-    public void 키워드검색(BookRequest.BookSearchDTO book) {
-
     }
 
     public BookResponse.BookSearchPageDTO 검색화면() {
@@ -88,6 +87,20 @@ public class BookService {
                 today, sort);
 
         return new BookResponse.BookCategoryDTO(bookCategoryDTO.getBookCategowryId(), books);
+    }
+
+    public BookResponse.BookCategoryListDTO 지금서점베스트(BookRequest.rankingListDTO rankingListDTO) {
+        List<BookCategory> bookCategories = bookCategoryJPARepository.findAll(); // 카테고리 조회
+        List<Book> books = bookJPARepository.findAllByOrderByRankingAsc();
+
+        return new BookResponse.BookCategoryListDTO(bookCategories, books, rankingListDTO.getBookCategowryId());
+    }
+
+    // 제목 검색
+    public BookResponse.BookSearchDTO 키워드검색(BookRequest.BookSearchDTO book) {
+        List<Board> boards = boardJPARepository.findBoardsByBoardTitleContainingKeyword(book.getKeyword());
+        List<Book> books = bookJPARepository.findBooksByTitleContainingKeyword(book.getKeyword());
+        return new BookResponse.BookSearchDTO(books, boards, book.getKeyword());
     }
 
 }

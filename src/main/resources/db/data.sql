@@ -190,7 +190,11 @@ INSERT INTO storycategory_tb (story_category_name) VALUES ('로맨스/BL'),('판
 /*
 북 카테고리 테이블
 */
-INSERT INTO bookcategory_tb (category_name) VALUES ('트랜드'),('라이프'),('힐링'),('지적교양'),('소설');
+INSERT INTO bookcategory_tb (`id`, `category_name`, `category_about`, `category_pic_url`) VALUES ('1','트랜드', '사회적 트렌드, 기술 및 디지털 트렌드, 경제 및 비즈니스 트렌드', 'book7.png');
+INSERT INTO bookcategory_tb (`id`, `category_name`, `category_about`, `category_pic_url`) VALUES ('2','라이프', '음식, 술·음료, 스포츠, 헬스·요가, 뷰티, 인테리어', 'book14.png');
+INSERT INTO bookcategory_tb (`id`, `category_name`, `category_about`, `category_pic_url`) VALUES ('3','힐링', '스트레스 관리, 명상, 요가, 자연 치유, 예술 치유, 경제 및 비즈니스 트렌드', 'book24.png');
+INSERT INTO bookcategory_tb (`id`, `category_name`, `category_about`, `category_pic_url`) VALUES ('4','지적교양', '인문학, 과학, 역사, 문학, 미술, 철학, 경제 및 비즈니스 트렌드', 'book28.png');
+INSERT INTO bookcategory_tb (`id`, `category_name`, `category_about`, `category_pic_url`) VALUES ('5','소설', '추리·스릴러, 킬러 스파이, 법의학 스릴러, SF', 'book31.png');
 
 
 /*
@@ -314,54 +318,61 @@ key point: 미래의 내가 되는 단계
 훨씬 더 빠르고 확실하게 목표에 도달할 수 있을 것이다.',
 2,2,1
 );
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('3', 'book3.png', '시대예보:핵개인의 시대', '송길영',1,'2023-10-20',3, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('4', 'book4.png', '설자은, 금성으로 돌아오다', '정세랑',1,'2023-09-20',4, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('5', 'book5.png', '책으로 가는 문', '미야자키 하야오',1,'2023-09-13',5, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('6', 'book6.png', '로마 이야기', '줌파 라히리',1,'2023-05-25',6, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('7', 'book7.png', '문과 남자의 과학 공부', '유시민',1,'2023-05-12',7, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('8', 'book8.png', '아주 희미한 빛으로도', '최은영',1,'2022-12-15',8, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('9', 'book9.png', '역행자', '자청',1,'2022-12-15',9, now());
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('3', 'book3.png', '시대예보:핵개인의 시대', '송길영',1,'2023-10-20',3, now(),'시대의 마음을 캐는 송길영이 관찰한 세상의 모든 각자가 맞이할 미래');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('4', 'book4.png', '설자은, 금성으로 돌아오다', '정세랑',1,'2023-09-20',4, now(),'정세랑 장편소설');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('5', 'book5.png', '책으로 가는 문', '미야자키 하야오',1,'2023-09-13',5, now(),'와나미소년문고를 이야기하다');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('6', 'book6.png', '로마 이야기', '줌파 라히리',1,'2023-05-25',6, now(),'로마 구석구석으로의 여행');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('7', 'book7.png', '문과 남자의 과학 공부', '유시민',1,'2023-05-12',7, now(),'나는 무엇이고 왜 존재하며 어디로 가는가?');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('8', 'book8.png', '아주 희미한 빛으로도', '최은영',1,'2023-10-15',8, now(),'작가의 성장과 변화를 보여주는 작품이자 시대의 목소리를 담은 증언');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('9', 'book9.png', '역행자', '자청',1,'2022-12-15',9, now(),'돈 시간 운명으로부터 완전한 자유를 얻는 7단계 인생 공략집');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('34', 'book34.png', '여행 항공 상품 마케팅', '고종원',1,'2023-10-11',35, now(),'여행트랜드 읽기');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('35', 'book35.png', '뉴 트랜드 G20세대', '김진도',1,'2023-10-13',37, now(),'세계를 상대로 도전하는 G20 세대의 파워 라이프 스토리');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('36', 'book36.png', '마이크로 트랜드', '김태수',1,'2023-10-15',34, now(),'지식정보사회 최고의 기회');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('37', 'book37.png', '트랜드 샵 스토리', '디플러스 편집부',1,'2023-10-17',36, now(),'트랜드 샵 스토리에 관한 내용을 담은 전문서적');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('38', 'book38.png', '트랜드 인 트랜드', '북더원',1,'2023-10-19',38, now(),'트랜디 인 트랜드에 관한 내용을 담은 전문 서적');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('39', 'book39.png', '유통물류시장 최신 트랜드', '박찬석, 임종석',1,'2023-10-10',39, now(),'유통물류시장 최신 트랜드에 관한 내용을 담은 전문서적');
 
 /*
 북 테이블 ('라이프')
 */
 
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('10', 'book10.png', '심플 키토 라이프', '황연수(명품캥거루)',2,'2023-10-02',10, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('11', 'book11.png', '라이프 퍼포머', '조형근',2,'2023-10-15',11, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('12', 'book12.png', '서드 라이프', '원용진,강신규',2,'2023-09-20',12, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('13', 'book13.png', '불타는 마음으로 하나님을 추구하라', '제임스 스나이더',2,'2023-09-20',13, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('14', 'book14.png', '심플 라이프 베스트', '익명',2,'2023-05-10',14, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('15', 'book15.png', '어푸어푸 라이프 책', '씨유숨',2,'2023-05-10',15, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('16', 'book16.png', '골드 시니어 라이프 책', '박언주',2,'2022-12-20',16, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('17', 'book17.png', '힘 빼고 육아 / 유노라이프 책', '유노라이프',2,'2022-12-20',17, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('18', 'book18.png', '엄마의 문장', '유노라이프',2,'2023-10-15',18, now());
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('10', 'book10.png', '심플 키토 라이프', '황연수(명품캥거루)',2,'2023-10-02',10, now(),'입문자를 위한 가장 완벽한 저탄고지 다이어트');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('11', 'book11.png', '라이프 퍼포머', '조형근',2,'2023-10-15',11, now(),'하루가 술술 풀리는 성공 공식');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('12', 'book12.png', '서드 라이프', '원용진,강신규',2,'2023-09-20',12, now(),'기술혁명 시대 새로운 라이프 스타일');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('13', 'book13.png', '불타는 마음으로 하나님을 추구하라', '제임스 스나이더',2,'2023-09-20',13, now(),'한 권의 책과 육성 CD로 만나는 토저 라이프');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('14', 'book14.png', '심플 라이프 베스트', '익명',2,'2023-05-10',14, now(),'일상이 버벅거릴 때는 주변을 정리하고 마음을 비워라');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('15', 'book15.png', '어푸어푸 라이프 책', '윤혜림',2,'2023-05-10',15, now(),'수영으로 만드는 마음 근육');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('16', 'book16.png', '골드 시니어 라이프 책', '박언주',2,'2022-12-20',16, now(),'은퇴,축복받은 인생의 새로운 출발점으로');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('17', 'book17.png', '힘 빼고 육아 / 유노라이프 책', '유노라이프',2,'2022-12-20',17, now(),'엄마와 아이가 편안해지는 미니멀 양육법');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('18', 'book18.png', '엄마의 문장', '유노라이프',2,'2023-10-15',18, now(),'흔들리는 마흔에 참 나를 되찾게 해준');
 
 /*
 북 테이블 ('힐링')
 */
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('19', 'book19.png', '힐링 코드', '알렉산더 로이디',3,'2023-10-20',19, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('20', 'book20.png', '힐링 토크', 'JKSC 편집부',3,'2023-10-21',20, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('21', 'book21.png', '힐링(살아서 꽃피지 않는 영혼은 없다)', '박범신',3,'2023-10-25',21, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('22', 'book22.png', '힐링(내 삶을 위로하고 마음을 다독여 행복해지는 이야기)', '고은광순',3,'2023-09-21',22, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('23', 'book23.png', '셀프 힐링북', '아르고나인 편집부',3,'2023-09-25',23, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('24', 'book24.png', '바이블 톡', '이정두',3,'2023-10-12',24, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('25', 'book25.png', '에이든 우리나라 캠핑지도', '이정기',3,'2023-05-11',25, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('26', 'book26.png', '믿음은 세계관의 전쟁이다', '최재호',3,'2023-05-10',26, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('27', 'book27.png', '마음의 상처를 치유하라', '최재호',3,'2022-12-09',27, now());
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('19', 'book19.png', '힐링 코드', '알렉산더 로이디',3,'2023-10-20',19, now(),'평생 병 걱정 없이 사는 하루 6분의 비밀');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('20', 'book20.png', '힐링 토크', 'JKSC 편집부',3,'2023-10-21',20, now(),'삶의 치유와 회복을 위한 HEALING TALK');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('21', 'book21.png', '힐링(에세이)', '박범신',3,'2023-10-25',21, now(),'살아서 꽃피지 않는 영혼은 없다');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('22', 'book22.png', '힐링(유리창)', '고은광순',3,'2023-09-21',22, now(),'내 삶을 위로하고 마음을 다독여 행복해지는 이야기');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('23', 'book23.png', '셀프 힐링북', '아르고나인 편집부',3,'2023-09-25',23, now(),'펜으로 쓰고 마음으로 읽는');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('24', 'book24.png', '바이블 톡', '이정두',3,'2023-10-12',24, now(),'날마다 하늘의 양식');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('25', 'book25.png', '에이든 우리나라 캠핑지도', '이정기',3,'2023-05-11',25, now(),'힐링여행 떠날 시간');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('26', 'book26.png', '믿음은 세계관의 전쟁이다', '최재호',3,'2023-05-10',26, now(),'나의 일상과 습관에서 더 나아가 그리스도인으로서 가져야 할 참된 세계관에 대해 설명한다.');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('27', 'book27.png', '마음의 상처를 치유하라', '최재호',3,'2022-12-09',27, now(),'고난과 마음에 쌓인 상처들을 치료하는 내적치유 과정과 방법을 설명한 훈련서');
 
 /*
 북 테이블 ('지적교양')
 */
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('28', 'book28.png', '철학 읽는 힘', '사이토 다카시', 4,'2023-10-10',28, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('29', 'book29.png', '매일 읽는 지적 교양 수업', '와타나베 쇼이치',4,'2023-10-11',29, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('30', 'book30.png', '1일 1페이지, 지적 교양을 위한 철학 수업', '지이현',4,'2023-10-09',30, now());
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('28', 'book28.png', '철학 읽는 힘', '사이토 다카시', 4,'2023-10-10',28, now(),'지적 교양을 위한 철학 안내서');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('29', 'book29.png', '매일 읽는 지적 교양 수업', '와타나베 쇼이치',4,'2023-10-11',29, now(),'365일 지적 여생을 보내기 위한');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('30', 'book30.png', '1일 1페이지, 지적 교양을 위한 철학 수업', '지이현',4,'2023-10-09',30, now(),'고전 속에 숨겨진 인문학 인간의 본질에 대한 통찰이 담긴 입문서');
 
 /*
 북 테이블 ('소설')
 */
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('31', 'book31.png', '도시와 그 불확실한 벽', '무라카미 하루키',5,'2023-10-06',31, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('32', 'book32.png', '아침 그리고 저녁', '욘 포세',5,'2023-10-04',32, now());
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`) VALUES ('33', 'book33.png', '모순', '양귀자',5,'2023-10-01',33, now());
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('31', 'book31.png', '도시와 그 불확실한 벽', '무라카미 하루키',5,'2023-10-06',31, now(),'무라카미 하루키 장편소설');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('32', 'book32.png', '아침 그리고 저녁', '욘 포세',5,'2023-10-04',32, now(),'노벨문학상 수상작가 욘포세 소설');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('33', 'book33.png', '모순', '양귀자',5,'2023-10-01',33, now(),'양귀자 장편소설');
 
 /*
 책 댓글 테이블
@@ -376,8 +387,8 @@ INSERT INTO bookreply_tb (`id`,`content`,`created_at`, `user_id`, `book_id`) VAL
 /*
 게시글 테이블
 */
-INSERT INTO board_tb (`id`,`title`,`content`,`created_at`,`user_id`, `book_id`) VALUES ('1', '벤자민 하디의 퓨처셀프','그동안 주춤했던 뇌를 깨우고 싶거나, 나를 성장시키고 싶으신 분들, 
-또는 자기 계발의 실질적 행동 지침이 필요하신 분들!! 이 책을 추천드립니다.',now(), 1, 2);
+INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`) VALUES ('1', '벤자민 하디의 퓨처셀프','그동안 주춤했던 뇌를 깨우고 싶거나, 나를 성장시키고 싶으신 분들, 
+또는 자기 계발의 실질적 행동 지침이 필요하신 분들!! 이 책을 추천드립니다.',now(), 1);
 
 /*
 게시글 댓글 테이블

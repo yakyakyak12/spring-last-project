@@ -21,10 +21,16 @@ public class BookCategory {
 
     private String categoryName; // 종합 (findAll로 보이기)
 
+    private String categoryAbout; // 카테고리 소개
+
+    private String categoryPicUrl; // 카테고리 사진
+
     @Builder
-    public BookCategory(Integer id, String categoryName) {
+    public BookCategory(Integer id, String categoryName, String categoryAbout, String categoryPicUrl) {
         this.id = id;
         this.categoryName = categoryName;
+        this.categoryAbout = categoryAbout;
+        this.categoryPicUrl = categoryPicUrl;
     }
 
 }

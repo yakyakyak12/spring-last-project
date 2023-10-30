@@ -13,22 +13,34 @@ public class UserResponse {
     @Getter
     @Setter
     public static class LoginResponseDTO {
-        private int id;
         private String jwt;
-        private String username;
-        private String email;
-        private String nickname;
-        private String picUrl;
-        private String createdAt;
+        private UserDTO userDTO;
 
         public LoginResponseDTO(User user, String jwt) {
-            this.id = user.getId();
             this.jwt = jwt;
-            this.username = user.getUsername();
-            this.email = user.getEmail();
-            this.nickname = user.getNickname();
-            this.picUrl = user.getPicUrl();
-            this.createdAt = new SimpleDateFormat("yyyy-MM-dd").format(user.getCreatedAt());
+            this.userDTO = new UserDTO(user);
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public static class UserDTO {
+            private int id;
+            private String username;
+            private String email;
+            private String nickname;
+            private String picUrl;
+            private String createdAt;
+
+            public UserDTO(User user) {
+                this.id = user.getId();
+                this.username = user.getUsername();
+                this.email = user.getEmail();
+                this.nickname = user.getNickname();
+                this.picUrl = user.getPicUrl();
+                this.createdAt = new SimpleDateFormat("yyyy-MM-dd").format(user.getCreatedAt());
+            }
+
         }
     }
 

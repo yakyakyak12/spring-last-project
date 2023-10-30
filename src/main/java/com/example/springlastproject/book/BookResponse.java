@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import javax.persistence.criteria.CriteriaBuilder.Coalesce;
 
+import com.example.springlastproject.board.Board;
 import com.example.springlastproject.book.BookResponse.BookDetailPageDTO.BookDetailReplyDTO;
 import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.booklike.BookLike;
@@ -21,6 +22,7 @@ import lombok.ToString;
 
 public class BookResponse {
 
+    // 디테일 페이지 DTO
     @Getter
     @Setter
     @ToString
@@ -78,11 +80,10 @@ public class BookResponse {
                 this.replyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());
                 this.replyContent = bookReply.getContent();
             }
-
         }
-
     }
 
+    // 카테고리 리스트 DTO
     @Getter
     @Setter
     @ToString
@@ -124,6 +125,7 @@ public class BookResponse {
         }
     }
 
+    // 검색 페이지
     @Getter
     @Setter
     @ToString
@@ -135,6 +137,64 @@ public class BookResponse {
         }
     }
 
+    // 키워드 검색 DTO
+    @Getter
+    @Setter
+    @ToString
+    public static class BookSearchDTO {
+        private String keyword;
+        private Integer bookCount;
+        private List<BookKeywordDTO> bookKeywordList;
+        private Integer boardCount;
+        private List<BoardKeywordDTO> boardKeywordList;
+
+        public BookSearchDTO(List<Book> books, List<Board> boards, String ketword) {
+            this.keyword = ketword;
+            this.bookCount = books.size();
+            this.bookKeywordList = books.stream().map(book -> new BookKeywordDTO(book)).collect(Collectors.toList());
+            this.boardCount = boards.size();
+            this.boardKeywordList = boards.stream().map(board -> new BoardKeywordDTO(board))
+                    .collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public class BookKeywordDTO {
+            private Integer bookId;
+            private String bookPicUrl;
+            private String bookTitle;
+            private String subTitle;
+
+            public BookKeywordDTO(Book book) {
+                this.bookId = book.getId();
+                this.bookPicUrl = book.getPicUrl();
+                this.bookTitle = book.getTitle();
+                this.subTitle = book.getSubTitle();
+            }
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public class BoardKeywordDTO {
+            private Integer boardId;
+            private String boardPicUrl;
+            private String content;
+            private String nickname;
+
+            public BoardKeywordDTO(Board board) {
+                this.boardId = board.getId();
+                this.boardPicUrl = board.getPicUrl();
+                this.content = board.getContent();
+                this.nickname = board.getUser().getNickname();
+            }
+
+        }
+
+    }
+
+    // 카테고리별 목록 페이지
     @Getter
     @Setter
     @ToString
@@ -154,12 +214,14 @@ public class BookResponse {
         @ToString
         public class ByCategoryPage {
             private Integer bookId;
+            private Integer ranking;
             private String bookPicUrl;
             private String bookTitle;
             private String bookWriter;
 
             public ByCategoryPage(Book book) {
                 this.bookId = book.getId();
+                this.ranking = book.getRanking();
                 this.bookPicUrl = book.getPicUrl();
                 this.bookTitle = book.getTitle();
                 this.bookWriter = book.getWriter();
@@ -167,5 +229,7 @@ public class BookResponse {
 
         }
     }
+
+    //
 
 }
