@@ -20,6 +20,9 @@ public interface BookJPARepository extends JpaRepository<Book, Integer> {
         // 서점베스트 (인기순으로 조회했음..)
         List<Book> findAllByOrderByRankingAsc();
 
+        // 서점베스트 (카테고리 순 조회)
+        List<Book> findByBookCategory_Id(Integer categoryId, Sort sort);
+
         // 한달이내 출간된 책 categoryId, sort별로 조회
         List<Book> findBooksInLastMonthByBookCategory_IdAndPublicationDateBetween(Integer categoryId, Date oneMonthAgo,
                         Date today, Sort sort);

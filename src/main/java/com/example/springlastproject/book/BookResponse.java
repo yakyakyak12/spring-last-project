@@ -1,21 +1,13 @@
 package com.example.springlastproject.book;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
-import javax.persistence.criteria.CriteriaBuilder.Coalesce;
-
 import com.example.springlastproject.board.Board;
-import com.example.springlastproject.book.BookResponse.BookDetailPageDTO.BookDetailReplyDTO;
 import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.bookreply.BookReply;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -83,21 +75,36 @@ public class BookResponse {
         }
     }
 
-    // 카테고리 리스트 DTO
+    // 한달이내 출간, 서점베스트 카테고리 리스트 DTO
     @Getter
     @Setter
     @ToString
     public static class BookCategoryListDTO {
         private Integer bookCount;
-        private List<BookCategory> bookCategory;
+        private List<CategoryDTO> category;
         private Integer bookCategoryId;
         private List<BookListDTO> bookList;
 
         public BookCategoryListDTO(List<BookCategory> bookCategoryList, List<Book> books, Integer bookCategoryId) {
             this.bookCount = books.size();
-            this.bookCategory = bookCategoryList;
+            this.category = bookCategoryList.stream().map(bookCategory -> new CategoryDTO(bookCategory))
+                    .collect(Collectors.toList());
             this.bookCategoryId = bookCategoryId;
             this.bookList = books.stream().map(Book -> new BookListDTO(Book)).collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public class CategoryDTO {
+            private Integer categoryId;
+            private String categoryName;
+
+            public CategoryDTO(BookCategory category) {
+                this.categoryId = category.getId();
+                this.categoryName = category.getCategoryName();
+            }
+
         }
 
         @Getter
@@ -179,13 +186,13 @@ public class BookResponse {
         @ToString
         public class BoardKeywordDTO {
             private Integer boardId;
-            private String boardPicUrl;
+            private String bookPicUrl;
             private String content;
             private String nickname;
 
             public BoardKeywordDTO(Board board) {
                 this.boardId = board.getId();
-                this.boardPicUrl = board.getPicUrl();
+                this.bookPicUrl = board.getBook().getPicUrl();
                 this.content = board.getContent();
                 this.nickname = board.getUser().getNickname();
             }
@@ -229,7 +236,5 @@ public class BookResponse {
 
         }
     }
-
-    //
 
 }

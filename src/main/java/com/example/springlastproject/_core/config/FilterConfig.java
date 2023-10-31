@@ -16,6 +16,7 @@ public class FilterConfig {
         bean.addUrlPatterns("/boardReply/*");
         bean.addUrlPatterns("/boardLike/*");
         bean.addUrlPatterns("/bookReply/*");
+        bean.addUrlPatterns("/book/bookOfMine/*");
         bean.addUrlPatterns("/bookLike/*");
         bean.setOrder(0); // 낮은 번호부터 실행됨
         return bean;

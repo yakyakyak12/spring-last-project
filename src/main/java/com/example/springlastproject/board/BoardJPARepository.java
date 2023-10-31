@@ -10,4 +10,6 @@ public interface BoardJPARepository extends JpaRepository<Board, Integer> {
 
     @Query("SELECT b FROM Board b WHERE b.boardTitle LIKE %:keyword%")
     List<Board> findBoardsByBoardTitleContainingKeyword(@Param("keyword") String keyword);
+
+    List<Board> findByUserId(Integer userId);
 }

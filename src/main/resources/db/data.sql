@@ -387,13 +387,22 @@ INSERT INTO bookreply_tb (`id`,`content`,`created_at`, `user_id`, `book_id`) VAL
 /*
 게시글 테이블
 */
-INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`) VALUES ('1', '벤자민 하디의 퓨처셀프','그동안 주춤했던 뇌를 깨우고 싶거나, 나를 성장시키고 싶으신 분들, 
-또는 자기 계발의 실질적 행동 지침이 필요하신 분들!! 이 책을 추천드립니다.',now(), 1);
+INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`, `book_id`) VALUES ('1', '벤자민 하디의 퓨처셀프','그동안 주춤했던 뇌를 깨우고 싶거나, 나를 성장시키고 싶으신 분들, 또는 자기 계발의 실질적 행동 지침이 필요하신 분들!! 이 책을 추천드립니다.',now(), 1, 2);
+INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`, `book_id`) VALUES ('2', '퓨처셀프 나의 미래의 서서 오늘을 바라보라','미래를 계획하고 현재의 나에 최선을 다하라는 메세지가 많은 사람에게 와 닿을 것이라고 생각되는 책이다. 현재의 나를 움직이게 할 책..',now(), 5, 2);
+INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`, `book_id`) VALUES ('3', '퓨처셀프 책 리뷰','미래에 대한 희망이 없다면 현재는 의미를 잃는다. 미래의 나를 위협하는 요인 중 내게 해당되는 것은? 당신의 미래가 현재를 이끈다.',now(), 4, 2);
+INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`, `book_id`) VALUES ('4', '트렌드코리아 2024 경제전망 경제 책','인고지능이 채울 수 없는 창의의 역역이 아직은 20% 이상 존재한다. 앞으로 상당한 기간 인고지능이 따라올 수 없는 사람만의 영역이 존재할 것이라는 사실을 확신하게 되었다.',now(), 1, 1);
+INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`, `book_id`) VALUES ('5', '트렌드코리아 2024 대한민국 소비 트렌드 전망','최저가가 아닌 최적가가 중요해지고 있고 공급자 관점이 아닌 소비자 관점에 초점을 둔다..',now(), 3, 1);
+INSERT INTO board_tb (`id`,`board_title`,`content`,`created_at`,`user_id`, `book_id`) VALUES ('6', '트렌드코리아 2024 / AI시대 역할찾기','호모프롬프트 생성형 AI와의 티키타카를 통해 AI를 효율적으로 사용하는 사람을 말한다. 인간은 평군에 머무르지 않고 뭔가 새로운 것을 계속 보태가는 존재이다. 스스로 성찰하는 것은 인간만이 가능한 일이다.',now(), 4, 1);
 
 /*
 게시글 댓글 테이블
 */
-INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('1', '좋은 책 추천 해주셔서 감사합니다.',now(), 2, 1);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('1', '한번 읽어봐야겠네용 !!',now(), 2, 1);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('2', '요즘 좀 미래에 대해 불안했는대 한번 읽어봐야겠어요..',now(), 1, 2);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('3', '인공지능이 채울 수 없는 영역..!! 도전!',now(), 1, 4);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('4', '상당히 흥미롭네요',now(), 2, 5);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('5', '요즘에 동기부여가 필요했는대 도움이 되었습니다.',now(), 3, 3);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('6', 'AI를 호율적으로 사용하는 사람.. 호모프롬프트..',now(), 3, 6);
 
 /*
 책 좋아요 테이블
@@ -407,7 +416,25 @@ INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('6',now(
 INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('7',now(), 2, 2);
 INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('8',now(), 3, 2);
 INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('9',now(), 4, 2);
-INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('10',now(), 5, 2);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('10',now(), 5, 10);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('11',now(), 1, 11);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('12',now(), 1, 15);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('13',now(), 1, 16);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('14',now(), 1, 20);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('15',now(), 1, 5);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('16',now(), 1, 7);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('17',now(), 1, 9);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('18',now(), 2, 6);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('19',now(), 2, 8);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('20',now(), 2, 17);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('21',now(), 2, 19);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('22',now(), 2, 20);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('23',now(), 2, 30);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('24',now(), 2, 31);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('25',now(), 3, 15);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('26',now(), 3, 16);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('27',now(), 3, 14);
+INSERT INTO booklike_tb (`id`,`created_at`,`user_id`,`book_id`) VALUES ('28',now(), 3, 12);
 
 
 /*
@@ -419,6 +446,17 @@ INSERT INTO boardlike_tb (`id`,`created_at`,`user_id`,`board_id`) VALUES ('1',no
 읽고 있는 책 테이블
 */
 INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('1', '15000',now(), 1, 1);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('2', '123',now(), 2, 1);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('3', '1234',now(), 3, 1);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('4', '1111',now(), 4, 1);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('5', '2222',now(), 5, 1);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('6', '3333',now(), 1, 4);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('7', '4444',now(), 1, 7);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('8', '5555',now(), 1, 8);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('9', '6666',now(), 1, 10);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('10', '7777',now(), 2, 10);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('11', '8888',now(), 2, 11);
+INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('12', '9999',now(), 2, 15);
 
 
 /*
