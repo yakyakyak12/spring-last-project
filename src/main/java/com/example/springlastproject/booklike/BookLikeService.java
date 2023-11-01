@@ -47,11 +47,6 @@ public class BookLikeService {
         List<Board> boardList = boardJPARepository.findByUserId(userId);
         List<BoardReply> boardReplyList = boardReplyJPARepository.findByUserId(userId);
         List<BookReply> bookReply = bookReplyJPARepository.findByUserId(userId);
-        System.out.println("책 좋아요 리스트 : " + bookLikeList.size());
-        System.out.println("읽고있는책 리스트 : " + readingBookList.size());
-        System.out.println("게시글 리스트 : " + boardList.size());
-        System.out.println("게시글 댓글 리스트 : " + boardReplyList.size());
-        System.out.println("책 댓글 리스트 : " + bookReply.size());
 
         return new BookLikeResponse.BookOfMineDTO(bookLikeList, readingBookList, boardList, boardReplyList, bookReply);
     }

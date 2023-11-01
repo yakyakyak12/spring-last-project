@@ -6,12 +6,16 @@ import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.utils.ApiUtils;
+import com.example.springlastproject._core.utils.JwtTokenUtils;
 import com.example.springlastproject.user.UserResponse.LoginResponseDTO;
 
 import lombok.RequiredArgsConstructor;
@@ -48,6 +52,28 @@ public class UserRestController {
         LoginResponseDTO response = userService.로그인(requestDTO);
         return ResponseEntity.ok().header("Authorization",
                 response.getJwt()).body(ApiUtils.success(response.getUserDTO()));
+    }
+
+    // 개인정보수정 페이지
+    @GetMapping("/update/page")
+    public ResponseEntity<?> updatePage(@RequestHeader("Authorization") String token) {
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        Integer userId = decodedJWT.getClaim("id").asInt();
+        UserResponse.updatePageDTO response = userService.회원정보보기(userId);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
+    }
+
+    // 개인정보수정
+    @PostMapping("/update/form")
+    public ResponseEntity<?> updateForm(@RequestHeader("Authorization") String token,
+            @RequestBody @Valid UserRequest.UpdateFormDTO requestDTO, Errors errors) {
+
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        Integer userId = decodedJWT.getClaim("id").asInt();
+
+        UserResponse.UpdateFormDTO response = userService.개인정보수정(requestDTO, userId);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
+
     }
 
     // 로그아웃

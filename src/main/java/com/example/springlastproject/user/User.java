@@ -49,4 +49,16 @@ public class User {
         this.createdAt = createdAt;
     }
 
+    public void updateNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void updatePassword(String password) {
+        this.password = password;
+    }
+
+    public void updateEmail(String email) {
+        this.email = email;
+    }
+
 }

@@ -66,4 +66,40 @@ public class UserResponse {
 
     }
 
+    @Getter
+    @Setter
+    @ToString
+    public static class updatePageDTO {
+        private Integer id;
+        private String picUrl = "basic.jpg";
+        private String nickname;
+        private String email;
+
+        public updatePageDTO(User user) {
+            this.id = user.getId();
+            this.picUrl = user.getPicUrl();
+            this.nickname = user.getNickname();
+            this.email = user.getEmail();
+        }
+
+    }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class UpdateFormDTO {
+        private Integer id;
+        private String nickname;
+        private String password;
+        private String email;
+
+        public UpdateFormDTO(User user) {
+            this.id = user.getId();
+            this.nickname = user.getNickname();
+            this.password = user.getPassword();
+            this.email = user.getEmail();
+        }
+
+    }
+
 }

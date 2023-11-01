@@ -45,4 +45,21 @@ public class UserService {
         return new UserResponse.LoginResponseDTO(userPS, jwt);
     }
 
+    public UserResponse.UpdateFormDTO 개인정보수정(UserRequest.UpdateFormDTO requestDTO, Integer userId) {
+        System.out.println("개인정보 수정 서비스 진입");
+
+        User user = userJPARepository.findById(userId).get();
+
+        user.updateEmail(requestDTO.getEmail());
+        user.updateNickname(requestDTO.getNickname());
+        user.updatePassword(requestDTO.getPassword());
+
+        return new UserResponse.UpdateFormDTO(user);
+    }
+
+    public UserResponse.updatePageDTO 회원정보보기(Integer userId) {
+        User user = userJPARepository.findById(userId).get();
+        return new UserResponse.updatePageDTO(user);
+    }
+
 }

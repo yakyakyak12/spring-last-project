@@ -63,4 +63,21 @@ public class UserRequest {
         @NotEmpty
         private String username;
     }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class UpdateFormDTO {
+        @NotEmpty(message = "공백을 허용하지 않습니다.")
+        @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "알파벳과 숫자만 허용됩니다.")
+        @Size(min = 4, max = 12, message = "4에서 12자 사이여야 합니다.")
+        private String password;
+        @NotEmpty(message = "공백을 허용하지 않습니다.")
+        @Size(min = 2, max = 10, message = "2에서 10자 사이여야 합니다.")
+        private String nickname;
+        @NotEmpty(message = "공백을 허용하지 않습니다.")
+        @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "올바른 이메일 주소 형식이어야 합니다.")
+        private String email;
+
+    }
 }

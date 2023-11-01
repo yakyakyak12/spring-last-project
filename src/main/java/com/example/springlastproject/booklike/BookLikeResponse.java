@@ -3,7 +3,6 @@ package com.example.springlastproject.booklike;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.example.springlastproject.board.Board;
