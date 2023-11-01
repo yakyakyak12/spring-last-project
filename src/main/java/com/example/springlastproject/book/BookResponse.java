@@ -81,14 +81,11 @@ public class BookResponse {
     @ToString
     public static class BookCategoryListDTO {
         private Integer bookCount;
-        private List<CategoryDTO> category;
         private Integer bookCategoryId;
         private List<BookListDTO> bookList;
 
         public BookCategoryListDTO(List<BookCategory> bookCategoryList, List<Book> books, Integer bookCategoryId) {
             this.bookCount = books.size();
-            this.category = bookCategoryList.stream().map(bookCategory -> new CategoryDTO(bookCategory))
-                    .collect(Collectors.toList());
             this.bookCategoryId = bookCategoryId;
             this.bookList = books.stream().map(Book -> new BookListDTO(Book)).collect(Collectors.toList());
         }
@@ -112,18 +109,12 @@ public class BookResponse {
         @ToString
         public class BookListDTO {
             private Integer bookId;
-            private Integer ranking;
-            private String publicationDate;
-            private String bookCreatedAt;
             private String bookPicUrl;
             private String bookTitle;
             private String bookWriter;
 
             public BookListDTO(Book book) {
                 this.bookId = book.getId();
-                this.ranking = book.getRanking();
-                this.publicationDate = new SimpleDateFormat("yyyy-MM-dd").format(book.getPublicationDate());
-                this.bookCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(book.getCreatedAt());
                 this.bookPicUrl = book.getPicUrl();
                 this.bookTitle = book.getTitle();
                 this.bookWriter = book.getWriter();

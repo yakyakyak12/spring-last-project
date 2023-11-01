@@ -27,7 +27,7 @@ public class BookRequest {
   @Setter
   @ToString
   public static class MonthListDTO {
-    private Integer bookCategowryId;
+    private Integer bookCategoryId;
     private String alignment;
 
     public MonthListDTO() {
@@ -35,7 +35,7 @@ public class BookRequest {
     }
 
     public MonthListDTO(Integer bookCategowryId, String alignment) {
-      this.bookCategowryId = bookCategowryId;
+      this.bookCategoryId = bookCategowryId;
       this.alignment = alignment;
     }
 
@@ -60,15 +60,15 @@ public class BookRequest {
   @Setter
   @ToString
   public static class BookCategoryDTO {
-    private Integer bookCategowryId;
+    private Integer bookCategoryId;
     private String alignment;
     private Integer minusMonths;
 
     public BookCategoryDTO() {
     }
 
-    public BookCategoryDTO(Integer bookCategowryId, String alignment, Integer minusMonths) {
-      this.bookCategowryId = bookCategowryId;
+    public BookCategoryDTO(Integer bookCategoryId, String alignment, Integer minusMonths) {
+      this.bookCategoryId = bookCategoryId;
       this.alignment = alignment;
       this.minusMonths = minusMonths;
     }
@@ -78,14 +78,14 @@ public class BookRequest {
   @Setter
   @ToString
   public static class rankingListDTO {
-    private Integer bookCategowryId;
+    private Integer bookCategoryId;
     private String alignment;
 
     public rankingListDTO() {
     }
 
-    public rankingListDTO(Integer bookCategowryId, String alignment) {
-      this.bookCategowryId = bookCategowryId;
+    public rankingListDTO(Integer bookCategoryId, String alignment) {
+      this.bookCategoryId = bookCategoryId;
       this.alignment = alignment;
     }
 

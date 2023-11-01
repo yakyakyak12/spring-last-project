@@ -57,12 +57,12 @@ public class BookService {
     public BookResponse.BookCategoryListDTO 지금서점베스트(BookRequest.rankingListDTO rankingListDTO) {
         List<BookCategory> bookCategories = bookCategoryJPARepository.findAll(); // 카테고리 조회
         Sort sort = Sort.by(Sort.Order.asc(rankingListDTO.getAlignment())); // 정렬할꺼 정해주는거
-        if (rankingListDTO.getBookCategowryId() != 0) {
-            List<Book> books = bookJPARepository.findByBookCategory_Id(rankingListDTO.getBookCategowryId(), sort);
-            return new BookResponse.BookCategoryListDTO(bookCategories, books, rankingListDTO.getBookCategowryId());
+        if (rankingListDTO.getBookCategoryId() != 0) {
+            List<Book> books = bookJPARepository.findByBookCategory_Id(rankingListDTO.getBookCategoryId(), sort);
+            return new BookResponse.BookCategoryListDTO(bookCategories, books, rankingListDTO.getBookCategoryId());
         } else {
             List<Book> books = bookJPARepository.findAllByOrderByRankingAsc();
-            return new BookResponse.BookCategoryListDTO(bookCategories, books, rankingListDTO.getBookCategowryId());
+            return new BookResponse.BookCategoryListDTO(bookCategories, books, rankingListDTO.getBookCategoryId());
         }
 
     }
@@ -75,13 +75,13 @@ public class BookService {
         Date today = new Date(System.currentTimeMillis()); // 오늘 날짜
         Sort sort = Sort.by(Sort.Order.asc(bookListDTO.getAlignment())); // 정렬할꺼 정해주는거
 
-        if (bookListDTO.getBookCategowryId() != 0) {
+        if (bookListDTO.getBookCategoryId() != 0) {
             List<Book> books = bookJPARepository.findBooksInLastMonthByBookCategory_IdAndPublicationDateBetween(
-                    bookListDTO.getBookCategowryId(), fromDate, today, sort);
-            return new BookResponse.BookCategoryListDTO(bookCategories, books, bookListDTO.getBookCategowryId());
+                    bookListDTO.getBookCategoryId(), fromDate, today, sort);
+            return new BookResponse.BookCategoryListDTO(bookCategories, books, bookListDTO.getBookCategoryId());
         } else {
             List<Book> books = bookJPARepository.findByPublicationDateBetween(fromDate, today, sort);
-            return new BookResponse.BookCategoryListDTO(bookCategories, books, bookListDTO.getBookCategowryId());
+            return new BookResponse.BookCategoryListDTO(bookCategories, books, bookListDTO.getBookCategoryId());
         }
     }
 
@@ -105,10 +105,10 @@ public class BookService {
         Date today = new Date(System.currentTimeMillis()); // 오늘 날짜
         Sort sort = Sort.by(Sort.Order.asc(bookCategoryDTO.getAlignment())); // 정렬할꺼 정해주는거
         List<Book> books = bookJPARepository.findByBookCategory_IdAndPublicationDateBetween(
-                bookCategoryDTO.getBookCategowryId(),
+                bookCategoryDTO.getBookCategoryId(),
                 fromDate,
                 today, sort);
-        return new BookResponse.BookCategoryDTO(bookCategoryDTO.getBookCategowryId(), books);
+        return new BookResponse.BookCategoryDTO(bookCategoryDTO.getBookCategoryId(), books);
     }
 
 }
