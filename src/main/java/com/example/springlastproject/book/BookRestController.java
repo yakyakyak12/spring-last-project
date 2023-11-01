@@ -29,9 +29,11 @@ public class BookRestController {
     private final BookLikeService bookLikeService;
 
     // 책 상세보기
-    @PostMapping("/book/detail")
-    public ResponseEntity<?> bookDetail(@RequestBody BookRequest.BookDetailDTO book) {
-        BookDetailPageDTO bookResponseDTO = bookService.책상세보기(book);
+    @GetMapping("/book/detail/{id}")
+    public ResponseEntity<?> bookDetail(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        Integer userId = decodedJWT.getClaim("id").asInt();
+        BookDetailPageDTO bookResponseDTO = bookService.책상세보기(id, userId);
         return ResponseEntity.ok(ApiUtils.success(bookResponseDTO));
     }
 

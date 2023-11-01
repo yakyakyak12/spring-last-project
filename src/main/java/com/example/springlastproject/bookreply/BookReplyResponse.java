@@ -18,7 +18,7 @@ public class BookReplyResponse {
         private Integer userId;
         private Integer bookId;
         private String userPicUrl;
-        private String username;
+        private String nickname;
         private String bookReplyContent;
         private String bookReplyCreatedAt;
 
@@ -27,7 +27,7 @@ public class BookReplyResponse {
             this.userId = bookReply.getUser().getId();
             this.bookId = bookReply.getBook().getId();
             this.userPicUrl = user.getPicUrl();
-            this.username = user.getUsername();
+            this.nickname = user.getNickname();
             this.bookReplyContent = bookReply.getContent();
             this.bookReplyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());
         }
@@ -35,4 +35,3 @@ public class BookReplyResponse {
     }
 
 }
-

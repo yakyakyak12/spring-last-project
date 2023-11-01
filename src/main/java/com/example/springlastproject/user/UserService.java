@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.utils.JwtTokenUtils;
+import com.example.springlastproject.board.BoardJPARepository;
+import com.example.springlastproject.booklike.BookLikeJPARepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UserService {
     private final UserJPARepository userJPARepository;
+    private final BookLikeJPARepository bookLikeJPARepository;
+    private final BoardJPARepository boardJPARepository;
 
     public UserResponse.JoinDTO 회원가입(UserRequest.JoinDTO requestDTO) {
 
@@ -60,6 +64,10 @@ public class UserService {
     public UserResponse.updatePageDTO 회원정보보기(Integer userId) {
         User user = userJPARepository.findById(userId).get();
         return new UserResponse.updatePageDTO(user);
+    }
+
+    public void 서재이용현황(Integer userId) {
+
     }
 
 }

@@ -76,6 +76,15 @@ public class UserRestController {
 
     }
 
+    // 회원탈퇴
+    @GetMapping("/deletePage")
+    public ResponseEntity<?> deletePage(@RequestHeader("Authorization") String token) {
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        Integer userId = decodedJWT.getClaim("id").asInt();
+        userService.서재이용현황(userId);
+        return null;
+    }
+
     // 로그아웃
     @GetMapping("/logout")
     public ResponseEntity<?> logout() {

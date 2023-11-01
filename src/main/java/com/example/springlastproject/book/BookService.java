@@ -34,15 +34,15 @@ public class BookService {
     private final BookCategoryJPARepository bookCategoryJPARepository;
 
     // 책 상세보기
-    public BookResponse.BookDetailPageDTO 책상세보기(BookRequest.BookDetailDTO bookDetailDTO) {
-        Book book = bookJPARepository.findById(bookDetailDTO.getBookId())
+    public BookResponse.BookDetailPageDTO 책상세보기(Integer bookId, Integer userId) {
+        Book book = bookJPARepository.findById(bookId)
                 .orElseThrow(() -> new Exception404("해당상품을 찾을수 없습니다."));
         // 유저 아이디가 없으면 -1을 바로 보냄
-        if (bookDetailDTO.getUserId() == null) {
+        if (userId == null) {
             return new BookResponse.BookDetailPageDTO(book, -1);
         }
-        BookLike bookLike = bookLikeJPARepository.findFirstByBookIdAndUserId(bookDetailDTO.getBookId(),
-                bookDetailDTO.getUserId());
+        BookLike bookLike = bookLikeJPARepository.findFirstByBookIdAndUserId(bookId,
+                userId);
         // 로그인 한 유저일시에는 조회 한 후에 북마크 유무 확인해서 있으면 1 없으면 -1
         if (bookLike == null) {
             return new BookResponse.BookDetailPageDTO(book, -1);
