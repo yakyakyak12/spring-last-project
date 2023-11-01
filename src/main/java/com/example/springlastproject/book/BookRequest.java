@@ -13,6 +13,9 @@ public class BookRequest {
     private Integer bookId;
     private Integer userId;
 
+    public BookDetailDTO() {
+    }
+
     public BookDetailDTO(Integer bookId, Integer userId) {
       this.bookId = bookId;
       this.userId = userId;
@@ -26,6 +29,10 @@ public class BookRequest {
   public static class MonthListDTO {
     private Integer bookCategowryId;
     private String alignment;
+
+    public MonthListDTO() {
+
+    }
 
     public MonthListDTO(Integer bookCategowryId, String alignment) {
       this.bookCategowryId = bookCategowryId;
@@ -57,6 +64,9 @@ public class BookRequest {
     private String alignment;
     private Integer minusMonths;
 
+    public BookCategoryDTO() {
+    }
+
     public BookCategoryDTO(Integer bookCategowryId, String alignment, Integer minusMonths) {
       this.bookCategowryId = bookCategowryId;
       this.alignment = alignment;
@@ -70,6 +80,9 @@ public class BookRequest {
   public static class rankingListDTO {
     private Integer bookCategowryId;
     private String alignment;
+
+    public rankingListDTO() {
+    }
 
     public rankingListDTO(Integer bookCategowryId, String alignment) {
       this.bookCategowryId = bookCategowryId;

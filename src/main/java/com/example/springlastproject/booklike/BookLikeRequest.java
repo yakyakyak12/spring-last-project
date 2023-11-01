@@ -18,6 +18,9 @@ public class BookLikeRequest {
         private Integer userId;
         private Integer bookId;
 
+        public checkDTO() {
+        }
+
         public BookLike toEntity() {
             return BookLike.builder()
                     .user(User.builder().id(userId).build())

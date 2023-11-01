@@ -19,6 +19,9 @@ public class BookReplyRequest {
         private Integer bookId;
         private String content;
 
+        public saveDTO() {
+        }
+
         public BookReply toEntity() {
             return BookReply.builder()
                     .user(User.builder().id(userId).build())

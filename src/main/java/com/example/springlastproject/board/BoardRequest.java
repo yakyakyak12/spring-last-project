@@ -18,6 +18,9 @@ public class BoardRequest {
         private Integer userId;
         private Integer bookId;
 
+        public saveDTO() {
+        }
+
         public Board toEntity() {
             return Board.builder()
                     .boardTitle(boardTitle)

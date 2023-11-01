@@ -34,6 +34,9 @@ public class UserRequest {
 
         private String picUrl = "basic.jpg";
 
+        public JoinDTO() {
+        }
+
         public User toEntity() {
             return User.builder()
                     .username(username)
@@ -54,6 +57,8 @@ public class UserRequest {
         @NotEmpty
         private String password;
 
+        public LoginDTO() {
+        }
     }
 
     @Getter
@@ -62,6 +67,10 @@ public class UserRequest {
     public static class CheckDTO {
         @NotEmpty
         private String username;
+
+        public CheckDTO() {
+        }
+
     }
 
     @Getter
@@ -78,6 +87,9 @@ public class UserRequest {
         @NotEmpty(message = "공백을 허용하지 않습니다.")
         @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "올바른 이메일 주소 형식이어야 합니다.")
         private String email;
+
+        public UpdateFormDTO() {
+        }
 
     }
 }
