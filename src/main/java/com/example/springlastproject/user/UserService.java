@@ -1,12 +1,16 @@
 package com.example.springlastproject.user;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.utils.JwtTokenUtils;
+import com.example.springlastproject.board.Board;
 import com.example.springlastproject.board.BoardJPARepository;
+import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.booklike.BookLikeJPARepository;
 
 import lombok.RequiredArgsConstructor;
@@ -66,8 +70,17 @@ public class UserService {
         return new UserResponse.updatePageDTO(user);
     }
 
-    public void 서재이용현황(Integer userId) {
+    public UserResponse.BookStatusDTO 서재이용현황(Integer userId) {
+        List<BookLike> bookLikeList = bookLikeJPARepository.findByUserId(userId);
+        List<Board> boardList = boardJPARepository.findByUserId(userId);
+        return new UserResponse.BookStatusDTO(bookLikeList, boardList);
+    }
 
+    public void 회원탈퇴(Integer userId) {
+        User user = userJPARepository.findById(userId).get();
+        user.updateUsername(null);
+        user.updatePassword(null);
+        user.updateEmail(null);
     }
 
 }

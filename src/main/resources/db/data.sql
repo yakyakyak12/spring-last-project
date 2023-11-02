@@ -403,6 +403,9 @@ INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VAL
 INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('4', '상당히 흥미롭네요',now(), 2, 5);
 INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('5', '요즘에 동기부여가 필요했는대 도움이 되었습니다.',now(), 3, 3);
 INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('6', 'AI를 호율적으로 사용하는 사람.. 호모프롬프트..',now(), 3, 6);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('7', '벤자민 하디 책은 진짜 믿고 본다..',now(), 1, 1);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('8', '내 인생책!!',now(), 3, 1);
+INSERT INTO boardreply_tb (`id`,`content`,`created_at`,`user_id`,`board_id`) VALUES ('9', '반응이 너무 좋아서 저도 한번 사봐야겠네요!!',now(), 4, 1);
 
 /*
 책 좋아요 테이블

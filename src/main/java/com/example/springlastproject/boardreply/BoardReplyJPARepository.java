@@ -11,4 +11,6 @@ public interface BoardReplyJPARepository extends JpaRepository<BoardReply, Integ
 
     @Query("SELECT br, brd FROM BookReply br JOIN BoardReply brd ON br.user.id = brd.user.id WHERE br.user.id = :userId")
     List<Object[]> findRepliesWithSameUserId(Integer userId);
+
+    List<BoardReply> findByBoardId(Integer id);
 }

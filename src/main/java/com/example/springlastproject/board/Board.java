@@ -49,23 +49,23 @@ public class Board {
 
     @JsonIgnore
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
-    private List<BoardLike> bookLikeList = new ArrayList<>(); // 게시글 좋아요
+    private List<BoardLike> boardLikeList = new ArrayList<>(); // 게시글 좋아요
 
     @JsonIgnore
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
-    private List<BoardReply> bookReplyList = new ArrayList<>(); // 게시글 댓글
+    private List<BoardReply> boardReplyList = new ArrayList<>(); // 게시글 댓글
 
     @Builder
     public Board(Integer id, String boardTitle, String content, Timestamp createdAt, User user,
-            Book book, List<BoardLike> bookLikeList, List<BoardReply> bookReplyList) {
+            Book book, List<BoardLike> boardLikeList, List<BoardReply> boardReplyList) {
         this.id = id;
         this.boardTitle = boardTitle;
         this.content = content;
         this.createdAt = createdAt;
         this.user = user;
         this.book = book;
-        this.bookLikeList = bookLikeList;
-        this.bookReplyList = bookReplyList;
+        this.boardLikeList = boardLikeList;
+        this.boardReplyList = boardReplyList;
     }
 
 }

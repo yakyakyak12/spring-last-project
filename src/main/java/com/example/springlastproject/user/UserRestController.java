@@ -55,7 +55,7 @@ public class UserRestController {
     }
 
     // 개인정보수정 페이지
-    @GetMapping("/update/page")
+    @GetMapping("/user/updatePage")
     public ResponseEntity<?> updatePage(@RequestHeader("Authorization") String token) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
@@ -64,25 +64,38 @@ public class UserRestController {
     }
 
     // 개인정보수정
-    @PostMapping("/update/form")
-    public ResponseEntity<?> updateForm(@RequestHeader("Authorization") String token,
+    @PostMapping("/user/{id}/update")
+    public ResponseEntity<?> updateForm(@PathVariable Integer id, @RequestHeader("Authorization") String token,
             @RequestBody @Valid UserRequest.UpdateFormDTO requestDTO, Errors errors) {
-
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
-
-        UserResponse.UpdateFormDTO response = userService.개인정보수정(requestDTO, userId);
+        if (userId != id) {
+            throw new Exception400("권한이 없습니다");
+        }
+        UserResponse.UpdateFormDTO response = userService.개인정보수정(requestDTO, id);
         return ResponseEntity.ok().body(ApiUtils.success(response));
 
     }
 
-    // 회원탈퇴
-    @GetMapping("/deletePage")
+    // 회원탈퇴 페이지
+    @GetMapping("/user/deletePage")
     public ResponseEntity<?> deletePage(@RequestHeader("Authorization") String token) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
-        userService.서재이용현황(userId);
-        return null;
+        UserResponse.BookStatusDTO response = userService.서재이용현황(userId);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
+    }
+
+    // 회원탈퇴 기능
+    @PostMapping("/user/{id}/delete")
+    public ResponseEntity<?> deleteForm(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        Integer userId = decodedJWT.getClaim("id").asInt();
+        if (userId != id) {
+            throw new Exception400("권한이 없습니다");
+        }
+        userService.회원탈퇴(id);
+        return ResponseEntity.ok().body(ApiUtils.success("회원탈퇴 완료"));
     }
 
     // 로그아웃
@@ -90,6 +103,6 @@ public class UserRestController {
     public ResponseEntity<?> logout() {
         System.out.println("logout 실행됨");
         session.invalidate();
-        return ResponseEntity.ok().body(ApiUtils.success("로그아웃 성공"));
+        return ResponseEntity.ok().body(ApiUtils.success("로그아웃 완료"));
     }
 }

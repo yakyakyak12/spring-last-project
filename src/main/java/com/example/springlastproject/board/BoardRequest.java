@@ -15,8 +15,8 @@ public class BoardRequest {
     public static class saveDTO {
         private String boardTitle;
         private String content;
-        private Integer userId;
         private Integer bookId;
+        private Integer userId;
 
         public saveDTO() {
         }
@@ -31,4 +31,5 @@ public class BoardRequest {
         }
 
     }
+
 }

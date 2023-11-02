@@ -3,6 +3,10 @@ package com.example.springlastproject.user;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.List;
+
+import com.example.springlastproject.board.Board;
+import com.example.springlastproject.booklike.BookLike;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -98,6 +102,20 @@ public class UserResponse {
             this.nickname = user.getNickname();
             this.password = user.getPassword();
             this.email = user.getEmail();
+        }
+
+    }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class BookStatusDTO {
+        private Integer MyBookLikeConut;
+        private Integer MyboardConut;
+
+        public BookStatusDTO(List<BookLike> bookLikes, List<Board> boards) {
+            MyBookLikeConut = bookLikes.size();
+            MyboardConut = boards.size();
         }
 
     }
