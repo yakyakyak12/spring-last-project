@@ -20,6 +20,7 @@ public class FilterConfig {
         bean.addUrlPatterns("/bookLike/*");
         bean.addUrlPatterns("/update/*");
         bean.addUrlPatterns("/user/*");
+        bean.addUrlPatterns("/readingbook/*");
         bean.setOrder(0); // 낮은 번호부터 실행됨
         return bean;
     }
