@@ -2,10 +2,8 @@ package com.example.springlastproject.bookreply;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import com.example.springlastproject.book.Book;
 import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.user.User;
 
@@ -67,6 +65,39 @@ public class BookReplyResponse {
 
         }
 
+    }
+
+    // 북 댓글 페이지
+    @Getter
+    @Setter
+    public static class BookReplyDTO {
+        private Integer bookReplyConut;
+        private List<ReplyDTO> replyDTOs;
+
+        public BookReplyDTO(List<BookReply> replyDTOs) {
+            this.bookReplyConut = replyDTOs.size();
+            this.replyDTOs = replyDTOs.stream().map(bookreply -> new ReplyDTO(bookreply)).collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        public class ReplyDTO {
+            private Integer id;
+            private String userPicUrl;
+            private String nickname;
+            private String replyCreatedAt;
+            private String replyContent;
+
+            public ReplyDTO(BookReply bookReply) {
+                this.id = bookReply.getId();
+                this.userPicUrl = bookReply.getUser().getPicUrl();
+                this.nickname = bookReply.getUser().getNickname();
+                this.replyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(bookReply.getCreatedAt());
+                ;
+                this.replyContent = bookReply.getContent();
+            }
+
+        }
     }
 
 }

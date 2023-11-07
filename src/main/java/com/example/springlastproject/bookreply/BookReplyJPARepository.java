@@ -8,4 +8,8 @@ public interface BookReplyJPARepository extends JpaRepository<BookReply, Integer
 
     List<BookReply> findByUserId(Integer userId);
 
+    List<BookReply> findByBookId(Integer bookId);
+
+    List<BookReply> findByBookIdOrderByCreatedAtDesc(Integer bookId);
+
 }

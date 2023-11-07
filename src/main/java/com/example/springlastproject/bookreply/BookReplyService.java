@@ -10,6 +10,7 @@ import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.errors.exception.Exception403;
 import com.example.springlastproject.book.Book;
 import com.example.springlastproject.book.BookJPARepository;
+import com.example.springlastproject.book.BookResponse;
 import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.booklike.BookLikeJPARepository;
 import com.example.springlastproject.bookreply.BookReplyResponse.saveDTO;
@@ -25,6 +26,11 @@ public class BookReplyService {
     private final BookReplyJPARepository bookReplyJPARepository;
     private final BookLikeJPARepository bookLikeJPARepository;
     private final UserJPARepository userJPARepository;
+
+    public BookReplyResponse.BookReplyDTO 책댓글보기(Integer bookId) {
+        List<BookReply> bookreplys = bookReplyJPARepository.findByBookIdOrderByCreatedAtDesc(bookId);
+        return new BookReplyResponse.BookReplyDTO(bookreplys);
+    }
 
     public BookReplyResponse.bookReplyPage 한줄리뷰페이지(Integer userId) {
         List<BookLike> bookList = bookLikeJPARepository.findByUserId(userId);

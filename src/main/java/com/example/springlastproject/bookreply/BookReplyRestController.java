@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.springlastproject._core.utils.ApiUtils;
 import com.example.springlastproject._core.utils.JwtTokenUtils;
+import com.example.springlastproject.readingbook.ReadingBookResponse.readingbookDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,6 +28,13 @@ public class BookReplyRestController {
 
     private final BookReplyService bookReplyService;
     private final HttpSession session;
+
+    // 책 댓글 페이지
+    @GetMapping("/bookReply/{id}/book")
+    public ResponseEntity<?> bookReplys(@PathVariable Integer id) {
+        BookReplyResponse.BookReplyDTO response = bookReplyService.책댓글보기(id);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
+    }
 
     // 한줄 리뷰 페이지
     @GetMapping("/bookReply/page")

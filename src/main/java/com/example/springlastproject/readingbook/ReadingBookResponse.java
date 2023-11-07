@@ -1,6 +1,7 @@
 package com.example.springlastproject.readingbook;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -35,6 +36,35 @@ public class ReadingBookResponse {
             this.userId = readingBook.getUser().getId();
             this.bookId = readingBook.getBook().getId();
             this.scroll = readingBook.getScroll();
+
+        }
+
+    }
+
+    @Getter
+    @Setter
+    public static class MyBookDTO {
+        private List<MyreadingbookDTO> myreadingbookDTOs;
+
+        public MyBookDTO(List<ReadingBook> readingBooks) {
+            this.myreadingbookDTOs = readingBooks.stream().map(readingBook -> new MyreadingbookDTO(readingBook))
+                    .collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        public class MyreadingbookDTO {
+            private Integer id;
+            private String bookPicUrl;
+            private String bookTitle;
+            private String bookWriter;
+
+            public MyreadingbookDTO(ReadingBook readingBook) {
+                this.id = readingBook.getId();
+                this.bookPicUrl = readingBook.getBook().getPicUrl();
+                this.bookTitle = readingBook.getBook().getTitle();
+                this.bookWriter = readingBook.getBook().getWriter();
+            }
 
         }
 

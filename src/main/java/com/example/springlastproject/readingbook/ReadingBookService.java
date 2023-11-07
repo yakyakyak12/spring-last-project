@@ -65,4 +65,9 @@ public class ReadingBookService {
         }
     }
 
+    public ReadingBookResponse.MyBookDTO 내가읽고있는책목록(Integer id) {
+        List<ReadingBook> readingBooks = readingBookJPARepository.findByUserId(id);
+        return new ReadingBookResponse.MyBookDTO(readingBooks);
+    }
+
 }

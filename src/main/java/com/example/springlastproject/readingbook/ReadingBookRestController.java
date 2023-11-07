@@ -22,6 +22,16 @@ public class ReadingBookRestController {
 
     private final ReadingBookService readingBookService;
 
+    // 유저가 읽고 있는 책 목록
+    @GetMapping("/readingbook/user")
+    public ResponseEntity<?> MyReadingbook(@RequestHeader("Authorization") String token) {
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        Integer userId = decodedJWT.getClaim("id").asInt();
+        ReadingBookResponse.MyBookDTO response = readingBookService.내가읽고있는책목록(userId);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
+    }
+
+    // 바로 읽기
     @GetMapping("/readingbook/{id}")
     public ResponseEntity<?> readingbook(@PathVariable Integer id,
             @RequestHeader("Authorization") String token) {
