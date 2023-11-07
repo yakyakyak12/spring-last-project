@@ -22,7 +22,7 @@ import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.bookdata.BookData;
 import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.bookreply.BookReply;
-
+import com.example.springlastproject.storycategory.StoryCategory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Builder;
@@ -72,6 +72,9 @@ public class Book {
     @ManyToOne
     private BookCategory bookCategory; // 책 카테고리
 
+    @ManyToOne
+    private StoryCategory storyCategory; // 스토리 카테고리
+
     @JsonIgnore
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
     private List<BookLike> bookLikeList = new ArrayList<>(); // 북 좋아요
@@ -86,7 +89,8 @@ public class Book {
     @Builder
     public Book(Integer id, String picUrl, String title, String writer, String totalPage, Date publicationDate,
             Timestamp createdAt, String subTitle, String introduction, String sequence, String writerIntroductoin,
-            String review, Integer ranking, BookCategory bookCategory, List<BookLike> bookLikeList,
+            String review, Integer ranking, BookCategory bookCategory, StoryCategory storyCategory,
+            List<BookLike> bookLikeList,
             BookData bookData, List<BookReply> bookReplyList) {
         this.id = id;
         this.picUrl = picUrl;
@@ -102,6 +106,7 @@ public class Book {
         this.review = review;
         this.ranking = ranking;
         this.bookCategory = bookCategory;
+        this.storyCategory = storyCategory;
         this.bookLikeList = bookLikeList;
         this.bookData = bookData;
         this.bookReplyList = bookReplyList;
