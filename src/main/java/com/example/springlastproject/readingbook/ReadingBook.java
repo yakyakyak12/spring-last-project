@@ -28,7 +28,7 @@ public class ReadingBook {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String scroll; // 스크롤 위치
+    private Integer scroll; // 스크롤 위치
 
     @CreationTimestamp // now
     private Timestamp createdAt; // 작성일
@@ -40,7 +40,7 @@ public class ReadingBook {
     private Book book;
 
     @Builder
-    public ReadingBook(Integer id, String scroll, Timestamp createdAt, User user, Book book) {
+    public ReadingBook(Integer id, Integer scroll, Timestamp createdAt, User user, Book book) {
         this.id = id;
         this.scroll = scroll;
         this.createdAt = createdAt;

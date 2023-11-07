@@ -13,6 +13,7 @@ public class ReadingBookRequest {
     public static class saveDTO {
         private Integer userId;
         private Integer bookId;
+        private Integer scroll;
 
         public saveDTO() {
         }
@@ -21,6 +22,7 @@ public class ReadingBookRequest {
             return ReadingBook.builder()
                     .user(User.builder().id(userId).build())
                     .book(Book.builder().id(bookId).build())
+                    .scroll(scroll)
                     .build();
         }
 

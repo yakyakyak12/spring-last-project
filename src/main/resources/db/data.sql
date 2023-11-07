@@ -237,7 +237,7 @@ VALUES ('1', 'book1.png', '트렌드코리아 2024', '김난도', '410', '2023-1
 블랙홀처럼 빨아들이는 AI가 던진 거대한 질문이 우리 앞에 놓여있다.
 “인간만이 가진 역량은 무엇인가?” 명료한 답변을 이끌어낼 수 있는 질문이 가능한 인간,
 호모 프롬프트에게서 그 해답을 찾아야 할 것이다.',
-1, 1, 1
+1, 1, 2
 );
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`,`total_page`, `publication_date`, `created_at`, `sub_title`, `introduction`, `sequence`,`writer_introductoin`, `review`, `ranking`, `book_category_id`, `book_data_id`) 
 VALUES ('2', 'book2.png', '퓨처셀프', '벤저민 하디', '100', '2023-10-05', now(), '현재와 미래가 달라지는 놀라운 혁명', '‘미래의 나’를 적용하는 과학 분야 세계 최고의 전문가,
@@ -448,18 +448,18 @@ INSERT INTO boardlike_tb (`id`,`created_at`,`user_id`,`board_id`) VALUES ('1',no
 /*
 읽고 있는 책 테이블
 */
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('1', '15000',now(), 1, 1);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('2', '123',now(), 2, 1);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('3', '1234',now(), 3, 1);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('4', '1111',now(), 4, 1);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('5', '2222',now(), 5, 1);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('6', '3333',now(), 1, 4);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('7', '4444',now(), 1, 7);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('8', '5555',now(), 1, 8);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('9', '6666',now(), 1, 10);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('10', '7777',now(), 2, 10);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('11', '8888',now(), 2, 11);
-INSERT INTO readingbook_tb (`id`,`scroll`,`created_at`,`user_id`, `book_id`) VALUES ('12', '9999',now(), 2, 15);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('1', now(), 1, 1);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('2', now(), 2, 1);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('3', now(), 3, 1);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('4', now(), 4, 1);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('5', now(), 5, 1);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('6', now(), 1, 4);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('7', now(), 1, 7);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('8', now(), 1, 8);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('9', now(), 1, 10);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('10', now(), 2, 10);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('11', now(), 2, 11);
+INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('12', now(), 2, 15);
 
 
 /*

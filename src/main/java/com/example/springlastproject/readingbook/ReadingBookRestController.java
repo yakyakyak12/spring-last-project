@@ -2,6 +2,7 @@ package com.example.springlastproject.readingbook;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,16 @@ public class ReadingBookRestController {
 
     private final ReadingBookService readingBookService;
 
+    @GetMapping("/readingbook/{id}")
+    public ResponseEntity<?> readingbook(@PathVariable Integer id,
+            @RequestHeader("Authorization") String token) {
+        DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        Integer userId = decodedJWT.getClaim("id").asInt();
+        System.out.println("id 값은 잘오나? : " + id);
+        ReadingBookResponse.readingbookDTO response = readingBookService.읽고있는책조회(id, userId);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
+    }
+
     // 읽고 있는 책 등록
     @PostMapping("/readingbook/save")
     public ResponseEntity<?> save(@RequestBody ReadingBookRequest.saveDTO saveDTO) {
@@ -30,7 +41,8 @@ public class ReadingBookRestController {
 
     // 읽고 있는 책 삭제
     @DeleteMapping("/readingbook/{id}/delete")
-    public @ResponseBody ResponseEntity delete(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+    public ResponseEntity<?> delete(@PathVariable Integer id,
+            @RequestHeader("Authorization") String token) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
         readingBookService.읽고있는책삭제(id, userId);

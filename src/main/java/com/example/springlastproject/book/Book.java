@@ -79,7 +79,7 @@ public class Book {
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
     private List<BookLike> bookLikeList = new ArrayList<>(); // 북 좋아요
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private BookData bookData; // 북 내용
 
     @JsonIgnore

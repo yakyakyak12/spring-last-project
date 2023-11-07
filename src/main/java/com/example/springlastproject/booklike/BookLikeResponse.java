@@ -78,7 +78,7 @@ public class BookLikeResponse {
             private String bookReadingPicUrl;
             private String bookReadingTitle;
             private String readingWriter;
-            private String scroll;
+            private Integer scroll;
 
             public ReadingBookDTO(ReadingBook readingBook) {
                 this.readingBookId = readingBook.getId();
