@@ -48,4 +48,8 @@ public class ReadingBook {
         this.book = book;
     }
 
+    public void updateScroll(Integer scroll) {
+        this.scroll = scroll;
+    }
+
 }

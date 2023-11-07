@@ -28,7 +28,7 @@ public class ReadingBookRestController {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
         System.out.println("id 값은 잘오나? : " + id);
-        ReadingBookResponse.readingbookDTO response = readingBookService.읽고있는책조회(id, userId);
+        ReadingBookResponse.readingbookDTO response = readingBookService.바로읽기(id, userId);
         return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 
