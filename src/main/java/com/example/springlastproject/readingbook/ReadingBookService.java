@@ -32,7 +32,6 @@ public class ReadingBookService {
         BookData bookData = bookDataJPARepository.findById(book.getBookData().getId()).get(); // 조회된 책 내용 조회
 
         String data = bookData.getData(); // String 타입으로 만들기 위해 꺼냄
-        // List<String> splitTextIntoPages = bookDataService.splitTextIntoPages(data);
         List<String> splitTextIntoPages = TextIntoPages.splitTextIntoPages(data);
 
         if (readingBook.isEmpty() || readingBook.get().getScroll() == null) {

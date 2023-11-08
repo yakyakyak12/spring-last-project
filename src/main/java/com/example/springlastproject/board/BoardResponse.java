@@ -85,4 +85,50 @@ public class BoardResponse {
 
     }
 
+    @Getter
+    @Setter
+    @ToString
+    public static class updatePageDTO {
+        private Integer id;
+        private String title;
+        private String content;
+        private Integer bookId;
+        private String bookPicUrl;
+        private String bookTitle;
+        private String bookWriter;
+
+        public updatePageDTO(Board board) {
+            this.id = board.getId();
+            this.title = board.getBoardTitle();
+            this.content = board.getContent();
+            this.bookId = board.getBook().getId();
+            this.bookPicUrl = board.getBook().getPicUrl();
+            this.bookTitle = board.getBook().getTitle();
+            this.bookWriter = board.getBook().getWriter();
+        }
+
+    }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class updateDTO {
+        private Integer boardId;
+        private String boardTitle;
+        private String content;
+        private Integer bookId;
+        private Integer userId;
+
+        public updateDTO() {
+        }
+
+        public updateDTO(Board board) {
+            this.boardId = board.getId();
+            this.boardTitle = board.getBoardTitle();
+            this.content = board.getContent();
+            this.bookId = board.getBook().getId();
+            this.userId = board.getUser().getId();
+        }
+    }
+
 }

@@ -30,7 +30,7 @@ public class BookReplyRestController {
     private final HttpSession session;
 
     // 책 댓글 페이지
-    @GetMapping("/bookReply/{id}/book")
+    @GetMapping("/book/{id}/bookReply")
     public ResponseEntity<?> bookReplys(@PathVariable Integer id) {
         BookReplyResponse.BookReplyDTO response = bookReplyService.책댓글보기(id);
         return ResponseEntity.ok().body(ApiUtils.success(response));

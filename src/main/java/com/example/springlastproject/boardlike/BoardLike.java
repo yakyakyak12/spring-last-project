@@ -13,7 +13,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.example.springlastproject.board.Board;
-import com.example.springlastproject.book.Book;
 import com.example.springlastproject.user.User;
 
 import lombok.Builder;

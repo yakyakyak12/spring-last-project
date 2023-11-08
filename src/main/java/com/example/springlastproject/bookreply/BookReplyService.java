@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.errors.exception.Exception403;
-import com.example.springlastproject.book.Book;
-import com.example.springlastproject.book.BookJPARepository;
-import com.example.springlastproject.book.BookResponse;
 import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.booklike.BookLikeJPARepository;
 import com.example.springlastproject.bookreply.BookReplyResponse.saveDTO;

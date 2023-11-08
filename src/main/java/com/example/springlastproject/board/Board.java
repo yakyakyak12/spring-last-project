@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -48,11 +49,11 @@ public class Board {
     private Book book;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BoardLike> boardLikeList = new ArrayList<>(); // 게시글 좋아요
 
     @JsonIgnore
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BoardReply> boardReplyList = new ArrayList<>(); // 게시글 댓글
 
     @Builder
@@ -66,6 +67,18 @@ public class Board {
         this.book = book;
         this.boardLikeList = boardLikeList;
         this.boardReplyList = boardReplyList;
+    }
+
+    public void updateBoardTitle(String boardTitle) {
+        this.boardTitle = boardTitle;
+    }
+
+    public void updateContent(String content) {
+        this.content = content;
+    }
+
+    public void updateCreatedAt(Timestamp content) {
+        this.createdAt = content;
     }
 
 }
