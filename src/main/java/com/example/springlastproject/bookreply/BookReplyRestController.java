@@ -53,7 +53,8 @@ public class BookReplyRestController {
 
     // 책 댓글 삭제
     @DeleteMapping("/bookReply/{id}/delete")
-    public @ResponseBody ResponseEntity delete(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+    public @ResponseBody ResponseEntity<?> delete(@PathVariable Integer id,
+            @RequestHeader("Authorization") String token) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
         bookReplyService.댓글삭제(id, userId);

@@ -9,13 +9,9 @@ public class PaymentRequest {
     public static class PaymentDTO {
         private Integer userId;
         private String pay;
+        private Integer amount;
 
         public PaymentDTO() {
-        }
-
-        public PaymentDTO(Integer userId, String pay) {
-            this.userId = userId;
-            this.pay = pay;
         }
 
     }

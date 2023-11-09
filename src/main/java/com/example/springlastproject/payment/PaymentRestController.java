@@ -15,14 +15,11 @@ import lombok.RequiredArgsConstructor;
 public class PaymentRestController {
 
     private final PaymentService paymentService;
-    private final UserService userService;
 
     @PostMapping("/payment/result")
     public ResponseEntity<?> home(@RequestBody PaymentRequest.PaymentDTO paymentDTO) {
-        System.out.println("페이먼트 진입1111");
-        userService.결재상태변경(paymentDTO.getUserId());
-        System.out.println("페이먼트 진입2222");
-        return ResponseEntity.ok().body(ApiUtils.success("성공"));
+        PaymentResponse.PaymentDTO response = paymentService.결재내역등록하기(paymentDTO);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 
 }
