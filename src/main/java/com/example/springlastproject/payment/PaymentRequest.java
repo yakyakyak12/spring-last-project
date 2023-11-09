@@ -10,6 +10,7 @@ public class PaymentRequest {
         private Integer userId;
         private String pay;
         private Integer amount;
+        private Integer months;
 
         public PaymentDTO() {
         }

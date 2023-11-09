@@ -29,7 +29,7 @@ public class PaymentService {
     public PaymentResponse.PaymentDTO 결재내역등록하기(PaymentRequest.PaymentDTO paymentDTO) {
         Date startDate = new Timestamp(new Date().getTime());
         System.out.println("startDate : " + startDate);
-        Date deadlineDate = DateUtils.convertToSqlDate(LocalDate.now().plus(1, ChronoUnit.MONTHS));
+        Date deadlineDate = DateUtils.convertToSqlDate(LocalDate.now().plus(paymentDTO.getMonths(), ChronoUnit.MONTHS));
         System.out.println("deadlineDate : " + deadlineDate);
 
         Payment payment = Payment.builder()
@@ -45,6 +45,11 @@ public class PaymentService {
         ;
         payment = paymentRepository.save(payment);
         return new PaymentResponse.PaymentDTO(user, payment);
+    }
+
+    public PaymentResponse.MySettingMainPage 내정보메인페이지(Integer userId) {
+        Payment payment = paymentRepository.findByUserId(userId);
+        return new PaymentResponse.MySettingMainPage(payment);
     }
 
 }

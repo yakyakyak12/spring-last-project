@@ -28,8 +28,8 @@ public class BoardRestController {
     // 피드 페이지
     @GetMapping("/boardList")
     public ResponseEntity<?> feedPage() {
-        // BoardResponse.BoardListDTO response = boardService.게시글전체조회하기();
-        return null;
+        BoardResponse.BoardListDTO response = boardService.게시글전체조회하기();
+        return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 
     // 게시글 상세보기 페이지

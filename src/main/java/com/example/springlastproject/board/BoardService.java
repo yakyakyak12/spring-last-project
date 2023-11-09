@@ -12,9 +12,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.errors.exception.Exception403;
-import com.example.springlastproject.board.BoardResponse.BoardListDTO;
-import com.example.springlastproject.boardlike.BoardLikeJPARepository;
-import com.example.springlastproject.boardreply.BoardReplyJPARepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,8 +21,6 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 
     private final BoardJPARepository boardJPARepository;
-    private final BoardReplyJPARepository boardReplyJPARepository;
-    private final BoardLikeJPARepository boardLikeJPARepository;
     private final EntityManager em;
 
     // 게시글 상세보기
@@ -74,9 +69,9 @@ public class BoardService {
         }
     }
 
-    // public BoardListDTO 게시글전체조회하기() {
-    // List<Board> boards = boardJPARepository.findAll();
-    // return new BoardListDTO(boards);
-    // }
+    public BoardResponse.BoardListDTO 게시글전체조회하기() {
+        List<Board> boards = boardJPARepository.findAll();
+        return new BoardResponse.BoardListDTO(boards);
+    }
 
 }

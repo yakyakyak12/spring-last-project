@@ -31,4 +31,22 @@ public class PaymentResponse {
         }
 
     }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class MySettingMainPage {
+        private Integer id;
+        private String startDate;
+        private String deadlineDate;
+        private Integer months;
+
+        public MySettingMainPage(Payment payment) {
+            this.id = payment.getId();
+            this.startDate = new SimpleDateFormat("yyyy-MM-dd").format(payment.getStartDate());
+            this.deadlineDate = new SimpleDateFormat("yyyy-MM-dd").format(payment.getDeadlineDate());
+            this.months = payment.getMonths();
+        }
+
+    }
 }

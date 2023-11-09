@@ -1,11 +1,11 @@
 /*
 유저 테이블
 */
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com', now(), '유재석', 'user1.png', false);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('2', 'ssar1', '1234', 'ssar1@nate.com', now(), '박명수', 'user2.png',false);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('3', 'ssar2', '1234', 'ssar2@nate.com', now(), '하동훈', 'user3.png',false);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('4', 'cos', '1234', 'cos@nate.com', now(), '정준하', 'user4.png',false);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('5', 'cos1', '1234', 'cos1@nate.com', now(), '정형돈', 'user5.png',false);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com', now(), '유재석', 'user1.png', true);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('2', 'ssar1', '1234', 'ssar1@nate.com', now(), '박명수', 'user2.png',true);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('3', 'ssar2', '1234', 'ssar2@nate.com', now(), '하동훈', 'user3.png',true);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('4', 'cos', '1234', 'cos@nate.com', now(), '정준하', 'user4.png',true);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('5', 'cos1', '1234', 'cos1@nate.com', now(), '정형돈', 'user5.png',true);
 
 /*
 데이터 테이블
@@ -2204,4 +2204,9 @@ VALUES ('1', '가을 타는 중이라면, 이책 어때요?',
 바로 사과나 포도 같은 제철 과일을 옆에 두고',
 '2023-10-06', 'book9.png', 2);
 
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('1', '월결제', 19900, '2023-10-15', '2023-11-15', 1, 1);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('2', '월결제', 19900, '2023-10-20', '2023-11-20', 1, 2);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('3', '월결제', 19900, '2023-10-25', '2023-11-25', 1, 3);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('4', '월결제', 19900, '2023-10-14', '2023-11-14', 1, 4);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('5', '월결제', 19900, '2023-10-13', '2023-11-13', 1, 5);
 

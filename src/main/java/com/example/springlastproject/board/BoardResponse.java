@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.example.springlastproject.boardlike.BoardLike;
 import com.example.springlastproject.boardreply.BoardReply;
 
 import lombok.Getter;
@@ -134,7 +133,7 @@ public class BoardResponse {
     @Getter
     @Setter
     @ToString
-    public class BoardListDTO {
+    public static class BoardListDTO {
         private List<BoardDTO> boardList;
 
         public BoardListDTO(List<Board> boards) {
@@ -152,6 +151,7 @@ public class BoardResponse {
             private String userPicUrl;
             private String userNickname;
             private String boardCreatedAt;
+            private Integer bookId;
 
             public BoardDTO(Board board) {
                 this.id = board.getId();
@@ -160,6 +160,7 @@ public class BoardResponse {
                 this.userPicUrl = board.getUser().getPicUrl();
                 this.userNickname = board.getUser().getNickname();
                 this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt());
+                this.bookId = (board.getBook() != null) ? board.getBook().getId() : null;
             }
 
         }

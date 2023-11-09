@@ -33,6 +33,8 @@ public class Payment {
 
     private Date deadlineDate; // 결재 마감일
 
+    private Integer months; // 결재 개월수
+
     @ManyToOne
     private User user;
 
