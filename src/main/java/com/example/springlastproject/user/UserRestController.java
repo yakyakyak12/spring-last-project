@@ -3,6 +3,7 @@ package com.example.springlastproject.user;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -87,14 +88,14 @@ public class UserRestController {
     }
 
     // 회원탈퇴 기능
-    @PostMapping("/user/{id}/delete")
-    public ResponseEntity<?> deleteForm(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+    @GetMapping("/user/delete")
+    public ResponseEntity<?> deleteForm(@RequestHeader("Authorization") String token) {
+        System.out.println("컨트롤러");
+        System.out.println(token);
+        System.out.println("탈퇴");
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
-        if (userId != id) {
-            throw new Exception400("권한이 없습니다");
-        }
-        userService.회원탈퇴(id);
+        userService.회원탈퇴(userId);
         return ResponseEntity.ok().body(ApiUtils.success("회원탈퇴 완료"));
     }
 
