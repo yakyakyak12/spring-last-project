@@ -177,12 +177,14 @@ public class BookResponse {
         @ToString
         public class BoardKeywordDTO {
             private Integer boardId;
+            private String boardTitle;
             private String bookPicUrl;
             private String content;
             private String nickname;
 
             public BoardKeywordDTO(Board board) {
                 this.boardId = board.getId();
+                this.boardTitle = board.getBoardTitle();
                 this.bookPicUrl = board.getBook().getPicUrl();
                 this.content = board.getContent();
                 this.nickname = board.getUser().getNickname();

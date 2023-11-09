@@ -25,6 +25,13 @@ public class BoardRestController {
 
     private final BoardService boardService;
 
+    // 피드 페이지
+    @GetMapping("/boardList")
+    public ResponseEntity<?> feedPage() {
+        // BoardResponse.BoardListDTO response = boardService.게시글전체조회하기();
+        return null;
+    }
+
     // 게시글 상세보기 페이지
     @GetMapping("/boardDetail/{id}")
     public ResponseEntity<?> boardDetail(@PathVariable Integer id) {
@@ -37,7 +44,6 @@ public class BoardRestController {
     public ResponseEntity<?> save(@RequestBody @Valid BoardRequest.saveDTO saveDTO, Errors errors) {
         System.out.println("DTO안에 보드 값은? : " + saveDTO.getBookId());
         BoardResponse.saveDTO response = boardService.게시글등록(saveDTO);
-        // System.out.println("서비스 나옴 : " + response.getBookId());
         return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 
@@ -52,8 +58,8 @@ public class BoardRestController {
 
     // 게시글 수정 요청
     @PostMapping("/board/{id}/update")
-    public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody BoardRequest.updateDTO update) {
-        BoardResponse.updateDTO response = boardService.게시글수정하기(id, update);
+    public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody BoardRequest.updateDTO updateDTO) {
+        BoardResponse.updateDTO response = boardService.게시글수정하기(id, updateDTO);
         return ResponseEntity.ok().body(ApiUtils.success(response));
 
     }

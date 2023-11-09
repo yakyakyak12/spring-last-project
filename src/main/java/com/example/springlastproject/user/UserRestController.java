@@ -93,6 +93,7 @@ public class UserRestController {
         System.out.println("컨트롤러");
         System.out.println(token);
         System.out.println("탈퇴");
+
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
         userService.회원탈퇴(userId);

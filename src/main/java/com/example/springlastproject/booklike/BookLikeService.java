@@ -50,4 +50,9 @@ public class BookLikeService {
 
         return new BookLikeResponse.BookOfMineDTO(bookLikeList, readingBookList, boardList, boardReplyList, bookReply);
     }
+
+    public BookLikeResponse.MyLikeBookDTO 좋아요한책조회(Integer userId) {
+        List<BookLike> bookLikes = bookLikeJPARepository.findAllByUserId(userId);
+        return new BookLikeResponse.MyLikeBookDTO(bookLikes);
+    }
 }

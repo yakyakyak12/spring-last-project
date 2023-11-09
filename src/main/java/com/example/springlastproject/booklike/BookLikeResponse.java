@@ -189,4 +189,33 @@ public class BookLikeResponse {
 
         }
     }
+
+    @Getter
+    @Setter
+    public static class MyLikeBookDTO {
+        private List<BookDTO> bookList;
+
+        public MyLikeBookDTO(List<BookLike> bookLikes) {
+            this.bookList = bookLikes.stream().map(bookLike -> new BookDTO(bookLike))
+                    .collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        public class BookDTO {
+            private Integer id;
+            private String bookPicUrl;
+            private String bookTitle;
+            private String bookWriter;
+
+            public BookDTO(BookLike bookLike) {
+                this.id = bookLike.getId();
+                this.bookPicUrl = bookLike.getBook().getPicUrl();
+                this.bookTitle = bookLike.getBook().getTitle();
+                this.bookWriter = bookLike.getBook().getWriter();
+            }
+
+        }
+
+    }
 }

@@ -2,7 +2,9 @@ package com.example.springlastproject.board;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -10,10 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.errors.exception.Exception403;
+import com.example.springlastproject.board.BoardResponse.BoardListDTO;
 import com.example.springlastproject.boardlike.BoardLikeJPARepository;
 import com.example.springlastproject.boardreply.BoardReplyJPARepository;
-import com.example.springlastproject.book.Book;
-import com.example.springlastproject.user.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,6 +26,7 @@ public class BoardService {
     private final BoardJPARepository boardJPARepository;
     private final BoardReplyJPARepository boardReplyJPARepository;
     private final BoardLikeJPARepository boardLikeJPARepository;
+    private final EntityManager em;
 
     // 게시글 상세보기
     public BoardResponse.BoardDetailPageDTO 게시글상세보기(Integer boardId) {
@@ -46,9 +48,10 @@ public class BoardService {
     public BoardResponse.updateDTO 게시글수정하기(Integer id, @Valid BoardRequest.updateDTO updateDTO) {
         Board board = boardJPARepository.findById(id).orElseThrow(() -> new Exception400("게시글 정보가 없습니다."));
         if (board.getUser().getId() == updateDTO.getUserId()) {
-            board.updateBoardTitle(updateDTO.getBoardTitle());
-            board.updateContent(updateDTO.getContent());
+            boardJPARepository.updateBoard(id, updateDTO.getBoardTitle(), updateDTO.getContent(),
+                    updateDTO.getBookId());
             board.updateCreatedAt(new Timestamp(new Date().getTime()));
+            em.refresh(board);
             return new BoardResponse.updateDTO(board);
         }
         throw new Exception403("권한이 없습니다.");
@@ -70,5 +73,10 @@ public class BoardService {
             throw new Exception403("권한이 없습니다.");
         }
     }
+
+    // public BoardListDTO 게시글전체조회하기() {
+    // List<Board> boards = boardJPARepository.findAll();
+    // return new BoardListDTO(boards);
+    // }
 
 }
