@@ -3,6 +3,7 @@ package com.example.springlastproject.user;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -89,6 +90,10 @@ public class UserRestController {
     // 회원탈퇴 기능
     @GetMapping("/user/delete")
     public ResponseEntity<?> deleteForm(@RequestHeader("Authorization") String token) {
+        System.out.println("컨트롤러");
+        System.out.println(token);
+        System.out.println("탈퇴");
+
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
         userService.회원탈퇴(userId);
