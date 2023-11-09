@@ -34,11 +34,6 @@ public class BookRequest {
 
     }
 
-    public MonthListDTO(Integer bookCategowryId, String alignment) {
-      this.bookCategoryId = bookCategowryId;
-      this.alignment = alignment;
-    }
-
   }
 
   @Getter
@@ -82,11 +77,6 @@ public class BookRequest {
     private String alignment;
 
     public rankingListDTO() {
-    }
-
-    public rankingListDTO(Integer bookCategoryId, String alignment) {
-      this.bookCategoryId = bookCategoryId;
-      this.alignment = alignment;
     }
 
   }

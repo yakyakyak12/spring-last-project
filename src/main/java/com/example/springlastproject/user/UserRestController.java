@@ -87,14 +87,11 @@ public class UserRestController {
     }
 
     // 회원탈퇴 기능
-    @PostMapping("/user/{id}/delete")
-    public ResponseEntity<?> deleteForm(@PathVariable Integer id, @RequestHeader("Authorization") String token) {
+    @GetMapping("/user/delete")
+    public ResponseEntity<?> deleteForm(@RequestHeader("Authorization") String token) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
-        if (userId != id) {
-            throw new Exception400("권한이 없습니다");
-        }
-        userService.회원탈퇴(id);
+        userService.회원탈퇴(userId);
         return ResponseEntity.ok().body(ApiUtils.success("회원탈퇴 완료"));
     }
 

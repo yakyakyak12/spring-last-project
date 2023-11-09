@@ -126,9 +126,44 @@ public class BoardResponse {
             this.boardId = board.getId();
             this.boardTitle = board.getBoardTitle();
             this.content = board.getContent();
-            this.bookId = board.getBook().getId();
+            this.bookId = (board.getBook() != null) ? board.getBook().getId() : null;
             this.userId = board.getUser().getId();
         }
+    }
+
+    @Getter
+    @Setter
+    @ToString
+    public class BoardListDTO {
+        private List<BoardDTO> boardList;
+
+        public BoardListDTO(List<Board> boards) {
+            this.boardList = boards.stream()
+                    .map(board -> new BoardDTO(board)).collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public class BoardDTO {
+            private Integer id;
+            private String boardTitle;
+            private String content;
+            private String userPicUrl;
+            private String userNickname;
+            private String boardCreatedAt;
+
+            public BoardDTO(Board board) {
+                this.id = board.getId();
+                this.boardTitle = board.getBoardTitle();
+                this.content = board.getContent();
+                this.userPicUrl = board.getUser().getPicUrl();
+                this.userNickname = board.getUser().getNickname();
+                this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt());
+            }
+
+        }
+
     }
 
 }
