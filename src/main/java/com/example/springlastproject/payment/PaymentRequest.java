@@ -6,14 +6,14 @@ import lombok.Setter;
 public class PaymentRequest {
     @Getter
     @Setter
-    public static class puchaseDTO {
+    public static class PaymentDTO {
         private Integer userId;
         private String pay;
 
-        public puchaseDTO() {
+        public PaymentDTO() {
         }
 
-        public puchaseDTO(Integer userId, String pay) {
+        public PaymentDTO(Integer userId, String pay) {
             this.userId = userId;
             this.pay = pay;
         }

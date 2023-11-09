@@ -2,7 +2,6 @@ package com.example.springlastproject.board;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -13,6 +12,8 @@ import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.errors.exception.Exception403;
 import com.example.springlastproject.boardlike.BoardLikeJPARepository;
 import com.example.springlastproject.boardreply.BoardReplyJPARepository;
+import com.example.springlastproject.book.Book;
+import com.example.springlastproject.user.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -57,8 +58,6 @@ public class BoardService {
     @Transactional
     public BoardResponse.saveDTO 게시글등록(BoardRequest.saveDTO saveDTO) {
         Board board = boardJPARepository.save(saveDTO.toEntity());
-
-        System.out.println("서비스 탈출직전");
         return new BoardResponse.saveDTO(board);
     }
 

@@ -36,8 +36,8 @@ public class BoardRequest {
     public static class saveDTO {
         private String boardTitle;
         private String content;
-        private Integer bookId;
         private Integer userId;
+        private Integer bookId;
 
         public saveDTO() {
         }
@@ -47,7 +47,7 @@ public class BoardRequest {
                     .boardTitle(boardTitle)
                     .content(content)
                     .user(User.builder().id(userId).build())
-                    .book(Book.builder().id(bookId).build())
+                    .book((bookId != null) ? Book.builder().id(bookId).build() : null)
                     .build();
         }
 

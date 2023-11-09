@@ -83,4 +83,9 @@ public class UserService {
         user.updateEmail(null);
     }
 
+    public void 결재상태변경(Integer userId) {
+        User user = userJPARepository.findById(userId).get();
+        user.updatePaymentStatus(true);
+    }
+
 }

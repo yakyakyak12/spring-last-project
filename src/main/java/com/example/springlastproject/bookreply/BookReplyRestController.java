@@ -1,6 +1,5 @@
 package com.example.springlastproject.bookreply;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.springlastproject._core.utils.ApiUtils;
 import com.example.springlastproject._core.utils.JwtTokenUtils;
-import com.example.springlastproject.readingbook.ReadingBookResponse.readingbookDTO;
 
 import lombok.RequiredArgsConstructor;
 

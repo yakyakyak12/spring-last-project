@@ -79,7 +79,7 @@ public class BoardResponse {
             this.boardId = board.getId();
             this.boardTitle = board.getBoardTitle();
             this.content = board.getContent();
-            this.bookId = board.getBook().getId();
+            this.bookId = (board.getBook() != null) ? board.getBook().getId() : null;
             this.userId = board.getUser().getId();
         }
 

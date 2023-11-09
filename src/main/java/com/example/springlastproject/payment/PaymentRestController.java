@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springlastproject._core.utils.ApiUtils;
-import com.example.springlastproject.bookreply.BookReplyService;
+import com.example.springlastproject.user.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,10 +15,13 @@ import lombok.RequiredArgsConstructor;
 public class PaymentRestController {
 
     private final PaymentService paymentService;
+    private final UserService userService;
 
     @PostMapping("/payment/result")
-    public ResponseEntity<?> home(@RequestBody PaymentRequest.puchaseDTO data) {
-        System.out.println("페이먼트 진입 성공?");
+    public ResponseEntity<?> home(@RequestBody PaymentRequest.PaymentDTO paymentDTO) {
+        System.out.println("페이먼트 진입1111");
+        userService.결재상태변경(paymentDTO.getUserId());
+        System.out.println("페이먼트 진입2222");
         return ResponseEntity.ok().body(ApiUtils.success("성공"));
     }
 

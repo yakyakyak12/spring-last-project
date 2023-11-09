@@ -37,9 +37,11 @@ public class User {
     @CreationTimestamp // now
     private Timestamp createdAt; // 등록일
 
+    private Boolean paymentStatus = false; // 결재 상태
+
     @Builder
     public User(Integer id, String username, String password, String email, String nickname, String picUrl,
-            Timestamp createdAt) {
+            Timestamp createdAt, Boolean paymentStatus) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -47,6 +49,7 @@ public class User {
         this.nickname = nickname;
         this.picUrl = picUrl;
         this.createdAt = createdAt;
+        this.paymentStatus = paymentStatus;
     }
 
     public void updateNickname(String nickname) {
@@ -63,6 +66,10 @@ public class User {
 
     public void updateEmail(String email) {
         this.email = email;
+    }
+
+    public void updatePaymentStatus(Boolean paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
 }

@@ -44,6 +44,7 @@ public class UserRequest {
                     .password(password)
                     .nickname(nickname)
                     .picUrl(picUrl)
+                    .paymentStatus(false)
                     .build();
         }
     }

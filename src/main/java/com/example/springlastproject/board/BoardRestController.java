@@ -35,7 +35,9 @@ public class BoardRestController {
     // 게시글 등록하기
     @PostMapping("/board/save")
     public ResponseEntity<?> save(@RequestBody @Valid BoardRequest.saveDTO saveDTO, Errors errors) {
+        System.out.println("DTO안에 보드 값은? : " + saveDTO.getBookId());
         BoardResponse.saveDTO response = boardService.게시글등록(saveDTO);
+        // System.out.println("서비스 나옴 : " + response.getBookId());
         return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 
