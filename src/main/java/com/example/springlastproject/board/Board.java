@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -39,6 +40,7 @@ public class Board {
 
     private String boardTitle; // 제목
 
+    @Column(length = 4000)
     private String content; // 내용
 
     @CreationTimestamp // now

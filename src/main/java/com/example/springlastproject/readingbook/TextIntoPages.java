@@ -71,7 +71,7 @@ public class TextIntoPages {
         while (startAt < content.length()) {
             StringBuilder pageText = new StringBuilder();
             int length = 0;
-            for (int i = 1; i <= 18; i++) {
+            for (int i = 1; i <= 17; i++) {
                 length = getLineLength(content, startAt);
                 startAt = startAt + length;
 
