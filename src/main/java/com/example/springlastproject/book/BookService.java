@@ -111,4 +111,8 @@ public class BookService {
         return new BookResponse.BookCategoryDTO(bookCategoryDTO.getBookCategoryId(), books);
     }
 
+    public void 스토리카테고리별목록보기(Integer id) {
+        
+    }
+
 }

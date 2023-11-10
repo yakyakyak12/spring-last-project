@@ -85,4 +85,11 @@ public class BookRestController {
         return ResponseEntity.ok(ApiUtils.success(response));
     }
 
+    // 스토리 카테고리 별 목록보기 
+    @GetMapping("/book/storyCategory/{id}")
+    public ResponseEntity<?> storyCategory(@PathVariable Integer id){
+        bookService.스토리카테고리별목록보기(id);
+    return null;
+    }
+
 }

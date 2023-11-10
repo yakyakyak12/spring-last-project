@@ -2104,11 +2104,11 @@ VALUES ('41', 'book41.png', '당신의 언어 나이는 몇 살입니까?', '이
 그때의 나라면 하지 않았을 101가지
 
 에필로그 영원한 현재진행형을 위하여
-부록 슬기로운 언어생활을 위한 워크북', '고령화 시대의 필독서!
+부록 슬기로운 언어생활을 위한 워크북','알베르 카뮈를 동경하는 활자 애호가의 마음으로 고려대학교 불어 불문학과에 입학, 아이러니하게도 스스로에 대한 물음표에 천착하느라 정작 문학에서 멀어진 이십 대를 보내고 말았다.', '고령화 시대의 필독서!
 온 가족이 함께 읽는 다정한 언어 길잡이
 언어는 원하는 바를 표현하는 수단이자 타인과 소통하며 관계를 형성하는, 인간의 삶에 있어 무척 중요한 요소다. 대화의 즐거움이 없는 인생을 상상할 수 있을까?
 이 책은 단순히 노년기의 독자뿐만 아니라, 고령의 가족을 둔 모든 이에게 유익하다. 노년의 뇌와 언어의 변화를 이해하고, 가장 가까운 의사소통 파트너로서 염두에 두어야 할 주의 사항, 그리고 일상 생활에 적용할 수 있는 다양한 방법을 소개하고 있기 때문이다.
-고령화사회를 넘어 2025년 초고령화사회로의 진입을 앞둔 대한민국에 꼭 필요한 필독서! 이 책을 읽은 모두가 슬기로운 언어생활을 통해 행복한 노년을 누릴 수 있기를 바란다. -','', 41, 4);
+고령화사회를 넘어 2025년 초고령화사회로의 진입을 앞둔 대한민국에 꼭 필요한 필독서! 이 책을 읽은 모두가 슬기로운 언어생활을 통해 행복한 노년을 누릴 수 있기를 바란다. -', 41, 4);
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('42', 'book42.png', '처음 만나는 7일의 미술 수업', '김영숙',4,'2023-10-02',42, now(),'세계사, 문화, 철학, 신화, 종교까지
 7일 만에 끝내는 스토리텔링 미술 수업');
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('43', 'book43.png', '약국 안의 세계사', '키스 베로니즈',4,'2023-07-20',43, now(),'자기소개서, 보고서, 에세이 그리고 한 권의 책까지 31년 기자 경력, 12권의 베스트셀러가 보장하는 전설의 글쓰기 수업');
@@ -2123,9 +2123,221 @@ INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publi
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `book_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('33', 'book33.png', '모순', '양귀자',5,'2023-10-01',33, now(),'양귀자 장편소설');
 
 /*
-북 테이블 ('스토리')
+스토리별 북 테이블 ('로맨스/BL')
 */
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('40', 'book31.png', '도시와 그 불확실한 벽', '무라카미 하루키',3,'2023-10-06',31, now(),'무라카미 하루키 장편소설');
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`,`total_page`, `publication_date`, `created_at`, `sub_title`, `introduction`, `sequence`,`writer_introductoin`, `review`, `ranking`, `story_category_id`) 
+VALUES ('40', 'book40.png','늑대의 유혹','귀여니(이윤세)',665,'2023-10-27', now(),'귀여니 소설','인터넷 소설의 신화 ‘귀여니’ 베스트셀러
+『늑대의 유혹』 2023년 개정판 출간!
+
+처음 본 남자에게서 바람 냄새가 났다.
+코로 느껴지는 냄새가 아니라
+마음으로 느껴지는 바람,
+너희 아빠 같은 그런 사람.
+
+10대들의 순수하고 맑고 맑은 하늘처럼 우리들의 가슴속을 멍멍하게 하는 사랑 이야기. 태어날 때부터 가슴속에 슬픈 상처를 지니고 다니는 남자. 천진하고 따뜻한 마음을 간직한 것과는 달리 차가운 손을 가진 태성.
+조금은 거친 것 같지만 친구를 위해서라면 항상 앞장서는 남자. 차가운 마음을 지니고 있는 듯하지만 따뜻한 손을 가진 해원. 항상 어리붕숭하지만 남을 위해서는 자신의 것을 포기할 줄 아는 순진무구한 소녀 한경.
+
+과연 어떤 것으로도 채울 수 없는 굶주린 영혼을 품은 늑대가 간절히 원하고 그리워하는 것은 무엇일까?
+
+청춘의 아름다운 순간,
+사랑할수록 깊어지는 기쁨과 상처.
+이런 감정을 달래며 자아를 찾아가는
+사춘기 청소년들의 진솔하고 도전적인 사랑 이야기.','제1장. 하룻밤의 일탈
+제2장. 다정한 사람을 조심할 것
+제3장. 그날 밤 좋았거든
+제4장. 질투
+제5장. 아군과 적군
+제6장. 눈에 거슬리는 여자
+제7장. 당신에게 마음을 주면
+제8장. 나를 파괴할 구원자
+제9장. 조금도 특별하지 않은','고등학교 재학시절 인터넷에 작품을 연재하면서 큰 인기를 모은 인터넷 소설의 대표작가로 십대의 문화코드를 이끄는 작가로 선풍적 인기를 끌었다','국내외 밀리언셀러 작품
+영화, 뮤지컬 〈늑대의 유혹〉 원작
+해외 4개국 번역 출간
+2000년대 초 귀여니 신드롬의 주역
+
+자신의 정체성을 찾아가는 사춘기 학생들의 거침없고 도발적인 면속에 숨어있는 가슴 시린 사랑 이야기. 인터넷을 통해 발표된 귀여니의 두 번째 장편 소설이다.
+아픔을 간직하고 있지만 한없이 밝은 어린아이 같은 태성과 어리지만 강하고, 남을 위해 자신의 감정을 삼킬 줄 아는 한경이 주인공. 또래의 감각을 그대로 살린 이모티콘 가득한 통신어체와 만화 같은 감각이 특징이다.
+
+2004년 조한선, 강동원, 이청아 주연의 영화로 제작되었다.
+예전 인터넷 소설 초창기 시절의 향수를 잊지 못하는 세대뿐만 아니라 2000년대 초 감성을 느껴보고 싶어 하는 어린 독자들에게도 그 당시 청소년의 설레임을 경험해 볼 수 있는 기회를 제공한다.', 40, 1);
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('44', 'book44.png', '물빛 푸를 린', '자근오',1,'2023-10-25',44, now(),'자근오 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('45', 'book45.png', '신의 선물', '김종국',1,'2023-10-27',45, now(),'소설과 시의 만남, 첫사랑과의 재회');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('46', 'book46.png', '가슴 뛰는 소설', '최진영,박상영,최민석,이지민,정세랑',1,'2023-10-01',46, now(),'사랑이 움직이는 순간');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('47', 'book47.png', '부루마불에 평양이 있다면', '윤고은',1,'2023-10-01',47, now(),'윤고은 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('48', 'book48.png', '이모네 집에 갔는데 이모는 없고', '신해영',1,'2012-09-14',48, now(),'신해영 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('49', 'book49.png', '완전 바보', '토미 야우트',1,'2009-05-25',49, now(),'스물아홉 싱글 청년의 막장 연애 도전기');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('50', 'book50.png', '내일의 으뜸', '김빵',1,'2023-04-26',50, now(),'김빵 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('51', 'book51.png', '네 세상이 어둠이 된다고 해도, 내가 너의 빛이 되어줄게', '시울',1,'2023-08-08',51, now(),'시울 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('52', 'book52.png', '미치도록 원하는 1', '구늘봄',1,'2023-04-07',52, now(),'구늘봄 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('53', 'book53.png', '미치도록 원하는 2', '구늘봄',1,'2023-04-07',53, now(),'구늘봄 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('54', 'book54.png', '결혼 먼저', '요안나',1,'2023-04-10',54, now(),'요안나 장편소설');
+
+
+
+/*
+스토리별 북 테이블 ('판타지/무협')
+*/
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`,`total_page`, `publication_date`, `created_at`, `sub_title`, `introduction`, `sequence`,`writer_introductoin`, `review`, `ranking`,`story_category_id`) 
+VALUES ('55', 'book55.png','칠마선문 1','허담',332,'2022-12-30', now(),'허담 신무협 판타지 소설','무슨 수를 써서라도 월문을 무림 최고의 문파로 만들겠다!
+
+야심에 찬 백문주는 버려진 아이들에게 손을 내밀어 사파 마두의 마공을 익히게 한다.
+
+“월문의 제자가 된다면 넌 그 힘을 갖게 될 것이다. 물론 네가 내가 준비한 모든 수련을 견뎌낸다면. 하겠느냐?”
+
+그렇게 백문주의 야망으로 원치 않은 마(魔)를 품게 된 젊은 영웅들은 그에게 실컷 이용당하다가 버림받고 마는데…….
+
+정사의 구분은 무공에 있지 않고 그 사람의 마음에 있는 법.
+
+육마의 신공을 익힌 칠랑의 여정이 시작된다!',
+'제1장. 버려진 자들
+제2장. 월문의 사형제들
+제3장. 수련의 세월
+제4장. 사냥의 세월
+제5장. 늑대가 되어가다
+제6장. 무림에 나서다
+제7장. 죽음의 계곡
+제8장. 지옥에서 살아남기
+제9장. 화노(花奴)의 천년화정
+제10장. 모든 일에는 이유가 있다',
+'1970년 강원 홍천 출생. 2004년 무협 입문. 사람은 누구나 한 번쯤 몽상에 빠진다. 그러한 꿈들을 글로 옮기고 싶다.',
+'정통 무협 테이스트가 살아 있는 소설로 명예를 지킬 기회를 주고, 갚아야 할 은원은 반드시 갚는 주인공의 행보에서 독자들은 강호를 떠돌며 의와 협을 행하는 정통 무협의 매력을 흠뻑 느낄 수 있습니다.
+또한 탄탄한 설정으로 만들어진 밀도 있는 캐릭터와 등장인물 간의 얽히고설킨 갈등 관계가 만들어내는 에피소드가 매력적인 소설입니다.
+
+거짓된 믿음에 속아 마공을 익혀 탄생한,
+마(魔)가 잉태한 일곱 명의 젊은 영웅들!
+
+배신과 음모가 난무하는 정사 대전의 혈풍.
+
+그 속에서 영웅들의 자아(自我)를 찾기 위한 여정이 시작된다!', 55, 2);
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('56', 'book56.png', '칠마선문 2', '허담',2,'2022-12-30',56, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('57', 'book57.png', '칠마선문 3', '허담',2,'2022-12-30',57, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('58', 'book58.png', '칠마선문 4', '허담',2,'2022-12-30',58, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('59', 'book59.png', '칠마선문 5', '허담',2,'2022-12-30',59, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('60', 'book60.png', '칠마선문 6', '허담',2,'2022-12-30',60, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('61', 'book61.png', '칠마선문 7', '허담',2,'2022-12-30',61, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('62', 'book62.png', '칠마선문 8', '허담',2,'2022-12-30',62, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('63', 'book63.png', '칠마선문 9', '허담',2,'2023-04-10',63, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('64', 'book64.png', '칠마선문 10(완결)', '허담',2,'2023-04-10',64, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('65', 'book65.png', '사자의 아들: 칸의 여행', '허담',2,'2023-04-10',65, now(),'허담 신무협 판타지 소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('66', 'book66.png', '무인환생', '윤신현',2,'2023-04-10',66, now(),'윤신현 장편소설');
+
+
+/*
+스토리별 북 테이블 ('일반소설')
+*/
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`,`total_page`, `publication_date`, `created_at`, `sub_title`, `introduction`, `sequence`,`writer_introductoin`, `review`, `ranking`, `story_category_id`) 
+VALUES ('67', 'book67.png','해리 포터와 아즈카반의 죄수','조앤 K. 롤링',332,'2023-10-03', now(),'미나리마 에디션',
+'‘미나리마’가 만든 새로운 모습의 패트로누스, 호그스미드, 보가트를 만난다!
+해리 포터 세 번째 이야기, 《아즈카반의 죄수: 미나리마 에디션》 전 세계 동시 출간!
+
+영화 〈해리 포터〉와 〈신비한 동물사전〉 시리즈에서 비주얼 그래픽을 담당했던 스튜디오 ‘미나리마(MinaLima)’가 직접 디자인한 시리즈 ‘미나리마 에디션’이 드디어 세 번째 이야기 《해리 포터와 아즈카반의 죄수》를 선보인다. 《해리 포터와 아즈카반의 죄수: 미나리마 에디션》에서는 영화와는 다른 모습의 시리우스와 루핀, 크룩섕스와 벅빅을 만날 수 있으며, 미나리마가 오직 이 책만을 위해 만들어 낸 8가지 공작 요소를 통해 해리 포터의 마법 세계를 색다르게 즐길 수 있다.
+이번 에디션에도 J.K. 롤링의 이야기가 완벽하게 담겨 있을 뿐만 아니라, 거의 모든 페이지에 컬러 삽화가 들어 있다. 독자들은 나이트 버스의 내부를 구경하고, 수시로 모습을 바꾸는 옷장 속 보가트와 맞닥뜨리고, 도둑 지도에서 노리스 부인의 위치를 확인하거나, 타임 터너를 몇 바퀴 돌려 볼 수도 있다.
+J.K. 롤링이 만들어 낸 마법 세계를 더욱 돋보여 줄 컬러 삽화와 기발한 종이 공예로 가득한 이 책은 해리 포터 팬들에게 특별한 기념품이 되는 것을 물론, 책을 사랑하는 모든 독자들이 책장에 소장하고 싶은 아름다운 도서이자, 새로운 세대에게 이 사랑받는 시리즈를 소개하는 멋진 방법이 될 것이다.'
+,'1장 부엉이 우편
+2장 마지 고모의 큰 실수
+3장 나이트 버스
+4장 리키 콜드런
+5장 디멘터
+6장 발톱과 찻잎
+7장 옷장 속의 보가트
+8장 뚱뚱한 귀부인의 도주
+9장 쓰라린 패배
+10장 도둑 지도
+11장 파이어볼트
+12장 패트로누스
+13장 그리핀도르 대 래번클로
+14장 스네이프의 원한
+15장 퀴디치 결승전
+16장 트릴로니 교수의 예언
+17장 고양이와 쥐와 개
+18장 무니, 웜테일, 패드풋, 프롱스
+19장 볼드모트 경의 부하
+20장 디멘터의 입맞춤
+21장 헤르미온느의 비밀
+22장 다시, 부엉이 우편
+','새로운 판매 기록을 세우고 수많은 상을 수상한 해리 포터 시리즈 작가',
+'악명 높은 마법사 감옥을 탈출한 악당 시리우스 블랙, 그의 정체는?
+“놈은 호그와트에 있어…… 놈은 호그와트에 있어.”
+
+프리빗가에서 언제나처럼 괴로운 여름방학을 보내고 있던 해리는 9월 1일이 되기도 전에 집을 나와 버린다. 해리가 ‘발이 묶인 마법사들의 비상 이동 수단’인 나이트 버스를 타고 다이애건 앨리에 도착하자 어른들은 모두 안절부절못하며 그를 과잉보호한다. 단 한 번의 저주 마법으로 머글을 포함한 열세 명을 살해하고 붙잡힌 살인마 시리우스 블랙이 아즈카반 감옥을 탈출했기 때문. 볼드모트의 추종자로 알려진 시리우스가 해리를 노리고 있다!
+3학년이 되어 비정기적으로 방문할 수 있는 마법사 마을 호그스미드에도 가지 못한 채 학교에 갇힌 해리는 시리우스 블랙 때문에 학교를 지키고 있는 어둠의 생명체 디멘터와 싸우기 위해, 새로 온 ‘어둠의 마법 방어법’ 선생인 루핀 교수에게서 패트로누스 마법을 배운다. 그러나 친구들에게 둘러싸인 호그와트 안에서도 해리는 안전하지 않다. 어느 누가 배신지일지 모르기 때문이다.
+
+
+《해리 포터와 아즈카반의 죄수: 미나리마 에디션》의 입체 공작 요소
+
+1. 괴물들에 관한 괴물책
+“책이 해리의 손 위에서 탁 덮이더니 다음 순간 페이지들을 펄럭이면서 그를 지나쳐 달아났다. 책은 표지로 바닥을 딛고 끊임없이 방 안을 빠르게 돌아다니고 있었다.”(p.22)
+2. 나이트 버스
+“머리를 들어 보니 한 쌍의 바퀴와 헤드라이트는 허공에서 나타난 짙은 보랏빛 3층 버스에 달린 것이었다. 앞 유리에 황금색 글자로 ‘나이트 버스’라고 적혀 있었다.”(p.45)
+
+3. 점술 수업의 찻잎점
+“모두가 해리의 찻잔을 보려고 자리에서 일어나 트릴로니 교수가 의자에 앉아 있는 해리와 론의 탁자 주위로 천천히 몰려들었다.”(p.123)
+
+4. 보가트
+“스네이프가 비틀거렸다. 그는 끝자락에 레이스가 달린 긴 드레스 차림으로 좀이 슨 대머리독수리를 얹은 높은 모자를 쓰고 한 손으로 큼직한 진홍색 핸드백을 휘두르고 있었다.”(p.154)
+
+5. 도둑 지도
+“나는 못된 짓을 꾸미고 있음을 엄숙히 맹세합니다.”(p.211)
+
+6. 호그스미드
+“그들은 우체국으로 갔다. 론은 이집트에 있는 빌에게 보낼 부엉이 가격을 확인하는 척하며 해리가 잘 둘러볼 수 있도록 해 주었다.”(p.302)
+
+7. 타임 터너
+“해리는 당황해서 어쩔 줄을 모르면서도 헤르미온느 쪽으로 갔다. 그녀는 목걸이를 빼 들고 있었다. 목걸이에 반짝거리며 매달려 있는 조그만 모래시계가 보였다.”(p.430)
+
+8. 패트로누스
+“마법 지팡이 끝에서 형체 없는 안개구름이 아닌, 눈이 멀 듯 찬란한 은빛 동물이 튀어나왔다.”(p.450)
+
+
+해리 포터 세대의, 해리 포터 세대를 위한, 해리 포터 세대에 의한 새 번역!
+우리 시대에 가장 사랑받는 ‘21세기의 고전’을 고전답게 재해석하다!
+
+《해리 포터와 비밀의 방: 미나리마 에디션》에는 국내 출간 20주년을 맞아 새롭게 번역을 한 텍스트를 수록했다. 새롭게 번역 작업을 거친 《해리 포터》 시리즈는 ‘21세기 고전’이라 불릴 만한 품격에 맞춰 작품의 완성도를 높였다. 7권 《해리 포터와 죽음의 성물》로 완간된 기존의 《해리 포터》 시리즈는 빈틈없는 소설적 구성과 생생한 캐릭터 그리고 마법 세계를 정교하게 묘사하며 풍부한 상상력이 돋보이면서도 정밀한 세계관을 구축해 나갔다. 하지만 지금까지 출간된 책들은 J.K. 롤링이 펼쳐 나가는 판타지 세계의 규모가 어느 정도이며 그 속에 어떠한 소설적 장치를 심어 놓았는지 알 수 없는 상태에서 번역 작업이 이루어졌다. 또한 1~7편 모두 완결성을 갖추었지만, 시리즈의 특성상 편과 편을 이어 주며 작품 전체를 관통하는 서사의 개연성과 완결성은 마지막 편이 출간된 이후에나 파악할 수밖에 없었다. 그러다 보니 작가가 어느 장면에 복선을 깔아 두었고, 어느 장면이 작가가 창조한 세계관을 이해하는 중요한 역할을 하는지 의미를 파악하며 번역하기에는 한계가 있었다. 2019년에 처음 선보인 새 번역본에는 J.K. 롤링이 작품 속에 이룩해 놓은 문학적 성취가 완벽하게 구현되어 있다. 복선과 반전을 선사하는 문학적 장치들을 보다 정교하고 세련되게 다듬었으며, 인물들 사이의 관계나 그들의 숨겨진 비밀 그리고 성격이 도드라지는 말투의 미세한 뉘앙스까지 점검했다.', 67, 3);
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('68', 'book68.png', '마리 앙투아네트: 베르사유와 프랑스혁명', '스테판 츠바이크',3,'2023-04-10',68, now(),'베르사유와 프랑스혁명');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('69', 'book69.png', '베스트셀러레이크사이드', '히가시노 게이고',3,'2023-04-10',69, now(),'히가시노 게이고의 입시 서스펜스!');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('70', 'book70.png', '꿀벌의 예언 1', '베르나르 베르베르',3,'2023-06-21',70, now(),'베르나르 베르베르 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('71', 'book71.png', '꿀벌의 예언 2', '베르나르 베르베르',3,'2023-04-10',71, now(),'베르나르 베르베르 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('72', 'book72.png', '스즈메의 문단속', '신카이 마코토',3,'2023-04-10',72, now(),'영화 스즈메의 문단속 원작');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('73', 'book73.png', '붉은 궁', '허주은',3,'2023-04-10',73, now(),'허주은 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('74', 'book74.png', '죽어나간 시간을 위한 애도', '김홍신',3,'2023-10-10',74, now(),'김홍신 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('75', 'book75.png', '달의 아이', '최윤석',3,'2023-04-10',75, now(),'최윤석 장편소설');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('76', 'book76.png', '해리 포터와 비밀의 방', '조앤 K. 롤링',3,'2023-04-10',76, now(),'미나리마 에디션');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('77', 'book77.png', '해리 포터와 마법사의 돌', '조앤 K. 롤링',3,'2023-04-10',77, now(),'미나리마 에디션');
+
+INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('78', 'book78.png', '비가 오면 열리는 상점', '유영광',3,'2023-04-10',78, now(),'유영광 장편소설');
+
+
 
 /*
 책 댓글 테이블
