@@ -30,9 +30,9 @@ public class PaymentRestController {
 
     // 결재하기
     @PostMapping("/payment/result")
-    public ResponseEntity<?> home(@RequestBody PaymentRequest.PaymentDTO paymentDTO) {
-        PaymentResponse.PaymentDTO response = paymentService.결재내역등록하기(paymentDTO);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+    public ResponseEntity<?> home(@RequestBody PaymentRequest.PaymentDTO requestDTO) {
+        PaymentResponse.PaymentDTO responseDTO = paymentService.결재내역등록하기(requestDTO);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
 }

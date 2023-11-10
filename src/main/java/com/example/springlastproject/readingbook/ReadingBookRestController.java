@@ -44,9 +44,9 @@ public class ReadingBookRestController {
 
     // 읽고 있는 책 등록
     @PostMapping("/readingbook/save")
-    public ResponseEntity<?> save(@RequestBody ReadingBookRequest.saveDTO saveDTO) {
-        ReadingBookResponse.saveDTO response = readingBookService.읽고있는책등록(saveDTO);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+    public ResponseEntity<?> save(@RequestBody ReadingBookRequest.saveDTO requestDTO) {
+        ReadingBookResponse.saveDTO responseDTO = readingBookService.읽고있는책등록(requestDTO);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
     // 읽고 있는 책 삭제

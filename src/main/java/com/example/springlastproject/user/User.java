@@ -2,6 +2,7 @@ package com.example.springlastproject.user;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,14 +25,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(unique = true, length = 20, nullable = false)
     private String username; // id
 
+    @Column(length = 100, nullable = false)
     private String password; // 비밀번호
 
+    @Column(length = 100, nullable = false)
     private String email; // 이메일
 
+    @Column(length = 20, nullable = true)
     private String nickname; // 닉네임
 
+    @Column(nullable = true)
     private String picUrl; // 이미지
 
     @CreationTimestamp // now

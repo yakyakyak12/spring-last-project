@@ -45,10 +45,10 @@ public class BookReplyRestController {
 
     // 책 댓글 등록
     @PostMapping("/bookReply/save")
-    public ResponseEntity<?> save(@RequestBody @Valid BookReplyRequest.saveDTO saveDTO, Errors errors) {
+    public ResponseEntity<?> save(@RequestBody @Valid BookReplyRequest.saveDTO requestDTO, Errors errors) {
         System.out.println("책댓글 save 실행됨");
-        BookReplyResponse.saveDTO response = bookReplyService.댓글등록(saveDTO);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+        BookReplyResponse.saveDTO responseDTO = bookReplyService.댓글등록(requestDTO);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
     // 책 댓글 삭제

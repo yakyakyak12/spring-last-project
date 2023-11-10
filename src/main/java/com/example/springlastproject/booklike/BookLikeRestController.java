@@ -31,10 +31,10 @@ public class BookLikeRestController {
 
     // 책좋아요 없으면 save 1 응답, 있으면 Delete -1 응답
     @PostMapping("/bookLike/check")
-    public ResponseEntity<?> save(@RequestBody BookLikeRequest.checkDTO saveDTO) {
+    public ResponseEntity<?> save(@RequestBody BookLikeRequest.checkDTO requestDTO) {
         System.out.println("북마크 실행됨?");
-        BookLikeResponse.checkDTO response = bookLikeService.책좋아요(saveDTO);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+        BookLikeResponse.checkDTO responseDTO = bookLikeService.책좋아요(requestDTO);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
 }

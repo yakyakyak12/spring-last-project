@@ -21,13 +21,6 @@ public class BoardRequest {
         public updateDTO() {
         }
 
-        public updateDTO(String boardTitle, String content, Integer bookId, Integer userId) {
-            this.boardTitle = boardTitle;
-            this.content = content;
-            this.bookId = bookId;
-            this.userId = userId;
-        }
-
     }
 
     @Getter

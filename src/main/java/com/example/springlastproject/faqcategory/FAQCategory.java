@@ -22,23 +22,17 @@ import lombok.NoArgsConstructor;
 @Table(name = "faqcategory_tb")
 @Entity
 public class FAQCategory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String subTitle; // 제목
-
-    private String content; // 내용
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private FAQ faq; // 고객센터 (제목)
+    private String title;
 
     @Builder
-    public FAQCategory(Integer id, String subTitle, String content, FAQ faq) {
+    public FAQCategory(Integer id, String title) {
         this.id = id;
-        this.subTitle = subTitle;
-        this.content = content;
-        this.faq = faq;
+        this.title = title;
     }
 
 }

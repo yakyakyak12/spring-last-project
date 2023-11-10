@@ -31,16 +31,16 @@ public class UserRestController {
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody @Valid UserRequest.JoinDTO requestDTO, Errors errors) {
         System.out.println("join 실행됨");
-        UserResponse.JoinDTO response = userService.회원가입(requestDTO);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+        UserResponse.JoinDTO responseDTO = userService.회원가입(requestDTO);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
     // 회원가입 중복체크
     @PostMapping("/check")
-    public ResponseEntity<?> check(@RequestBody UserRequest.CheckDTO rCheckDTO) {
+    public ResponseEntity<?> check(@RequestBody UserRequest.CheckDTO requestDTO) {
         System.out.println("check 실행됨");
-        System.out.println("유저네임에는 값을 받아 오는중인가? : " + rCheckDTO.getUsername());
-        userService.중복체크(rCheckDTO.getUsername());
+        System.out.println("유저네임에는 값을 받아 오는중인가? : " + requestDTO.getUsername());
+        userService.중복체크(requestDTO.getUsername());
 
         return ResponseEntity.ok().body(ApiUtils.success("중복체크 성공"));
     }
@@ -49,9 +49,9 @@ public class UserRestController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid UserRequest.LoginDTO requestDTO, Errors errors) {
         System.out.println("login 실행됨");
-        LoginResponseDTO response = userService.로그인(requestDTO);
+        LoginResponseDTO responseDTO = userService.로그인(requestDTO);
         return ResponseEntity.ok().header("Authorization",
-                response.getJwt()).body(ApiUtils.success(response.getUserDTO()));
+                responseDTO.getJwt()).body(ApiUtils.success(responseDTO.getUserDTO()));
     }
 
     // 개인정보수정 페이지
@@ -59,8 +59,8 @@ public class UserRestController {
     public ResponseEntity<?> updatePage(@RequestHeader("Authorization") String token) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
-        UserResponse.updatePageDTO response = userService.회원정보보기(userId);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+        UserResponse.updatePageDTO responseDTO = userService.회원정보보기(userId);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
     // 개인정보수정
@@ -72,8 +72,8 @@ public class UserRestController {
         if (userId != id) {
             throw new Exception400("권한이 없습니다");
         }
-        UserResponse.UpdateFormDTO response = userService.개인정보수정(requestDTO, id);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+        UserResponse.UpdateFormDTO responseDTO = userService.개인정보수정(requestDTO, id);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
 
     }
 
@@ -82,8 +82,8 @@ public class UserRestController {
     public ResponseEntity<?> deletePage(@RequestHeader("Authorization") String token) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
-        UserResponse.BookStatusDTO response = userService.서재이용현황(userId);
-        return ResponseEntity.ok().body(ApiUtils.success(response));
+        UserResponse.BookStatusDTO responseDTO = userService.서재이용현황(userId);
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
     // 회원탈퇴 기능

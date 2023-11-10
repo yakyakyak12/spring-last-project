@@ -2153,23 +2153,55 @@ INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('10'
 INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('11', now(), 2, 11);
 INSERT INTO readingbook_tb (`id`,`created_at`,`user_id`, `book_id`) VALUES ('12', now(), 2, 15);
 
+/*
+고객센터 카테고리 테이블
+*/
+INSERT INTO faqcategory_tb (title) VALUES ('결재/환불'),('회원/로그인');
+
 
 /*
 고객센터 테이블
 */
-INSERT INTO faq_tb (`id`,`title`) VALUES ('1', '결재/환불');
-INSERT INTO faq_tb (`id`,`title`) VALUES ('2', '회원/로그인');
-
-/*
-고객센터 카테고리 테이블
-*/
-INSERT INTO faqcategory_tb (`id`, `sub_title`, `content`, `faq_id`) VALUES ('1', '밀리에서 이용할 수 있는 결제 수단은 어떤게 있나요?',
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('1', '밀리에서 이용할 수 있는 결제 수단은 어떤게 있나요?',
 '회원님께서 접속하시는 환경에 따라 아래 결제 수단을 제공하고 있어요
 
 [웹] 신용카드, 카카오페이, 네이버페이, 페이코, 휴대폰 결재
 [앱] 앱 스토어에 연결해둔 결제수단으로 결제(구글, 애플, 갤럭시, 원스토어)
 
 앱 결제의 경우 스토어 수수료가 발생할 수 있으니 참고하여 이용 부탁드립니다.', 1);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('2', '앱과 웹의 결제 비용이 왜 다른가요?',
+'앱 결제(애플/구글/갤럭시/원스토어에서 연결해 둔 결제 수단)의 경우 각 스토어의 결제 정책에 따라 수수료가 포함되어 결제 됩니다.
+수수료는 각 스토어 정책에 따라 다르게 적용되니 자세한 내용은 스토어로 확인해 주세요.
+전자책 월 정기구독 기준으로 스토어 및 결제 환경에 따른 결제금액은 아래와 같으니 참고하여 이용 부탁드립니다.
+
+[애플] 11,900원
+[웹/구글/갤럭시/원스토어] 9,900', 1);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('3', '법인카드로도 결제할 수 있나요?','네', 1);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('4', '해외카드로 결제 가능한가요?','네', 1);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('5', '정기 결제 수단을 변경할 수 있나요?','네', 1);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('6', '밀리 첫 이용 시 무료 혜택 기간이 끝나면 자동으로 결제가 되나요?','아니요', 1);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('7', '지난달에 휴대폰으로 결제했는데 결제 취소가 안되요','확인해볼게요', 1);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('8', '카드 승인/취소 내역은 어디에서 확인할 수 있나요?','결제 내역에서 확인할 수 있어요', 1);
+
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('9', '밀리의 서재에는 어떤 구독 상품이 있나요?','밀리의 서재는 월/연 기간으로 사용금액을 지불하고 무제한으로 자유롭게 책을 읽을 수 있어요.
+정기구독에는 크게 2가지 종류가 있습니다. 
+[전자책 정기구독]
+매월 혹은 매년 동일한 날짜에 정기구독 금액을 결제하고, 밀리의 서재 모든 서비스를 이용할 수 있어요.
+[종이책+전자책 정기구독]
+매월 혹은 매년 동일한 날짜에 정기 구독 금액을 결제하고, 밀리의 서재 모든 서비스를 이용하며, 두 달에 한번 종이책도 같이 배송 받을 수 있어요.', 2);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('10', '첫 달 무료 해택은 누구나 받을 수 있나요?','밀리 회원이라면 누구나 첫 정기구독시 첫 달 무료 해택을 1회 받을 수 있습니다. 무료 혜택이 반영되지 않는다면 아래의 경우가 아닌지 확인해 주세요!
+-구독 해지 후 재구독하는 경우
+-탈퇴 후 재가입한 경우
+-이전 동일 번호의 휴대폰번호로 혜택을 받은 경우
+위 경우가 아님에도 혜택이 적용되지 않으신다면 고객센터로 문의 접수 바랍니다. 확인 후 도와드리겠습니다.', 2);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('11', '정기구독 신청 시 의무 사용기간이 있나요?','아니요', 2);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('12', '앱에서 구독 신청을 했는데, 책을 읽을 수가 없어요','안타깝네요..', 2);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('13', '정기구독 상품은 문화비 소득공제가 가능한가요?','아니요', 2);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('14', '전자책 월 정기구독을 이용하고 있는데, 다른 정기구독으로 변경할 수 있나요?','없어요', 2);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('15', '구독 중인 상품을 변경하고 싶어요. (전자책 월 정기구독 중)','안되요', 2);
+INSERT INTO faq_tb (`id`, `sub_title`, `content`, `faq_category_id`) VALUES ('16', '앱에서는 전자책 정기구독만 신청할 수 있나요?','네', 2);
+
+
 
 /*
 공지사항 테이블
@@ -2181,11 +2213,29 @@ INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('1', 
 안전한 콘텐츠 및 원활한 서비스 제공을 위해 구버전 E-ink App의 지원이 종료될 예정임을 안내드립니다. 
 
 [지원종료 일자]
-2023년 10월 19일(목)
+2023년 11월 19일(일)
 
 [지원종료 버전]
 2.0.0.0 이하 버전',
-'2023-09-26');
+'2023-11-10');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('2', '[공지] 개인정보처리방침 계정 안내_11/06(월)', 
+'안녕하세요.
+독서와 무제한 친해지리, 밀리의 서재입니다. 
+
+안전한 콘텐츠 및 원활한 서비스 제공을 위해 구버전 E-ink App의 지원이 종료될 예정임을 안내드립니다. 
+
+[변경 사유]
+2023년 11월 06일 개인정보보호법 내 개인정보 유효기간제(개정 전 39조의 6) 폐지로 관련 정책 일부 변경
+
+[변경 내용]
+밀리의 서재 서비스를 1년간 이용하지 않아도 휴면 계정으로 전환되지 않습니다.', '2023-11-06');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('3', '', '','2023-11-26');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('4', '', '','2023-10-20');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('5', '', '','2023-10-21');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('6', '', '','2023-10-22');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('7', '', '','2023-11-23');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('8', '', '','2023-11-24');
+INSERT INTO notice_tb (`id`,`title`,`content`,`registration_date`) VALUES ('9', '', '','2023-11-25');
 
 
 

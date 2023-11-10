@@ -23,12 +23,19 @@ public class FAQ {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String title;
+    private String subTitle; // 제목
+
+    private String content; // 내용
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private FAQCategory faqCategory; // 고객센터 (제목)
 
     @Builder
-    public FAQ(Integer id, String title) {
+    public FAQ(Integer id, String subTitle, String content, FAQCategory faqCategory) {
         this.id = id;
-        this.title = title;
+        this.subTitle = subTitle;
+        this.content = content;
+        this.faqCategory = faqCategory;
     }
 
 }

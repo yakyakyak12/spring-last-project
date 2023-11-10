@@ -16,11 +16,6 @@ public class BookRequest {
     public BookDetailDTO() {
     }
 
-    public BookDetailDTO(Integer bookId, Integer userId) {
-      this.bookId = bookId;
-      this.userId = userId;
-    }
-
   }
 
   @Getter
@@ -45,10 +40,6 @@ public class BookRequest {
     public BookSearchDTO() {
     }
 
-    public BookSearchDTO(String keyword) {
-      this.keyword = keyword;
-    }
-
   }
 
   @Getter
@@ -62,11 +53,6 @@ public class BookRequest {
     public BookCategoryDTO() {
     }
 
-    public BookCategoryDTO(Integer bookCategoryId, String alignment, Integer minusMonths) {
-      this.bookCategoryId = bookCategoryId;
-      this.alignment = alignment;
-      this.minusMonths = minusMonths;
-    }
   }
 
   @Getter
