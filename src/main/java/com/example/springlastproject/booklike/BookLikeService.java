@@ -28,10 +28,10 @@ public class BookLikeService {
     private final BoardReplyJPARepository boardReplyJPARepository;
     private final BookReplyJPARepository bookReplyJPARepository;
 
-    public BookLikeResponse.checkDTO 책좋아요(BookLikeRequest.checkDTO saveDTO) {
-        BookLike bookLike = bookLikeJPARepository.findFirstByBookIdAndUserId(saveDTO.getBookId(), saveDTO.getUserId());
+    public BookLikeResponse.checkDTO 책좋아요(BookLikeRequest.checkDTO requestDTO) {
+        BookLike bookLike = bookLikeJPARepository.findFirstByBookIdAndUserId(requestDTO.getBookId(), requestDTO.getUserId());
         if (bookLike == null) {
-            bookLikeJPARepository.save(saveDTO.toEntity());
+            bookLikeJPARepository.save(requestDTO.toEntity());
             return new BookLikeResponse.checkDTO(1);
         } else {
             bookLikeJPARepository.deleteById(bookLike.getId());

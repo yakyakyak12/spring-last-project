@@ -5,8 +5,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.example.springlastproject.book.BookJPARepository;
-import com.example.springlastproject.bookdata.BookDataJPARepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,9 +13,22 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class BookMarkService {
 
-    private final BookMarkJPARepository readingBookJPARepository;
-    private final BookDataJPARepository bookDataJPARepository;
-    private final BookJPARepository bookJPARepository;
+    private final BookMarkJPARepository bookMarkJPARepository;
+
+
+
+    public BookMarkResponse.checkDTO 책북마크(BookMarkRequest.checkDTO requestDTO) {
+
+      BookMark bookMark = bookMarkJPARepository.findByUser_IdAndBook_IdAndScroll(requestDTO.getUserId(), requestDTO.getBookId(), requestDTO.getScroll());
+        if (bookMark == null) {
+            bookMarkJPARepository.save(requestDTO.toEntity());
+            return new BookMarkResponse.checkDTO(1);
+        } else {
+            bookMarkJPARepository.deleteById(bookMark.getId());
+            return new BookMarkResponse.checkDTO(-1);
+        }
+    }
+  
 
   
 }

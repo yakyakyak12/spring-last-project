@@ -26,7 +26,6 @@ public class BookLikeRestController {
         Integer userId = decodedJWT.getClaim("id").asInt();
         BookLikeResponse.MyLikeBookDTO response = bookLikeService.좋아요한책조회(userId);
         return ResponseEntity.ok().body(ApiUtils.success(response));
-
     }
 
     // 책좋아요 없으면 save 1 응답, 있으면 Delete -1 응답
