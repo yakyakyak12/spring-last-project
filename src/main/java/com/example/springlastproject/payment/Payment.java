@@ -3,7 +3,6 @@ package com.example.springlastproject.payment;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,17 +34,30 @@ public class Payment {
 
     private Integer months; // 결재 개월수
 
+    private Integer subNumber; // 이용권 번호
+
+    private Boolean refund; // 디폴트 false, 환불 시 true
+
+    private Date refundDate; // 환불 날짜(null 허용, 환불 시 날짜 생성)
+
     @ManyToOne
     private User user;
 
     @Builder
-    public Payment(Integer id, String name, Integer amount, Date startDate, Date deadlineDate, User user) {
+    public Payment(Integer id, String name, Integer amount, Date startDate, Date deadlineDate, Integer months,
+            Integer subNumber, Boolean refund, Date refundDate, User user) {
         this.id = id;
         this.name = name;
         this.amount = amount;
         this.startDate = startDate;
         this.deadlineDate = deadlineDate;
+        this.months = months;
+        this.subNumber = subNumber;
+        this.refund = refund;
+        this.refundDate = refundDate;
         this.user = user;
     }
+
+    
 
 }

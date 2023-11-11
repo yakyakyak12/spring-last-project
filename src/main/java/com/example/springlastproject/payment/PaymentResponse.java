@@ -46,6 +46,7 @@ public class PaymentResponse {
             this.startDate = new SimpleDateFormat("yyyy-MM-dd").format(payment.getStartDate());
             this.deadlineDate = new SimpleDateFormat("yyyy-MM-dd").format(payment.getDeadlineDate());
             this.months = payment.getMonths();
+            
         }
 
     }

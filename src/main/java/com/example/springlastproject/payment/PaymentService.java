@@ -5,14 +5,11 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import javax.print.attribute.standard.Chromaticity;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.utils.DateUtils;
-import com.example.springlastproject.payment.PaymentRequest.PaymentDTO;
-import com.example.springlastproject.readingbook.ReadingBookResponse.readingbookDTO;
 import com.example.springlastproject.user.User;
 import com.example.springlastproject.user.UserJPARepository;
 
@@ -27,8 +24,8 @@ public class PaymentService {
     private final UserJPARepository userJPARepository;
 
     public PaymentResponse.PaymentDTO 결재내역등록하기(PaymentRequest.PaymentDTO paymentDTO) {
+       
         Date startDate = new Timestamp(new Date().getTime());
-        System.out.println("startDate : " + startDate);
         Date deadlineDate = DateUtils.convertToSqlDate(LocalDate.now().plus(paymentDTO.getMonths(), ChronoUnit.MONTHS));
         System.out.println("deadlineDate : " + deadlineDate);
 
