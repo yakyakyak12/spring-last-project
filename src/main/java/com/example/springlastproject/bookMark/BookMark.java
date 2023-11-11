@@ -1,4 +1,4 @@
-package com.example.springlastproject.readingbook;
+package com.example.springlastproject.bookMark;
 
 import java.sql.Timestamp;
 
@@ -21,12 +21,14 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
-@Table(name = "readingbook_tb")
+@Table(name = "bookmark_tb")
 @Entity
-public class ReadingBook {
+public class BookMark {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    private Integer scroll;
 
     @CreationTimestamp // now
     private Timestamp createdAt; // 작성일
@@ -38,8 +40,9 @@ public class ReadingBook {
     private Book book;
 
     @Builder
-    public ReadingBook(Integer id, Timestamp createdAt, User user, Book book) {
+    public BookMark(Integer id, Integer scroll, Timestamp createdAt, User user, Book book) {
         this.id = id;
+        this.scroll = scroll;
         this.createdAt = createdAt;
         this.user = user;
         this.book = book;

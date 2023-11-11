@@ -2161,25 +2161,15 @@ VALUES ('40', 'book40.png','늑대의 유혹','귀여니(이윤세)',665,'2023-1
 2004년 조한선, 강동원, 이청아 주연의 영화로 제작되었다.
 예전 인터넷 소설 초창기 시절의 향수를 잊지 못하는 세대뿐만 아니라 2000년대 초 감성을 느껴보고 싶어 하는 어린 독자들에게도 그 당시 청소년의 설레임을 경험해 볼 수 있는 기회를 제공한다.', 40, 1);
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('44', 'book44.png', '물빛 푸를 린', '자근오',1,'2023-10-25',44, now(),'자근오 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('45', 'book45.png', '신의 선물', '김종국',1,'2023-10-27',45, now(),'소설과 시의 만남, 첫사랑과의 재회');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('46', 'book46.png', '가슴 뛰는 소설', '최진영,박상영,최민석,이지민,정세랑',1,'2023-10-01',46, now(),'사랑이 움직이는 순간');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('47', 'book47.png', '부루마불에 평양이 있다면', '윤고은',1,'2023-10-01',47, now(),'윤고은 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('48', 'book48.png', '이모네 집에 갔는데 이모는 없고', '신해영',1,'2012-09-14',48, now(),'신해영 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('49', 'book49.png', '완전 바보', '토미 야우트',1,'2009-05-25',49, now(),'스물아홉 싱글 청년의 막장 연애 도전기');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('50', 'book50.png', '내일의 으뜸', '김빵',1,'2023-04-26',50, now(),'김빵 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('51', 'book51.png', '네 세상이 어둠이 된다고 해도, 내가 너의 빛이 되어줄게', '시울',1,'2023-08-08',51, now(),'시울 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('52', 'book52.png', '미치도록 원하는 1', '구늘봄',1,'2023-04-07',52, now(),'구늘봄 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('53', 'book53.png', '미치도록 원하는 2', '구늘봄',1,'2023-04-07',53, now(),'구늘봄 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('54', 'book54.png', '결혼 먼저', '요안나',1,'2023-04-10',54, now(),'요안나 장편소설');
 
 
@@ -2219,27 +2209,16 @@ VALUES ('55', 'book55.png','칠마선문 1','허담',332,'2022-12-30', now(),'�
 배신과 음모가 난무하는 정사 대전의 혈풍.
 
 그 속에서 영웅들의 자아(自我)를 찾기 위한 여정이 시작된다!', 55, 2);
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('56', 'book56.png', '칠마선문 2', '허담',2,'2022-12-30',56, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('57', 'book57.png', '칠마선문 3', '허담',2,'2022-12-30',57, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('58', 'book58.png', '칠마선문 4', '허담',2,'2022-12-30',58, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('59', 'book59.png', '칠마선문 5', '허담',2,'2022-12-30',59, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('60', 'book60.png', '칠마선문 6', '허담',2,'2022-12-30',60, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('61', 'book61.png', '칠마선문 7', '허담',2,'2022-12-30',61, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('62', 'book62.png', '칠마선문 8', '허담',2,'2022-12-30',62, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('63', 'book63.png', '칠마선문 9', '허담',2,'2023-04-10',63, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('64', 'book64.png', '칠마선문 10(완결)', '허담',2,'2023-04-10',64, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('65', 'book65.png', '사자의 아들: 칸의 여행', '허담',2,'2023-04-10',65, now(),'허담 신무협 판타지 소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('66', 'book66.png', '무인환생', '윤신현',2,'2023-04-10',66, now(),'윤신현 장편소설');
 
 
@@ -2314,27 +2293,16 @@ J.K. 롤링이 만들어 낸 마법 세계를 더욱 돋보여 줄 컬러 삽화
 우리 시대에 가장 사랑받는 ‘21세기의 고전’을 고전답게 재해석하다!
 
 《해리 포터와 비밀의 방: 미나리마 에디션》에는 국내 출간 20주년을 맞아 새롭게 번역을 한 텍스트를 수록했다. 새롭게 번역 작업을 거친 《해리 포터》 시리즈는 ‘21세기 고전’이라 불릴 만한 품격에 맞춰 작품의 완성도를 높였다. 7권 《해리 포터와 죽음의 성물》로 완간된 기존의 《해리 포터》 시리즈는 빈틈없는 소설적 구성과 생생한 캐릭터 그리고 마법 세계를 정교하게 묘사하며 풍부한 상상력이 돋보이면서도 정밀한 세계관을 구축해 나갔다. 하지만 지금까지 출간된 책들은 J.K. 롤링이 펼쳐 나가는 판타지 세계의 규모가 어느 정도이며 그 속에 어떠한 소설적 장치를 심어 놓았는지 알 수 없는 상태에서 번역 작업이 이루어졌다. 또한 1~7편 모두 완결성을 갖추었지만, 시리즈의 특성상 편과 편을 이어 주며 작품 전체를 관통하는 서사의 개연성과 완결성은 마지막 편이 출간된 이후에나 파악할 수밖에 없었다. 그러다 보니 작가가 어느 장면에 복선을 깔아 두었고, 어느 장면이 작가가 창조한 세계관을 이해하는 중요한 역할을 하는지 의미를 파악하며 번역하기에는 한계가 있었다. 2019년에 처음 선보인 새 번역본에는 J.K. 롤링이 작품 속에 이룩해 놓은 문학적 성취가 완벽하게 구현되어 있다. 복선과 반전을 선사하는 문학적 장치들을 보다 정교하고 세련되게 다듬었으며, 인물들 사이의 관계나 그들의 숨겨진 비밀 그리고 성격이 도드라지는 말투의 미세한 뉘앙스까지 점검했다.', 67, 3);
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('68', 'book68.png', '마리 앙투아네트: 베르사유와 프랑스혁명', '스테판 츠바이크',3,'2023-04-10',68, now(),'베르사유와 프랑스혁명');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('69', 'book69.png', '베스트셀러레이크사이드', '히가시노 게이고',3,'2023-04-10',69, now(),'히가시노 게이고의 입시 서스펜스!');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('70', 'book70.png', '꿀벌의 예언 1', '베르나르 베르베르',3,'2023-06-21',70, now(),'베르나르 베르베르 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('71', 'book71.png', '꿀벌의 예언 2', '베르나르 베르베르',3,'2023-04-10',71, now(),'베르나르 베르베르 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('72', 'book72.png', '스즈메의 문단속', '신카이 마코토',3,'2023-04-10',72, now(),'영화 스즈메의 문단속 원작');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('73', 'book73.png', '붉은 궁', '허주은',3,'2023-04-10',73, now(),'허주은 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('74', 'book74.png', '죽어나간 시간을 위한 애도', '김홍신',3,'2023-10-10',74, now(),'김홍신 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('75', 'book75.png', '달의 아이', '최윤석',3,'2023-04-10',75, now(),'최윤석 장편소설');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('76', 'book76.png', '해리 포터와 비밀의 방', '조앤 K. 롤링',3,'2023-04-10',76, now(),'미나리마 에디션');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('77', 'book77.png', '해리 포터와 마법사의 돌', '조앤 K. 롤링',3,'2023-04-10',77, now(),'미나리마 에디션');
-
 INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `story_category_id`, `publication_date`,`ranking`,`created_at`,`sub_title`) VALUES ('78', 'book78.png', '비가 오면 열리는 상점', '유영광',3,'2023-04-10',78, now(),'유영광 장편소설');
 
 
@@ -2548,4 +2516,16 @@ INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `mo
 INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('3', '월결제', 19900, '2023-10-25', '2023-11-25', 1, 3);
 INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('4', '월결제', 19900, '2023-10-14', '2023-11-14', 1, 4);
 INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('5', '월결제', 19900, '2023-10-13', '2023-11-13', 1, 5);
+
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('1', 2, now(), 1, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('2', 4, now(), 1, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('3', 6, now(), 1, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('4', 8, now(), 1, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('5', 10, now(), 1, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('6', 2, now(), 2, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('7', 4, now(), 2, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('8', 6, now(), 2, 1);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('9', 18, now(), 1, 3);
+INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('10', 20, now(), 1, 3);
+
 

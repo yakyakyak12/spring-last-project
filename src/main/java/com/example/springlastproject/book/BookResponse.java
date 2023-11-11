@@ -6,13 +6,45 @@ import java.util.List;
 import java.util.stream.Collectors;
 import com.example.springlastproject.board.Board;
 import com.example.springlastproject.bookcategory.BookCategory;
-import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.bookreply.BookReply;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 public class BookResponse {
+
+    @Getter
+    @Setter
+    @ToString
+    // 스토리별 카테고리 페이지 
+    public static class StoryBookCategoryDTO{
+        private Integer storyCategoryId;
+        private List<StoryBookDTO> storyBookList;
+
+        public StoryBookCategoryDTO(Integer storyCategoryId,List<Book> bookList) {
+            this.storyCategoryId = storyCategoryId;
+            this.storyBookList = bookList.stream().map(book -> new StoryBookDTO(book)).collect(Collectors.toList());
+        }
+
+        @Getter
+        @Setter
+        @ToString
+        public class StoryBookDTO {
+            private Integer bookId;
+            private String bookPicUrl;
+            private String bookTitle;
+            private String bookWriter;
+
+            public StoryBookDTO(Book book) {
+                this.bookId = book.getId();
+                this.bookPicUrl = book.getPicUrl();
+                this.bookTitle = book.getTitle();
+                this.bookWriter = book.getWriter();
+            }
+
+        }
+        
+    }
 
     // 디테일 페이지 DTO
     @Getter

@@ -11,6 +11,8 @@ import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.errors.exception.Exception403;
 import com.example.springlastproject.book.Book;
 import com.example.springlastproject.book.BookJPARepository;
+import com.example.springlastproject.bookMark.BookMark;
+import com.example.springlastproject.bookMark.BookMarkJPARepository;
 import com.example.springlastproject.bookdata.BookData;
 import com.example.springlastproject.bookdata.BookDataJPARepository;
 import com.example.springlastproject.readingbook.ReadingBookRequest.saveDTO;
@@ -25,19 +27,17 @@ public class ReadingBookService {
     private final ReadingBookJPARepository readingBookJPARepository;
     private final BookDataJPARepository bookDataJPARepository;
     private final BookJPARepository bookJPARepository;
+    private final BookMarkJPARepository bookMarkJPARepository;
 
     public ReadingBookResponse.readingbookDTO 바로읽기(Integer bookId, Integer userId) {
         Book book = bookJPARepository.findById(bookId).get(); // 책 조회
-        Optional<ReadingBook> readingBook = readingBookJPARepository.findFirstByBookIdAndUserId(bookId, userId);
+        List<BookMark> bookMarkList = bookMarkJPARepository.findAllByBookIdAndUserId(bookId,userId);
         BookData bookData = bookDataJPARepository.findById(book.getBookData().getId()).get(); // 조회된 책 내용 조회
 
         String data = bookData.getData(); // String 타입으로 만들기 위해 꺼냄
         List<String> splitTextIntoPages = TextIntoPages.splitTextIntoPages(data);
 
-        if (readingBook.isEmpty() || readingBook.get().getScroll() == null) {
-            return new ReadingBookResponse.readingbookDTO(splitTextIntoPages, 0);
-        }
-        return new ReadingBookResponse.readingbookDTO(splitTextIntoPages, readingBook.get().getScroll());
+        return new ReadingBookResponse.readingbookDTO(splitTextIntoPages, bookMarkList);
 
     }
 
@@ -48,7 +48,6 @@ public class ReadingBookService {
             ReadingBook response = readingBookJPARepository.save(saveDTO.toEntity());
             return new ReadingBookResponse.saveDTO(response);
         } else {
-            readingBook.get().updateScroll(saveDTO.getScroll());
             return new ReadingBookResponse.saveDTO(readingBook.get());
         }
 

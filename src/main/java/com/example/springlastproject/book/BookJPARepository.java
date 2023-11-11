@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.example.springlastproject.storycategory.StoryCategory;
+
 public interface BookJPARepository extends JpaRepository<Book, Integer> {
 
         // 랭킹순 5가지만 조회
@@ -34,7 +36,15 @@ public interface BookJPARepository extends JpaRepository<Book, Integer> {
                         Date today,
                         Sort sort);
 
+        // 키워드로 검색 
         @Query("SELECT b FROM Book b WHERE b.title LIKE %:keyword%")
         List<Book> findBooksByTitleContainingKeyword(@Param("keyword") String keyword);
 
+        // 스토리 카테고리 ID별 책목록 
+        List<Book> findAllByStoryCategoryId(Integer storyCategoryId);
+
+        // 스토리 카테고리 ID별 인기순 책목록
+        List<Book> findAllByStoryCategoryIdOrderByRankingAsc(Integer storyCategoryId);
 }
+
+

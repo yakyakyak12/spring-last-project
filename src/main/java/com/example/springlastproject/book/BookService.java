@@ -14,11 +14,11 @@ import com.example.springlastproject._core.utils.DateUtils;
 import com.example.springlastproject.board.Board;
 import com.example.springlastproject.board.BoardJPARepository;
 import com.example.springlastproject.boardlike.BoardLikeJPARepository;
-import com.example.springlastproject.book.BookRequest.rankingListDTO;
 import com.example.springlastproject.bookcategory.BookCategory;
 import com.example.springlastproject.bookcategory.BookCategoryJPARepository;
 import com.example.springlastproject.booklike.BookLike;
 import com.example.springlastproject.booklike.BookLikeJPARepository;
+import com.example.springlastproject.storycategory.StoryCategoryJPARepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,6 +32,7 @@ public class BookService {
     private final BookLikeJPARepository bookLikeJPARepository;
     private final BoardLikeJPARepository boardLikeJPARepository;
     private final BookCategoryJPARepository bookCategoryJPARepository;
+    private final StoryCategoryJPARepository storyCategoryJPARepository;
 
     // 책 상세보기
     public BookResponse.BookDetailPageDTO 책상세보기(Integer bookId, Integer userId) {
@@ -111,8 +112,9 @@ public class BookService {
         return new BookResponse.BookCategoryDTO(bookCategoryDTO.getBookCategoryId(), books);
     }
 
-    public void 스토리카테고리별목록보기(Integer id) {
-        
+    public BookResponse.StoryBookCategoryDTO 스토리카테고리별목록보기(Integer storyCategoryId) {
+      List<Book> bookList = bookJPARepository.findAllByStoryCategoryIdOrderByRankingAsc(storyCategoryId);   
+      return new BookResponse.StoryBookCategoryDTO(storyCategoryId, bookList);
     }
 
 }
