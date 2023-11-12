@@ -212,6 +212,7 @@ public class BookResponse {
             private String boardTitle;
             private String bookPicUrl;
             private String content;
+            private String userPicUrl;
             private String nickname;
             private String boardCreatedAt;
 
@@ -220,6 +221,7 @@ public class BookResponse {
                 this.boardTitle = board.getBoardTitle();
                 this.bookPicUrl = board.getBook().getPicUrl();
                 this.content = board.getContent();
+                this.userPicUrl = board.getUser().getPicUrl();
                 this.nickname = board.getUser().getNickname();
                 this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt()); 
             }
