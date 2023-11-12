@@ -49,13 +49,8 @@ public class BookLikeService {
         List<BoardReply> boardReplyList = boardReplyJPARepository.findByUserId(userId);
         List<BookReply> bookReply = bookReplyJPARepository.findByUserId(userId);
         try {
-        System.out.println("서비스 bookLikeList : " + bookLikeList.size());
-        System.out.println("서비스 readingBookList : " + readingBookList.size());
-        System.out.println("서비스 boardList : " + boardList.size());
-        System.out.println("서비스 boardReplyList : " + boardReplyList.size());
-        System.out.println("서비스 bookReply : " + bookReply.size());
-
-        return new BookLikeResponse.BookOfMineDTO(bookLikeList, readingBookList, boardList, boardReplyList, bookReply);
+            
+            return new BookLikeResponse.BookOfMineDTO(bookLikeList, readingBookList, boardList, boardReplyList, bookReply);
             
         } catch (Exception e) {
             e.printStackTrace();

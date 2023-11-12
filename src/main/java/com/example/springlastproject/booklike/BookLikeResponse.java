@@ -27,7 +27,7 @@ public class BookLikeResponse {
         }
     }
 
-    // 좋아요한 책 리스트
+    // 내서재 
     @Getter
     @Setter
     @ToString
@@ -151,18 +151,17 @@ public class BookLikeResponse {
                     private Integer boardReplyId;
                     private String boardReplyContent; // 내용
                     private String boardReplyCreatedAt; // 등록일
-                    private String bookPicUrl;// 북 이미지
-                    private String bookTitle; // 북 제목
-                    private String bookWriter; // 북 지은이
+                    private String boardPicUrl;// 북 이미지
+                    private String boardTitle; // 북 제목
+                    private String boardWriter; // 북 지은이
                     
                     public BoardReplyDTO(BoardReply boardReply) {
                         this.boardReplyId = boardReply.getId();
                         this.boardReplyContent = boardReply.getContent();
                         this.boardReplyCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(boardReply.getCreatedAt());
-                        ;
-                        this.bookPicUrl = boardReply.getBoard().getBook().getPicUrl();
-                        this.bookTitle = boardReply.getBoard().getBook().getTitle();
-                        this.bookWriter = boardReply.getBoard().getBook().getWriter();
+                        this.boardPicUrl = (boardReply.getBoard().getBook() != null) ? boardReply.getBoard().getBook().getPicUrl() : null;
+                        this.boardTitle = boardReply.getBoard().getBoardTitle();
+                        this.boardWriter = boardReply.getBoard().getUser().getNickname();
                     }
 
                 }
