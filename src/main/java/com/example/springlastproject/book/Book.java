@@ -69,10 +69,10 @@ public class Book {
 
     private Integer ranking; // 인기순
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private BookCategory bookCategory; // 책 카테고리
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private StoryCategory storyCategory; // 스토리 카테고리
 
     @JsonIgnore

@@ -114,10 +114,10 @@ public class BookLikeResponse {
 
                 public ReplyDTO(List<BoardReply> boardReplys, List<BookReply> bookReplys) {
                     this.bookReplyList = bookReplys.stream()
-                            .map(bookReply -> new BookReplyDTO(bookReply)).distinct()
+                            .map(bookReply -> new BookReplyDTO(bookReply))
                             .collect(Collectors.toList());
                     this.boardReplyList = boardReplys.stream()
-                            .map(boardReply -> new BoardReplyDTO(boardReply)).distinct()
+                            .map(boardReply -> new BoardReplyDTO(boardReply))
                             .collect(Collectors.toList());
                 }
 
@@ -154,7 +154,7 @@ public class BookLikeResponse {
                     private String bookPicUrl;// 북 이미지
                     private String bookTitle; // 북 제목
                     private String bookWriter; // 북 지은이
-
+                    
                     public BoardReplyDTO(BoardReply boardReply) {
                         this.boardReplyId = boardReply.getId();
                         this.boardReplyContent = boardReply.getContent();

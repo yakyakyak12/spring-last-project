@@ -30,11 +30,11 @@ public interface BookJPARepository extends JpaRepository<Book, Integer> {
                         Date today, Sort sort);
 
         // 카테고리별 목록조회
-        List<Book> findByBookCategory_IdAndPublicationDateBetween(
-                        Integer categoryId,
-                        Date fromDate,
-                        Date today,
-                        Sort sort);
+        // List<Book> findByBookCategory_IdAndPublicationDateBetween(
+        //                 Integer categoryId,
+        //                 Date fromDate,
+        //                 Date today,
+        //                 Sort sort);
 
         // 키워드로 검색 
         @Query("SELECT b FROM Book b WHERE b.title LIKE %:keyword%")
@@ -45,6 +45,10 @@ public interface BookJPARepository extends JpaRepository<Book, Integer> {
 
         // 스토리 카테고리 ID별 인기순 책목록
         List<Book> findAllByStoryCategoryIdOrderByRankingAsc(Integer storyCategoryId);
+
+        List<Book> findAllByBookCategoryId(Integer id);
 }
+
+   
 
 

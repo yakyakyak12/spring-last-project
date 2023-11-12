@@ -60,9 +60,9 @@ public class BookRestController {
     }
 
     // 카테고리 별 책목록
-    @PostMapping("/book/bookCategory")
-    public ResponseEntity<?> bookCategory(@RequestBody BookRequest.BookCategoryDTO requestDTO) {
-        BookResponse.BookCategoryDTO responseDTO = bookService.카테고리별목록보기(requestDTO);
+    @GetMapping("/book/bookCategory/{id}")
+    public ResponseEntity<?> bookCategory(@PathVariable Integer id) {
+        BookResponse.BookCategoryDTO responseDTO = bookService.카테고리별목록보기(id);
         return ResponseEntity.ok(ApiUtils.success(responseDTO));
     }
 
@@ -76,11 +76,13 @@ public class BookRestController {
     // 내 서재
     @GetMapping("/book/bookOfMine")
     public ResponseEntity<?> bookOfMine(@RequestHeader("Authorization") String token) {
+        System.out.println("내서재 컨트롤러");
         // 토큰으로 id 받음
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();
 
         BookLikeResponse.BookOfMineDTO response = bookLikeService.내서재(userId);
+        System.out.println("내서재 서비스 나옴");
 
         return ResponseEntity.ok(ApiUtils.success(response));
     }
@@ -89,7 +91,7 @@ public class BookRestController {
     @GetMapping("/book/storyCategory/{id}")
     public ResponseEntity<?> storyCategory(@PathVariable Integer id){
         BookResponse.StoryBookCategoryDTO responseDTO = bookService.스토리카테고리별목록보기(id);
-    return ResponseEntity.ok().body(responseDTO);
+    return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
 }

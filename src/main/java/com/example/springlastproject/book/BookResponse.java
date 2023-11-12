@@ -213,6 +213,7 @@ public class BookResponse {
             private String bookPicUrl;
             private String content;
             private String nickname;
+            private String boardCreatedAt;
 
             public BoardKeywordDTO(Board board) {
                 this.boardId = board.getId();
@@ -220,6 +221,7 @@ public class BookResponse {
                 this.bookPicUrl = board.getBook().getPicUrl();
                 this.content = board.getContent();
                 this.nickname = board.getUser().getNickname();
+                this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt()); 
             }
 
         }
@@ -246,14 +248,12 @@ public class BookResponse {
         @ToString
         public class ByCategoryPage {
             private Integer bookId;
-            private Integer ranking;
             private String bookPicUrl;
             private String bookTitle;
             private String bookWriter;
 
             public ByCategoryPage(Book book) {
                 this.bookId = book.getId();
-                this.ranking = book.getRanking();
                 this.bookPicUrl = book.getPicUrl();
                 this.bookTitle = book.getTitle();
                 this.bookWriter = book.getWriter();

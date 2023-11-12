@@ -42,13 +42,27 @@ public class BookLikeService {
 
     // 내 서재 페이지 필요한 데이터
     public BookLikeResponse.BookOfMineDTO 내서재(Integer userId) {
+        System.out.println("내서재 서비스 진입");
         List<BookLike> bookLikeList = bookLikeJPARepository.findByUserId(userId);
         List<ReadingBook> readingBookList = readingBookJPARepository.findByUserId(userId);
         List<Board> boardList = boardJPARepository.findByUserId(userId);
         List<BoardReply> boardReplyList = boardReplyJPARepository.findByUserId(userId);
         List<BookReply> bookReply = bookReplyJPARepository.findByUserId(userId);
+        try {
+        System.out.println("서비스 bookLikeList : " + bookLikeList.size());
+        System.out.println("서비스 readingBookList : " + readingBookList.size());
+        System.out.println("서비스 boardList : " + boardList.size());
+        System.out.println("서비스 boardReplyList : " + boardReplyList.size());
+        System.out.println("서비스 bookReply : " + bookReply.size());
 
         return new BookLikeResponse.BookOfMineDTO(bookLikeList, readingBookList, boardList, boardReplyList, bookReply);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new BookLikeResponse.BookOfMineDTO(bookLikeList, readingBookList, boardList, boardReplyList, bookReply);
+
+        }
+   
     }
 
     public BookLikeResponse.MyLikeBookDTO 좋아요한책조회(Integer userId) {

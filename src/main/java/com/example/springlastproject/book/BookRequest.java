@@ -42,18 +42,18 @@ public class BookRequest {
 
   }
 
-  @Getter
-  @Setter
-  @ToString
-  public static class BookCategoryDTO {
-    private Integer bookCategoryId;
-    private String alignment;
-    private Integer minusMonths;
+  // @Getter
+  // @Setter
+  // @ToString
+  // public static class BookCategoryDTO {
+  //   private Integer bookCategoryId;
+  //   private String alignment;
+  //   private Integer minusMonths;
 
-    public BookCategoryDTO() {
-    }
+  //   public BookCategoryDTO() {
+  //   }
 
-  }
+  // }
 
   @Getter
   @Setter

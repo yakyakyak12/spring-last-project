@@ -100,16 +100,9 @@ public class BookService {
     }
 
     // 카테고리별 목록보기
-    public BookResponse.BookCategoryDTO 카테고리별목록보기(BookRequest.BookCategoryDTO bookCategoryDTO) {
-        LocalDate oneMonthAgo = LocalDate.now().minusMonths(bookCategoryDTO.getMinusMonths()); // 한달이내 요일을 지정
-        Date fromDate = DateUtils.convertToSqlDate(oneMonthAgo); // LocalDate -> // Date로 변환
-        Date today = new Date(System.currentTimeMillis()); // 오늘 날짜
-        Sort sort = Sort.by(Sort.Order.asc(bookCategoryDTO.getAlignment())); // 정렬할꺼 정해주는거
-        List<Book> books = bookJPARepository.findByBookCategory_IdAndPublicationDateBetween(
-                bookCategoryDTO.getBookCategoryId(),
-                fromDate,
-                today, sort);
-        return new BookResponse.BookCategoryDTO(bookCategoryDTO.getBookCategoryId(), books);
+    public BookResponse.BookCategoryDTO 카테고리별목록보기(Integer id) {
+        List<Book> books = bookJPARepository.findAllByBookCategoryId(id);
+        return new BookResponse.BookCategoryDTO(id, books);
     }
 
     public BookResponse.StoryBookCategoryDTO 스토리카테고리별목록보기(Integer storyCategoryId) {
@@ -118,3 +111,9 @@ public class BookService {
     }
 
 }
+
+
+        // LocalDate oneMonthAgo = LocalDate.now().minusMonths(bookCategoryDTO.getMinusMonths()); // 한달이내 요일을 지정
+        // Date fromDate = DateUtils.convertToSqlDate(oneMonthAgo); // LocalDate -> // Date로 변환
+        // Date today = new Date(System.currentTimeMillis()); // 오늘 날짜
+        // Sort sort = Sort.by(Sort.Order.asc(bookCategoryDTO.getAlignment())); 

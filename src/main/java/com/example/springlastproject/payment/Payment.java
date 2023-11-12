@@ -3,6 +3,7 @@ package com.example.springlastproject.payment;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +41,7 @@ public class Payment {
 
     private Date refundDate; // 환불 날짜(null 허용, 환불 시 날짜 생성)
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @Builder
