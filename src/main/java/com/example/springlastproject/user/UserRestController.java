@@ -65,15 +65,13 @@ public class UserRestController {
     }
 
     // 개인정보수정
-    @PostMapping("/user/{id}/update")
-    public ResponseEntity<?> updateForm(@PathVariable Integer id, @RequestHeader("Authorization") String token,
+    @PostMapping("/user/update")
+    public ResponseEntity<?> updateForm(@RequestHeader("Authorization") String token,
             @RequestBody @Valid UserRequest.UpdateFormDTO requestDTO, Errors errors) {
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
+        System.out.println("개인정보 수정 진입 ");
         Integer userId = decodedJWT.getClaim("id").asInt();
-        if (userId != id) {
-            throw new Exception400("권한이 없습니다");
-        }
-        UserResponse.UpdateFormDTO responseDTO = userService.개인정보수정(requestDTO, id);
+        UserResponse.UpdateFormDTO responseDTO = userService.개인정보수정(requestDTO, userId);
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
 
     }
