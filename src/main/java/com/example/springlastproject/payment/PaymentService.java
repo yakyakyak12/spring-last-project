@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.transaction.Transactional;
 
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Service;
 
 import com.example.springlastproject._core.utils.DateUtils;
@@ -15,6 +16,7 @@ import com.example.springlastproject.user.UserJPARepository;
 
 import lombok.RequiredArgsConstructor;
 
+@EnableScheduling
 @Transactional
 @RequiredArgsConstructor
 @Service
@@ -22,9 +24,10 @@ public class PaymentService {
 
     private final PaymentRepository paymentRepository;
     private final UserJPARepository userJPARepository;
+    private final SchedulerService schedulerService;
 
     public PaymentResponse.PaymentDTO 결재내역등록하기(PaymentRequest.PaymentDTO paymentDTO) {
-       
+
         Date startDate = new Timestamp(new Date().getTime());
         Date deadlineDate = DateUtils.convertToSqlDate(LocalDate.now().plus(paymentDTO.getMonths(), ChronoUnit.MONTHS));
         System.out.println("deadlineDate : " + deadlineDate);
@@ -41,6 +44,9 @@ public class PaymentService {
         user.updatePaymentStatus(true);
         ;
         payment = paymentRepository.save(payment);
+
+        schedulerService.startScheduledTask();
+
         return new PaymentResponse.PaymentDTO(user, payment);
     }
 
