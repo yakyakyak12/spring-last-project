@@ -16,12 +16,12 @@ public class BookResponse {
     @Getter
     @Setter
     @ToString
-    // 스토리별 카테고리 페이지 
-    public static class StoryBookCategoryDTO{
+    // 스토리별 카테고리 페이지
+    public static class StoryBookCategoryDTO {
         private Integer storyCategoryId;
         private List<StoryBookDTO> storyBookList;
 
-        public StoryBookCategoryDTO(Integer storyCategoryId,List<Book> bookList) {
+        public StoryBookCategoryDTO(Integer storyCategoryId, List<Book> bookList) {
             this.storyCategoryId = storyCategoryId;
             this.storyBookList = bookList.stream().map(book -> new StoryBookDTO(book)).collect(Collectors.toList());
         }
@@ -43,7 +43,7 @@ public class BookResponse {
             }
 
         }
-        
+
     }
 
     // 디테일 페이지 DTO
@@ -60,7 +60,7 @@ public class BookResponse {
         private Integer bookReplyCount;
         private String bookSubTitle;
         private String bookIntroduction;
-        private BookCategory bookCategory;
+        private String bookCategory;
         private String totalPage;
         private String publicationDate;
         private String sequence;
@@ -78,7 +78,7 @@ public class BookResponse {
             this.bookReplyCount = book.getBookReplyList().size();
             this.bookSubTitle = book.getSubTitle();
             this.bookIntroduction = book.getIntroduction();
-            this.bookCategory = book.getBookCategory();
+            this.bookCategory = book.getBookCategory().getCategoryName();
             this.totalPage = book.getTotalPage();
             this.publicationDate = new SimpleDateFormat("yyyy-MM-dd").format(book.getPublicationDate());
             this.sequence = book.getSequence();
@@ -223,7 +223,7 @@ public class BookResponse {
                 this.content = board.getContent();
                 this.userPicUrl = board.getUser().getPicUrl();
                 this.nickname = board.getUser().getNickname();
-                this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt()); 
+                this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt());
             }
 
         }

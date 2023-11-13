@@ -106,14 +106,15 @@ public class BookService {
     }
 
     public BookResponse.StoryBookCategoryDTO 스토리카테고리별목록보기(Integer storyCategoryId) {
-      List<Book> bookList = bookJPARepository.findAllByStoryCategoryIdOrderByRankingAsc(storyCategoryId);   
-      return new BookResponse.StoryBookCategoryDTO(storyCategoryId, bookList);
+        List<Book> bookList = bookJPARepository.findAllByStoryCategoryIdOrderByRankingAsc(storyCategoryId);
+        return new BookResponse.StoryBookCategoryDTO(storyCategoryId, bookList);
     }
 
 }
 
-
-        // LocalDate oneMonthAgo = LocalDate.now().minusMonths(bookCategoryDTO.getMinusMonths()); // 한달이내 요일을 지정
-        // Date fromDate = DateUtils.convertToSqlDate(oneMonthAgo); // LocalDate -> // Date로 변환
-        // Date today = new Date(System.currentTimeMillis()); // 오늘 날짜
-        // Sort sort = Sort.by(Sort.Order.asc(bookCategoryDTO.getAlignment())); 
+// LocalDate oneMonthAgo =
+// LocalDate.now().minusMonths(bookCategoryDTO.getMinusMonths()); // 한달이내 요일을 지정
+// Date fromDate = DateUtils.convertToSqlDate(oneMonthAgo); // LocalDate -> //
+// Date로 변환
+// Date today = new Date(System.currentTimeMillis()); // 오늘 날짜
+// Sort sort = Sort.by(Sort.Order.asc(bookCategoryDTO.getAlignment()));
