@@ -2511,11 +2511,16 @@ VALUES ('1', '가을 타는 중이라면, 이책 어때요?',
 바로 사과나 포도 같은 제철 과일을 옆에 두고',
 '2023-10-06', 'book9.png', 2);
 
-INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('1', '월결제', 19900, '2023-10-15', '2023-11-15', 1, 1);
-INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('2', '월결제', 19900, '2023-10-20', '2023-11-20', 1, 2);
-INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('3', '월결제', 19900, '2023-10-25', '2023-11-25', 1, 3);
-INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('4', '월결제', 19900, '2023-10-14', '2023-11-14', 1, 4);
-INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`, `user_id`) VALUES ('5', '월결제', 19900, '2023-10-13', '2023-11-13', 1, 5);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('1', '월결제', 19900, '2023-10-15', '2023-11-15', 1, 'asdascxz123', false, null,1);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('2', '월결제', 19900, '2023-09-14', '2023-10-14', 1, 'asdascxz124', false, null,1);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('3', '월결제', 19900, '2023-10-25', '2023-11-25', 1, 'asdascxz1265', false, null,2);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('4', '월결제', 19900, '2023-10-10', '2023-11-14', 1, 'asdascxz1321', true, '2023-10-17', 2);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('5', '월결제', 19900, '2023-09-13', '2023-10-13', 1, 'asdascxz123123', true, '2023-09-18', 1);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('6', '연결제', 119000, '2023-09-13', '2024-09-13', 12, 'asdascas123123', false, null, 3);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('7', '연결제', 119000, '2023-09-13', '2024-10-13', 12, 'asdasasdz123123', false, null, 4);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('8', '연결제', 119000, '2023-09-13', '2024-10-13', 12, 'asdaasdxz123123', false, null, 5);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('9', '연결제', 119000, '2023-09-13', '2024-10-13', 12, 'asdaasxz123123', true, '2023-09-18', 3);
+INSERT INTO payment_tb (`id`,`name`,`amount`, `start_date`, `deadline_date`, `months`,`sub_number`,`refund`,`refund_date`, `user_id`) VALUES ('10', '연결제', 119000, '2023-09-13', '2024-10-13', 12, 'asdasxz123123', true, '2023-09-18', 4);
 
 INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('1', 2, now(), 1, 1);
 INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('2', 4, now(), 1, 1);
@@ -2527,5 +2532,6 @@ INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUE
 INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('8', 6, now(), 2, 1);
 INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('9', 18, now(), 1, 3);
 INSERT INTO bookmark_tb (`id`,`scroll`,`created_at`, `user_id`, `book_id`) VALUES ('10', 20, now(), 1, 3);
+
 
 

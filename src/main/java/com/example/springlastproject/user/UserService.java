@@ -88,9 +88,4 @@ public class UserService {
         userJPARepository.updatePaymentStatus(user.getId());
     }
 
-    public void 결재상태변경() {
-        User user = (User) session.getAttribute("user");
-        user.updatePaymentStatus(false);
-    }
-
 }

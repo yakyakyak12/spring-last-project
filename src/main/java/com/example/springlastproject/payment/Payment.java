@@ -35,7 +35,7 @@ public class Payment {
 
     private Integer months; // 결재 개월수
 
-    private Integer subNumber; // 이용권 번호
+    private String subNumber; // 이용권 번호
 
     private Boolean refund; // 디폴트 false, 환불 시 true
 
@@ -46,7 +46,7 @@ public class Payment {
 
     @Builder
     public Payment(Integer id, String name, Integer amount, Date startDate, Date deadlineDate, Integer months,
-            Integer subNumber, Boolean refund, Date refundDate, User user) {
+            String subNumber, Boolean refund, Date refundDate, User user) {
         this.id = id;
         this.name = name;
         this.amount = amount;
@@ -58,7 +58,5 @@ public class Payment {
         this.refundDate = refundDate;
         this.user = user;
     }
-
-    
 
 }

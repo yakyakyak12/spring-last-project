@@ -40,43 +40,42 @@ public class SchedulerService {
 
     // 스케줄링된 작업 시작
     public void scheduledTask(User user) {
-        System.out.println("스케줄링된 작업 시작");
         // 스케줄링된 작업 내용
-        System.out.println("안녕");
         userService.결재변경(user);
-        System.out.println("어떤 유저의 값을 받아오지? : " + user.getNickname());
         cancelScheduledTask();
     }
 
     // 스케줄링된 작업 동적으로 취소
     public void cancelScheduledTask() {
-        System.out.println("스케줄링된 작업 취소");
         if (scheduledFuture != null && !scheduledFuture.isCancelled()) {
             scheduledFuture.cancel(true);
         }
     }
 
     // 스케줄링된 작업 동적으로 시작
-    public void startScheduledTask(User user) {
-        System.out.println("스케줄링된 작업 동적으로 시작");
+    public void startScheduledTask(User user, Payment payment) {
 
         // 예제: 한 달 뒤에 실행되도록 설정
-        this.scheduledFuture = taskScheduler.schedule(() -> scheduledTask(user), new SimpleTrigger());
+        this.scheduledFuture = taskScheduler.schedule(() -> scheduledTask(user),
+                new SimpleTrigger(payment.getMonths()));
 
     }
 
     private static class SimpleTrigger implements Trigger {
+        private Integer months;
+
+        public SimpleTrigger(Integer months) {
+            this.months = months;
+        }
 
         @Override
         public Date nextExecutionTime(TriggerContext triggerContext) {
             LocalDateTime now = LocalDateTime.now();
-            LocalDateTime nextExecutionTime = now.plus(1, ChronoUnit.MONTHS);
-            System.out.println("날짜 계산 : " + nextExecutionTime);
-            // return
-            // Date.from(nextExecutionTime.atZone(ZoneId.systemDefault()).toInstant());
-            return Date
-                    .from(LocalDateTime.now().plus(15,
-                            ChronoUnit.SECONDS).atZone(ZoneId.systemDefault()).toInstant());
+            LocalDateTime nextExecutionTime = now.plus(months, ChronoUnit.MONTHS);
+            // return Date
+            // .from(LocalDateTime.now().plus(15,
+            // ChronoUnit.SECONDS).atZone(ZoneId.systemDefault()).toInstant());
+            return Date.from(nextExecutionTime.atZone(ZoneId.systemDefault()).toInstant());
 
         }
 

@@ -8,9 +8,10 @@ public class PaymentRequest {
     @Setter
     public static class PaymentDTO {
         private Integer userId;
-        private String pay;
+        private String name;
         private Integer amount;
         private Integer months;
+        private String subNumbar;
 
         public PaymentDTO() {
         }
