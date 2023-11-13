@@ -153,7 +153,7 @@ public class BoardResponse {
             private String userPicUrl;
             private String userNickname;
             private String boardCreatedAt;
-            private String bookPicUrl;
+            private Integer bookId;
 
             public BoardDTO(Board board) {
                 this.id = board.getId();
@@ -162,7 +162,7 @@ public class BoardResponse {
                 this.userPicUrl = board.getUser().getPicUrl();
                 this.userNickname = board.getUser().getNickname();
                 this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt());
-                this.bookPicUrl = (board.getBook() != null) ? board.getBook().getPicUrl() : null;
+                this.bookId = (board.getBook() != null) ? board.getBook().getId() : null;
             }
 
         }
