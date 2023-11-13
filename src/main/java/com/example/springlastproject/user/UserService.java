@@ -2,6 +2,7 @@ package com.example.springlastproject.user;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class UserService {
     private final UserJPARepository userJPARepository;
     private final BookLikeJPARepository bookLikeJPARepository;
     private final BoardJPARepository boardJPARepository;
+    private final HttpSession session;
 
     public UserResponse.JoinDTO 회원가입(UserRequest.JoinDTO requestDTO) {
 
@@ -29,8 +31,8 @@ public class UserService {
         if (user != null) {
             throw new Exception400("유저네임을 사용할 수 없습니다. : " + requestDTO.getUsername());
         }
-        User userPS = userJPARepository.save(requestDTO.toEntity());
-        return new UserResponse.JoinDTO(userPS);
+        user = userJPARepository.save(requestDTO.toEntity());
+        return new UserResponse.JoinDTO(user);
 
     }
 
@@ -43,14 +45,13 @@ public class UserService {
 
     public UserResponse.LoginResponseDTO 로그인(UserRequest.LoginDTO requestDTO) {
         System.out.println("로그인 서비스 진입");
-        User userPS = userJPARepository.findByUsername(requestDTO.getUsername())
+        User user = userJPARepository.findByUsername(requestDTO.getUsername())
                 .orElseThrow(() -> new Exception400("id를 찾을 수 없습니다 : " + requestDTO.getUsername()));
-        System.out.println("서비스에서 조회가 잘 되었는가? : " + userPS.getNickname());
 
         // 토큰 생성
-        String jwt = JwtTokenUtils.create(userPS);
+        String jwt = JwtTokenUtils.create(user);
 
-        return new UserResponse.LoginResponseDTO(userPS, jwt);
+        return new UserResponse.LoginResponseDTO(user, jwt);
     }
 
     public UserResponse.UpdateFormDTO 개인정보수정(UserRequest.UpdateFormDTO requestDTO, Integer userId) {
@@ -83,9 +84,13 @@ public class UserService {
         user.updateEmail(null);
     }
 
-    public void 결재상태변경(Integer userId) {
-        User user = userJPARepository.findById(userId).get();
-        user.updatePaymentStatus(true);
+    public void 결재변경(User user) {
+        userJPARepository.updatePaymentStatus(user.getId());
+    }
+
+    public void 결재상태변경() {
+        User user = (User) session.getAttribute("user");
+        user.updatePaymentStatus(false);
     }
 
 }

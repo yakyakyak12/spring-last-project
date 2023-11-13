@@ -1,11 +1,11 @@
 /*
 유저 테이블
 */
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com', now(), '유재석', 'user1.png', true);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('2', 'ssar1', '1234', 'ssar1@nate.com', now(), '박명수', 'user2.png',true);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('3', 'ssar2', '1234', 'ssar2@nate.com', now(), '하동훈', 'user3.png',true);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('4', 'cos', '1234', 'cos@nate.com', now(), '정준하', 'user4.png',true);
-INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('5', 'cos1', '1234', 'cos1@nate.com', now(), '정형돈', 'user5.png',true);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('1', 'ssar', '1234', 'ssar@nate.com', now(), '유재석', 'user1.png', false);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('2', 'ssar1', '1234', 'ssar1@nate.com', now(), '박명수', 'user2.png',false);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('3', 'ssar2', '1234', 'ssar2@nate.com', now(), '하동훈', 'user3.png',false);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('4', 'cos', '1234', 'cos@nate.com', now(), '정준하', 'user4.png',false);
+INSERT INTO user_tb (`id`,`username`,`password`,`email`, `created_at`, `nickname`, `pic_url`, `payment_status`) VALUES ('5', 'cos1', '1234', 'cos1@nate.com', now(), '정형돈', 'user5.png',false);
 
 /*
 데이터 테이블

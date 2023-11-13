@@ -1,5 +1,6 @@
 package com.example.springlastproject.board;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.springlastproject._core.utils.ApiUtils;
 import com.example.springlastproject._core.utils.JwtTokenUtils;
+import com.example.springlastproject.user.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 public class BoardRestController {
 
     private final BoardService boardService;
+    private final HttpSession session;
 
     // 피드 페이지
     @GetMapping("/boardList")
@@ -35,6 +38,7 @@ public class BoardRestController {
     // 게시글 상세보기 페이지
     @GetMapping("/boardDetail/{id}")
     public ResponseEntity<?> boardDetail(@PathVariable Integer id) {
+
         BoardResponse.BoardDetailPageDTO responseDTO = boardService.게시글상세보기(id);
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }

@@ -29,7 +29,7 @@ public class UserResponse {
         @Setter
         @ToString
         public static class UserDTO {
-            private int id;
+            private Integer id;
             private String username;
             private String email;
             private String nickname;

@@ -7,14 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.example.springlastproject._core.errors.exception.Exception400;
 import com.example.springlastproject._core.utils.ApiUtils;
 import com.example.springlastproject._core.utils.JwtTokenUtils;
 import com.example.springlastproject.user.UserResponse.LoginResponseDTO;
@@ -26,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class UserRestController {
 
     private final UserService userService;
+    private final UserJPARepository userJPARepository;
     private final HttpSession session;
 
     // 회원가입
@@ -42,7 +41,6 @@ public class UserRestController {
         System.out.println("check 실행됨");
         System.out.println("유저네임에는 값을 받아 오는중인가? : " + requestDTO.getUsername());
         userService.중복체크(requestDTO.getUsername());
-
         return ResponseEntity.ok().body(ApiUtils.success("중복체크 성공"));
     }
 
@@ -51,6 +49,8 @@ public class UserRestController {
     public ResponseEntity<?> login(@RequestBody @Valid UserRequest.LoginDTO requestDTO, Errors errors) {
         System.out.println("login 실행됨");
         LoginResponseDTO responseDTO = userService.로그인(requestDTO);
+        User user = userJPARepository.findByUsername(requestDTO.getUsername()).get();
+        session.setAttribute("user", user);
         return ResponseEntity.ok().header("Authorization",
                 responseDTO.getJwt()).body(ApiUtils.success(responseDTO.getUserDTO()));
     }
@@ -88,9 +88,7 @@ public class UserRestController {
     // 회원탈퇴 기능
     @GetMapping("/user/delete")
     public ResponseEntity<?> deleteForm(@RequestHeader("Authorization") String token) {
-        System.out.println("컨트롤러");
         System.out.println(token);
-        System.out.println("탈퇴");
 
         DecodedJWT decodedJWT = JwtTokenUtils.verify(token);
         Integer userId = decodedJWT.getClaim("id").asInt();

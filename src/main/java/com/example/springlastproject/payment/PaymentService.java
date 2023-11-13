@@ -42,10 +42,11 @@ public class PaymentService {
 
         User user = userJPARepository.findById(paymentDTO.getUserId()).get();
         user.updatePaymentStatus(true);
-        ;
+        System.out.println("결재 상태는? : " + user.getPaymentStatus());
+
         payment = paymentRepository.save(payment);
 
-        schedulerService.startScheduledTask();
+        schedulerService.startScheduledTask(user);
 
         return new PaymentResponse.PaymentDTO(user, payment);
     }

@@ -18,6 +18,7 @@ import com.example.springlastproject._core.utils.JwtTokenUtils;
 import com.example.springlastproject.book.BookResponse.BookDetailPageDTO;
 import com.example.springlastproject.booklike.BookLikeResponse;
 import com.example.springlastproject.booklike.BookLikeService;
+import com.example.springlastproject.user.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,6 +28,7 @@ public class BookRestController {
 
     private final BookService bookService;
     private final BookLikeService bookLikeService;
+    private final HttpSession session;
 
     // 책 상세보기
     @GetMapping("/book/detail/{id}")
@@ -87,11 +89,11 @@ public class BookRestController {
         return ResponseEntity.ok(ApiUtils.success(response));
     }
 
-    // 스토리 카테고리 별 목록보기 
+    // 스토리 카테고리 별 목록보기
     @GetMapping("/book/storyCategory/{id}")
-    public ResponseEntity<?> storyCategory(@PathVariable Integer id){
+    public ResponseEntity<?> storyCategory(@PathVariable Integer id) {
         BookResponse.StoryBookCategoryDTO responseDTO = bookService.스토리카테고리별목록보기(id);
-    return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
 }
