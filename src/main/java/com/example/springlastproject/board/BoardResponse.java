@@ -26,6 +26,7 @@ public class BoardResponse {
         private Integer bookId;
         private String bookPicUrl;
         private String bookTitle;
+        private String bookWriter;
         private Integer boardReplyCount;
         private List<BoardReplyDTO> boardReplyDTOs;
 
@@ -37,9 +38,10 @@ public class BoardResponse {
             this.boardUserPicUrl = board.getUser().getPicUrl();
             this.boardUserNickname = board.getUser().getNickname();
             this.boardContent = board.getContent();
-            this.bookId = board.getBook().getId();
-            this.bookPicUrl = board.getBook().getPicUrl();
-            this.bookTitle = board.getBook().getTitle();
+            this.bookId = (board.getBook() != null) ? board.getBook().getId() : null;
+            this.bookPicUrl = (board.getBook() != null) ? board.getBook().getPicUrl() : null;
+            this.bookTitle = (board.getBook() != null) ? board.getBook().getTitle() : null;
+            this.bookWriter = (board.getBook() != null) ? board.getBook().getWriter() : null;
             this.boardReplyCount = board.getBoardReplyList().size();
             this.boardCreatedAt = new SimpleDateFormat("yyyy-MM-dd").format(board.getCreatedAt());
             this.boardReplyDTOs = board.getBoardReplyList().stream()
