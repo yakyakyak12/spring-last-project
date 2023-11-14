@@ -18,7 +18,7 @@ public class BookMarkRestController {
     private final BookMarkService bookMarkService;
 
     // 책북마크 없으면 save 1 응답, 있으면 Delete -1 응답
-    @PostMapping("/bookBark/check")
+    @PostMapping("/bookMark/check")
     public ResponseEntity<?> save(@RequestBody BookMarkRequest.checkDTO requestDTO) {
         System.out.println("북마크 실행됨?");
         BookMarkResponse.BookMarkDTO responseDTO = bookMarkService.책북마크(requestDTO);
