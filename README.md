@@ -76,7 +76,7 @@
 - 댓글 작성 및 포스트 작성
 
 ## 🔗 엔티티 연관관계
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8c0f8da8-8102-4d9c-a7d3-02f780f53ee1/c29443fa-88b4-401a-bcc3-363252745e4f/Untitled.png)
+![Screenshot_11](https://github.com/yakyakyak12/spring-last-project/assets/135561652/39ddc318-d891-44c6-b148-668946626c53)
 
 ## 📝 노션
 https://chiseled-acoustic-3be.notion.site/2-82dc0df9935b4000afae6183f08a9b6d?pvs=4    
