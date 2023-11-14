@@ -35,6 +35,7 @@ public class UserResponse {
             private String nickname;
             private String picUrl;
             private String createdAt;
+            private boolean paymentStatus;
 
             public UserDTO(User user) {
                 this.id = user.getId();
@@ -43,6 +44,7 @@ public class UserResponse {
                 this.nickname = user.getNickname();
                 this.picUrl = user.getPicUrl();
                 this.createdAt = new SimpleDateFormat("yyyy-MM-dd").format(user.getCreatedAt());
+                this.paymentStatus = user.getPaymentStatus();
             }
 
         }
